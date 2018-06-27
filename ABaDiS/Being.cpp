@@ -57,6 +57,89 @@ void Being::printBeing()
 		<< "	Occupation: " << occupation << std::endl << std::endl;
 }
 
+void Being::printBeingFlavor()
+{
+	std::string genderflav, occupationflav, locflav, strengthflav, willpowerflav, weaponflav, armorflav, pronoun;
+	
+	if (gender == "m") {
+		genderflav = " is a male ";
+		pronoun = "He ";
+	}
+	else {
+		genderflav = " is a female ";
+		pronoun = "She ";
+	}
+
+	if (occupation == "none")
+		occupationflav = "jobless person, ";
+	else
+		occupationflav = occupation + ", ";
+
+	locflav = "who is currently at " + currentLocation.getName() + ".";
+
+	switch (strength) {
+	case 1:
+		strengthflav = "is very weak and ";
+		break;
+	case 2:
+		strengthflav = "is weak and ";
+		break;
+	case 3:
+	case 4:
+		strengthflav = "is pretty strong and ";
+		break;
+	case 5:
+		strengthflav = "is very strong and ";
+		break;
+	default:
+		break;
+	}
+
+	switch (willpower) {
+	case 1:
+	case 2:
+		willpowerflav = "a coward. ";
+		break;
+	case 3:
+		willpowerflav = "brave. ";
+		break;
+	case 4:
+		willpowerflav = "pretty brave. " ;
+		break;
+	case 5:
+		willpowerflav = "very brave. ";
+		break;
+	default:
+		break;
+	}
+
+	if (weapon.getName() == "Bare_Fist")
+		weaponflav = "is holding no weapon.";
+	else
+		weaponflav = "is holding a " + weapon.getName();
+
+	switch (armor) {
+	case 0:
+		armorflav = " and is wearing no armor.";
+		break;
+	case 1:
+		armorflav = " and is wearing light armor.";
+		break;
+	case 2:
+		armorflav = " and is wearing heavy armor.";
+		break;
+	default:
+		break;
+	}
+
+
+	std::cout << name << ": " << std::endl;
+	std::cout << name << genderflav << occupationflav << locflav << std::endl;
+	std::cout << pronoun << strengthflav << willpowerflav << std::endl;
+	std::cout << pronoun << weaponflav << armorflav << std::endl << std::endl;
+
+}
+
 void Being::printWeapon()
 {
 	std::cout << name << " is holding a " << weapon.getName() << std::endl;

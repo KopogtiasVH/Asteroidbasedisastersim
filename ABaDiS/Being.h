@@ -9,6 +9,7 @@ public:
 	void doDamage(int);
 	void changeMorale(int);
 	void printBeing();
+	void printBeingFlavor();
 	void printWeapon();
 
 protected:
