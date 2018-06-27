@@ -59,7 +59,7 @@ void Being::printBeing()
 
 void Being::printBeingFlavor()
 {
-	std::string genderflav, occupationflav, locflav, strengthflav, willpowerflav, weaponflav, armorflav, pronoun;
+	std::string genderflav, occupationflav, locflav, strengthflav, willpowerflav, weaponflav, armorflav, pronoun, strbrvratio;
 	
 	if (gender == "m") {
 		genderflav = " is a male ";
@@ -79,17 +79,19 @@ void Being::printBeingFlavor()
 
 	switch (strength) {
 	case 1:
-		strengthflav = "is very weak and ";
+		strengthflav = "is very weak";
 		break;
 	case 2:
-		strengthflav = "is weak and ";
+		strengthflav = "is weak";
 		break;
 	case 3:
+		strengthflav = "has average strength";
+		break;
 	case 4:
-		strengthflav = "is pretty strong and ";
+		strengthflav = "is pretty strong";
 		break;
 	case 5:
-		strengthflav = "is very strong and ";
+		strengthflav = "is very strong";
 		break;
 	default:
 		break;
@@ -101,7 +103,7 @@ void Being::printBeingFlavor()
 		willpowerflav = "a coward. ";
 		break;
 	case 3:
-		willpowerflav = "brave. ";
+		willpowerflav = "a little brave. ";
 		break;
 	case 4:
 		willpowerflav = "pretty brave. " ;
@@ -112,6 +114,11 @@ void Being::printBeingFlavor()
 	default:
 		break;
 	}
+	
+	if ((strength >= 4 && willpower <= 2) || (strength <= 2 && willpower >= 4))
+		strbrvratio = " but ";
+	else 
+		strbrvratio = " and ";
 
 	if (weapon.getName() == "Bare_Fist")
 		weaponflav = "is holding no weapon.";
@@ -128,6 +135,9 @@ void Being::printBeingFlavor()
 	case 2:
 		armorflav = " and is wearing heavy armor.";
 		break;
+	case 3:
+		armorflav = " and is exceptionally well armored.";
+		break;
 	default:
 		break;
 	}
@@ -135,7 +145,7 @@ void Being::printBeingFlavor()
 
 	std::cout << name << ": " << std::endl;
 	std::cout << name << genderflav << occupationflav << locflav << std::endl;
-	std::cout << pronoun << strengthflav << willpowerflav << std::endl;
+	std::cout << pronoun << strengthflav << strbrvratio << willpowerflav << std::endl;
 	std::cout << pronoun << weaponflav << armorflav << std::endl << std::endl;
 
 }

@@ -14,6 +14,9 @@ SecTroop::SecTroop(Room startingLocation) : Being(startingLocation)
 	else
 		weapon = Weapon("sec_cqc");
 
+	// Add a random rank to the name.
+	name = NameGenerator::randomRank("sectroop") + " " + name;
+
 	armor = 2;
 }
 

@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Generic">
       <UniqueIdentifier>{ed22f8b6-1619-4bf5-aac8-953254b0c490}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Names\Ranks">
+      <UniqueIdentifier>{9484b04d-3c37-4be2-9ff6-194dadc2f06e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Room.h">
@@ -67,6 +70,9 @@
       <Filter>Header Files\Generic</Filter>
     </ClInclude>
     <ClInclude Include="MobGoon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SecOfficer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,6 +101,9 @@
     <ClCompile Include="MobGoon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SecOfficer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\bluntWeapons.csv">
@@ -120,6 +129,9 @@
     </None>
     <None Include="data\lowCapRooms.csv">
       <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\secRanks.csv">
+      <Filter>Resource Files\Names\Ranks</Filter>
     </None>
   </ItemGroup>
 </Project>

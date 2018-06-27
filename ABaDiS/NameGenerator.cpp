@@ -13,6 +13,9 @@ std::vector<std::string> NameGenerator::maleNames;
 std::vector<std::string> NameGenerator::femaleNames;
 std::vector<std::string> NameGenerator::surNames;
 
+// Security Ranks
+std::vector<std::string> NameGenerator::secRanks;
+
 // Room Names
 std::vector<std::string> NameGenerator::lowCapRooms;
 
@@ -73,6 +76,10 @@ std::string NameGenerator::humanName(std::string gender) {
 }
 
 std::string NameGenerator::weaponName(Weapon::weapontype t) {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
 	if (t == Weapon::blunt)
 		return bluntWeapons[rand() % bluntWeapons.size()];
 	else if (t == Weapon::pierce)
@@ -83,11 +90,26 @@ std::string NameGenerator::weaponName(Weapon::weapontype t) {
 		return explosiveWeapons[rand() % explosiveWeapons.size()];
 }
 
+
+std::string NameGenerator::randomRank(std::string toAssign) {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+	
+	if (toAssign == "sectroop")
+		return secRanks[rand() % 5];
+	else if (toAssign == "secofficer")
+		return secRanks[rand() % 5 + 5];
+}
+
+
 void NameGenerator::setupNameLists()
 {
 	maleNames = fileToStringVector("./data/maleNames.csv");
 	femaleNames = fileToStringVector("./data/femaleNames.csv");
 	surNames = fileToStringVector("./data/surNames.csv");
+
+	secRanks = fileToStringVector("./data/secRanks.csv");
 
 	lowCapRooms = fileToStringVector("./data/lowCapRooms.csv");
 
