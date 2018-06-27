@@ -11,6 +11,8 @@ public:
 	Room();
 	Room(std::string);
 
+	void printRoom();
+
 	int getCapacity() const;
 	bool isIntact() const;
 	std::string getName() const;
@@ -21,7 +23,5 @@ private:
 	bool intact;
 	std::vector<Room> connectedTo;
 	std::string name;
-
-	void printRoom();
 };
 

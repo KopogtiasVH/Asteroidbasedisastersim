@@ -42,6 +42,13 @@ void Being::changeMorale(int d)
 	morale -= d;
 }
 
+std::string Being::getName() const {
+	return name;
+}
+
+
+// Functions for printing stuff to the console
+
 void Being::printBeing() 
 {
 	std::cout << "Being:" << std::endl

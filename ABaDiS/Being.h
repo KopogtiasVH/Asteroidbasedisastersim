@@ -12,6 +12,8 @@ public:
 	void printBeingFlavor();
 	void printWeapon();
 
+	std::string getName() const;
+
 protected:
 	bool isAlive;
 	bool eager;

@@ -16,4 +16,19 @@ SecOfficer::SecOfficer(Room startingLocation) : Being(startingLocation)
 	name = NameGenerator::randomRank("secofficer") + " " + name;
 
 	armor = 3;
+
+	subordinates = std::vector<SecTroop>();
+}
+
+void SecOfficer::recruit() {
+	SecTroop newRecruit = SecTroop(currentLocation);
+	subordinates.push_back(newRecruit);
+}
+
+void SecOfficer::printSubordinates() {
+	std::cout << name << "'s subordinates:" << std::endl;
+	for (int i = 0; i < subordinates.size(); i++) {
+		std::cout << " - " << subordinates[i].getName() << std::endl;
+	}
+	std::cout << std::endl;
 }

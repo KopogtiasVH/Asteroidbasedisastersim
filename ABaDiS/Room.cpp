@@ -51,5 +51,6 @@ std::vector<Room> Room::isConnectedTo() const
 
 
 void Room::printRoom() {
-	std::cout << capacity << " - " << name << std::endl;
+	std::cout << name << ":" << std::endl 
+		<< "	Capacity: " << getCapacity() << std::endl << std::endl;
 }
