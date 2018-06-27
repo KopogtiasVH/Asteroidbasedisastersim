@@ -1,7 +1,8 @@
 #include "stdafx.h"
-#include "Being.h"
 
-#include <iostream>
+/*
+	Being is the general AI class. Every living thing on the Asteroid Base is a Being.
+*/
 
 Being::Being(Room startingLocation)
 {
@@ -26,6 +27,7 @@ Being::Being(Room startingLocation)
 	occupation = "none";
 
 	weapon = Weapon();
+	armor = 0;
 }
 
 void Being::doDamage(int d)
@@ -38,19 +40,24 @@ void Being::doDamage(int d)
 void Being::changeMorale(int d) 
 {
 	morale -= d;
-
 }
 
 void Being::printBeing() 
 {
 	std::cout << "Being:" << std::endl
-		<< "Name: " << name << std::endl
-		<< "Gender: " << gender << std::endl
-		<< "Current Location: " << currentLocation.getName() << std::endl
-		<< "Health: " << healthPoints << "/" << maxHealth << std::endl
-		<< "Morale: " << morale << "/" << maxMorale << std::endl
-		<< "Strength: " << strength << std::endl
-		<< "Willpower: " << willpower << std::endl
-		<< "Weapon: " << weapon.getName() << std::endl
-		<< "Occupation :" << occupation << std::endl << std::endl;
+		<< "	Name:       " << name << std::endl
+		<< "	Gender:     " << gender << std::endl
+		<< "	Location:   " << currentLocation.getName() << std::endl
+		<< "	Health:     " << healthPoints << "/" << maxHealth << std::endl
+		<< "	Morale:     " << morale << "/" << maxMorale << std::endl
+		<< "	Strength:   " << strength << std::endl
+		<< "	Willpower:  " << willpower << std::endl
+		<< "	Weapon:     " << weapon.getName() << std::endl
+		<< "	Armor:      " << armor << std::endl
+		<< "	Occupation: " << occupation << std::endl << std::endl;
+}
+
+void Being::printWeapon()
+{
+	std::cout << name << " is holding a " << weapon.getName() << std::endl;
 }

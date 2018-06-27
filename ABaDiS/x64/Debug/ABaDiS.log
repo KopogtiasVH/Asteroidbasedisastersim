@@ -1,15 +1,2 @@
-﻿  stdafx.cpp
-  ABaDiS.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\abadis.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Being.cpp
-  NameGenerator.cpp
-  Room.cpp
-  SecTroop.cpp
-  Weapon.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(60): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(80): warning C4715: 'NameGenerator::weaponName': not all control paths return a value
+﻿  Being.cpp
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

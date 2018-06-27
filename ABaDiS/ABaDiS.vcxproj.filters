@@ -31,34 +31,46 @@
     <Filter Include="Resource Files\Names\weapons">
       <UniqueIdentifier>{13808107-8feb-4456-ad99-c6f93e03db10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{67bab873-6b4d-4d6f-83cf-7a5d0215c977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Usables">
+      <UniqueIdentifier>{87957efb-1721-4081-808f-53d6c7d16b70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Generic">
+      <UniqueIdentifier>{3d7df3ce-efd4-4c6f-a5b5-721c5bd344ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Generic">
+      <UniqueIdentifier>{ed22f8b6-1619-4bf5-aac8-953254b0c490}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Being.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NameGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Being.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
     <ClInclude Include="SecTroop.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
+      <Filter>Header Files\Usables</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="MobGoon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ABaDiS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,7 +86,13 @@
     <ClCompile Include="SecTroop.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\Generic</Filter>
+    </ClCompile>
     <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files\Usables</Filter>
+    </ClCompile>
+    <ClCompile Include="MobGoon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

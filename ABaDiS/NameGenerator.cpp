@@ -2,6 +2,10 @@
 #include "NameGenerator.h"
 #include <iostream>
 
+/*
+	A static class which handles name generation.
+*/
+
 bool NameGenerator::isGenerated = false;
 
 // Human Names

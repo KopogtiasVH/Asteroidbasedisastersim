@@ -1,8 +1,11 @@
 #include "stdafx.h"
-#include "Weapon.h"
+
+/*
+	A weapon used in battle. There are 4 general types of weapons.
+*/
 
 Weapon::Weapon() {
-	name = "none";
+	name = "Bare_Fist";
 	wt = Weapon::blunt;
 	strengthMod = 0;
 	range = 0;

@@ -1,5 +1,8 @@
 #include "stdafx.h"
-#include "SecTroop.h"
+
+/*
+	SecTroop is a regular Security Enforcer. Usually he serves under a Security Officer but he can also recieve Orders from the Bases Security Network.
+*/
 
 SecTroop::SecTroop(Room startingLocation) : Being(startingLocation)
 {
@@ -10,5 +13,7 @@ SecTroop::SecTroop(Room startingLocation) : Being(startingLocation)
 		weapon = Weapon("sec_ranged");
 	else
 		weapon = Weapon("sec_cqc");
+
+	armor = 2;
 }
 

@@ -1,8 +1,6 @@
 #pragma once
 
-#include "Room.h"
-#include "NameGenerator.h"
-#include "Weapon.h"
+#include "stdafx.h"
 
 class Being
 {
@@ -11,6 +9,7 @@ public:
 	void doDamage(int);
 	void changeMorale(int);
 	void printBeing();
+	void printWeapon();
 
 protected:
 	bool isAlive;

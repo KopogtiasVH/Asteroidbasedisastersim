@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Being.h" />
+    <ClInclude Include="MobGoon.h" />
     <ClInclude Include="NameGenerator.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="SecTroop.h" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="ABaDiS.cpp" />
     <ClCompile Include="Being.cpp" />
+    <ClCompile Include="MobGoon.cpp" />
     <ClCompile Include="NameGenerator.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="SecTroop.cpp" />
