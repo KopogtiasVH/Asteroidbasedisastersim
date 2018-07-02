@@ -3,11 +3,23 @@
 class SecOfficer : public Being
 {
 public:
+
+	enum OfficerClass {
+		riotSpecialist,
+		detective,
+		commander,
+		officer
+	};
+
 	SecOfficer(Room);
-	void recruit();
+	bool recruit();
 	void printSubordinates();
+	OfficerClass oClass;
 
 private:
+
+	int maxSubordinates;
 	std::vector<SecTroop> subordinates;
+
 };
 
