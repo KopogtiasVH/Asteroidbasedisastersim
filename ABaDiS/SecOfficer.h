@@ -13,13 +13,14 @@ public:
 
 	SecOfficer(Room);
 	bool recruit();
+	bool recruit(SecTroop);
 	void printSubordinates();
 	OfficerClass oClass;
 
 private:
 
-	int maxSubordinates;
-	std::vector<SecTroop> subordinates;
+	int maxSquadSize;
+	std::vector<SecTroop> squad;
 
 };
 

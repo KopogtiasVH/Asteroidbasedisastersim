@@ -43,18 +43,30 @@ SecOfficer::SecOfficer(Room startingLocation) : Being(startingLocation)
 	maxMorale += 10;
 	morale = maxMorale;
 
-	maxSubordinates = maxMorale - 5;
+	maxSquadSize = maxMorale - 5;
 
 	if (oClass == SecOfficer::commander)
-		maxSubordinates += 5;
+		maxSquadSize += 5;
 
-	subordinates = std::vector<SecTroop>();
+	squad = std::vector<SecTroop>();
 }
 
+
+// Generate a new SecTroop and add it to the squad
 bool SecOfficer::recruit() {
-	if (subordinates.size() < maxSubordinates) {
+	if (squad.size() < maxSquadSize) {
 		SecTroop newRecruit = SecTroop(currentLocation);
-		subordinates.push_back(newRecruit);
+		squad.push_back(newRecruit);
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool SecOfficer::recruit(SecTroop newRecruit) {
+	if (squad.size() < maxSquadSize) {
+		squad.push_back(newRecruit);
 		return true;
 	}
 	else {
@@ -63,9 +75,9 @@ bool SecOfficer::recruit() {
 }
 
 void SecOfficer::printSubordinates() {
-	std::cout << name << "'s subordinates: (" << subordinates.size() << "/" << maxSubordinates << ")" << std::endl;
-	for (int i = 0; i < subordinates.size(); i++) {
-		std::cout << " - " << subordinates[i].getName() << std::endl;
+	std::cout << name << "'s Squad: (" << squad.size() << "/" << maxSquadSize << ")" << std::endl;
+	for (int i = 0; i < squad.size(); i++) {
+		std::cout << " - " << squad[i].getName() << std::endl;
 	}
 	std::cout << std::endl;
 }
