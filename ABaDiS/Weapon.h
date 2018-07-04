@@ -24,5 +24,6 @@ private:
 	int extraDamage;
 	int noOfUses;
 	int riskOfUse;
+	int accuracy;
 };
 

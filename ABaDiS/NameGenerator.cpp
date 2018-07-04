@@ -17,6 +17,10 @@ std::vector<std::string> NameGenerator::surNames;
 std::vector<std::string> NameGenerator::secRanks;
 std::vector<std::string> NameGenerator::previousJobs;
 
+// Militia Words
+std::vector<std::string> NameGenerator::militiaVerbs;
+std::vector<std::string> NameGenerator::militiaNouns;
+
 // Room Names
 std::vector<std::string> NameGenerator::lowCapRooms;
 
@@ -49,31 +53,32 @@ std::string NameGenerator::humanName(std::string gender) {
 
 	if (gender == "m") {
 		name = name + maleNames[rand() % maleNames.size()];
-		name = name + " ";
 		if (rand() % 100 + 1 < 30) {
-			name += maleNames[rand() % maleNames.size()];
-			name += " ";
+			name += " " + maleNames[rand() % maleNames.size()];
 		}
 		if (rand() % 100 + 1 < 30) {
-			name += maleNames[rand() % maleNames.size()];
-			name += " ";
+			name += " " + maleNames[rand() % maleNames.size()];
 		}
 	}
 	else if (gender =="f") {
 		name += femaleNames[rand() % femaleNames.size()];
-		name += " ";
 		if (rand() % 100 + 1 < 30) {
-			name += femaleNames[rand() % femaleNames.size()];
-			name += " ";
+			name += " " + femaleNames[rand() % femaleNames.size()];
 		}
 		if (rand() % 100 + 1 < 30) {
-			name += femaleNames[rand() % femaleNames.size()];
-			name += " ";
+			name += " " + femaleNames[rand() % femaleNames.size()];
 		}
 	}
-	name += surNames[rand() % surNames.size()];
 
 	return name;
+}
+
+std::string NameGenerator::humanSurname() {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
+	return surNames[rand() % surNames.size()];
 }
 
 std::string NameGenerator::weaponName(Weapon::weapontype t) {
@@ -104,7 +109,29 @@ std::string NameGenerator::randomRank(std::string toAssign) {
 }
 
 std::string NameGenerator::randomJob() {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
 	return previousJobs[rand() % previousJobs.size()];
+}
+
+std::string NameGenerator::militiaName(std::string name) {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
+	std::string result = "";
+
+	if ((rand() % 100 + 1) < 33)
+		result += name + "'s ";
+	else {
+		result += militiaVerbs[rand() % militiaVerbs.size()] + " ";
+	}
+
+	result += militiaNouns[rand() % militiaNouns.size()];
+
+	return result;
 }
 
 
@@ -116,6 +143,9 @@ void NameGenerator::setupNameLists()
 
 	secRanks = fileToStringVector("./data/secRanks.csv");
 	previousJobs = fileToStringVector("./data/previousJobs.csv");
+
+	militiaVerbs = fileToStringVector("./data/militiaVerbs.csv");
+	militiaNouns = fileToStringVector("./data/militiaNouns.csv");
 
 	lowCapRooms = fileToStringVector("./data/lowCapRooms.csv");
 

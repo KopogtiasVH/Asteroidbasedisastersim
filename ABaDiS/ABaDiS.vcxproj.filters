@@ -75,6 +75,9 @@
     <ClInclude Include="SecOfficer.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
+    <ClInclude Include="MobLeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABaDiS.cpp">
@@ -104,6 +107,9 @@
     <ClCompile Include="SecOfficer.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
+    <ClCompile Include="MobLeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\bluntWeapons.csv">
@@ -131,6 +137,9 @@
       <Filter>Resource Files\Names\rooms</Filter>
     </None>
     <None Include="data\secRanks.csv">
+      <Filter>Resource Files\Names\Ranks</Filter>
+    </None>
+    <None Include="data\previousJobs.csv">
       <Filter>Resource Files\Names\Ranks</Filter>
     </None>
   </ItemGroup>

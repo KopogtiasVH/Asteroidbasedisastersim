@@ -31,7 +31,9 @@ protected:
 
 	int armor;
 
+	std::string fullName;
 	std::string name;
+	std::string surname;
 	std::string gender;
 	std::string occupation;
 };

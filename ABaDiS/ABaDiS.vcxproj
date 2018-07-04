@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Being.h" />
     <ClInclude Include="MobGoon.h" />
+    <ClInclude Include="MobLeader.h" />
     <ClInclude Include="NameGenerator.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="SecOfficer.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="ABaDiS.cpp" />
     <ClCompile Include="Being.cpp" />
     <ClCompile Include="MobGoon.cpp" />
+    <ClCompile Include="MobLeader.cpp" />
     <ClCompile Include="NameGenerator.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="SecOfficer.cpp" />
@@ -180,6 +182,7 @@
     <None Include="data\lowCapRooms.csv" />
     <None Include="data\maleNames.csv" />
     <None Include="data\pierceWeapons.csv" />
+    <None Include="data\previousJobs.csv" />
     <None Include="data\rangedWeapons.csv" />
     <None Include="data\secRanks.csv" />
     <None Include="data\surNames.csv" />

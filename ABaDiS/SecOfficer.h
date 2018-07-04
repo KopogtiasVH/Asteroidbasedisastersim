@@ -17,6 +17,8 @@ public:
 	void printSquad();
 	OfficerClass oClass;
 
+	std::vector<SecTroop> getSquad() const;
+
 private:
 
 	int maxSquadSize;

@@ -1,18 +1,4 @@
-﻿  stdafx.cpp
-  ABaDiS.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\abadis.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Being.cpp
-  MobGoon.cpp
-  NameGenerator.cpp
-  Room.cpp
-  SecOfficer.cpp
-  SecTroop.cpp
-  Weapon.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(63): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(91): warning C4715: 'NameGenerator::weaponName': not all control paths return a value
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(103): warning C4715: 'NameGenerator::randomRank': not all control paths return a value
+﻿  NameGenerator.cpp
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(97): warning C4715: 'NameGenerator::weaponName': not all control paths return a value
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(109): warning C4715: 'NameGenerator::randomRank': not all control paths return a value
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

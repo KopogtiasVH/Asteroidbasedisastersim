@@ -24,6 +24,9 @@ Being::Being(Room startingLocation)
 		gender = "f";
 
 	name = NameGenerator::humanName(gender);
+	surname = NameGenerator::humanSurname();
+	fullName = name + " " + surname;
+
 	occupation = "none";
 
 	weapon = Weapon();
@@ -43,7 +46,7 @@ void Being::changeMorale(int d)
 }
 
 std::string Being::getName() const {
-	return name;
+	return fullName;
 }
 
 
@@ -52,7 +55,7 @@ std::string Being::getName() const {
 void Being::printBeing() 
 {
 	std::cout << "Being:" << std::endl
-		<< "	Name:       " << name << std::endl
+		<< "	Name:       " << fullName << std::endl
 		<< "	Gender:     " << gender << std::endl
 		<< "	Location:   " << currentLocation.getName() << std::endl
 		<< "	Health:     " << healthPoints << "/" << maxHealth << std::endl
@@ -150,8 +153,8 @@ void Being::printBeingFlavor()
 	}
 
 
-	std::cout << name << ": " << std::endl;
-	std::cout << name << genderflav << occupationflav << locflav << std::endl;
+	std::cout << fullName << ": " << std::endl;
+	std::cout << fullName << genderflav << occupationflav << locflav << std::endl;
 	std::cout << pronoun << strengthflav << strbrvratio << willpowerflav << std::endl;
 	std::cout << pronoun << weaponflav << armorflav << std::endl << std::endl;
 
@@ -159,5 +162,5 @@ void Being::printBeingFlavor()
 
 void Being::printWeapon()
 {
-	std::cout << name << " is holding a " << weapon.getName() << std::endl;
+	std::cout << fullName << " is holding a " << weapon.getName() << std::endl;
 }

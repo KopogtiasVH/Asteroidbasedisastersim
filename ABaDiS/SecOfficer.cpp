@@ -9,13 +9,13 @@ SecOfficer::SecOfficer(Room startingLocation) : Being(startingLocation)
 	weapon = Weapon("sec_ranged");
 
 	// Add a random rank to the name.
-	name = NameGenerator::randomRank("secofficer") + " " + name;
+	fullName = NameGenerator::randomRank("secofficer") + " " + fullName;
 
 	// Get a Random class
 	switch (rand() % 4) {
 	case 0:
 		oClass = SecOfficer::riotSpecialist;
-		occupation = "Riot Specialist";
+		occupation = "Riot_Specialist";
 		break;
 	case 1:
 		oClass = SecOfficer::detective;
@@ -23,20 +23,20 @@ SecOfficer::SecOfficer(Room startingLocation) : Being(startingLocation)
 		break;
 	case 2:
 		oClass = SecOfficer::commander;
-		occupation = "Security Commander";
+		occupation = "Security_Commander";
 		break;
 	case 3:
 		oClass = SecOfficer::officer;
-		occupation = "Security Officer";
+		occupation = "Security_Officer";
 		break;
 	default:
 		break;
 	}
 
-	armor = 2;
-
-	if (oClass == SecOfficer::riotSpecialist)
+	if (oClass == SecOfficer::riotSpecialist) {
 		armor++;
+		weapon = Weapon("sec_riotSpecialist");
+	}
 
 
 	// SecOfficers are always stronger than Troops, they earned this title
@@ -86,9 +86,13 @@ bool SecOfficer::recruit(SecTroop newRecruit) {
 
  // Print the Squad to the console
 void SecOfficer::printSquad() {
-	std::cout << name << "'s Squad: (" << squad.size() << "/" << maxSquadSize << ")" << std::endl;
+	std::cout << fullName << "'s Squad: (" << squad.size() << "/" << maxSquadSize << ")" << std::endl;
 	for (int i = 0; i < squad.size(); i++) {
 		std::cout << " - " << squad[i].getName() << std::endl;
 	}
 	std::cout << std::endl;
+}
+
+std::vector<SecTroop> SecOfficer::getSquad() const {
+	return squad;
 }

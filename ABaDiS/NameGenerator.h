@@ -8,13 +8,16 @@ class NameGenerator
 {
 public:
 	static std::string humanName(std::string gender);
+	static std::string humanSurname();
 	static std::string roomName(int cap);
 	static std::string weaponName(Weapon::weapontype);
 	static std::string randomRank(std::string toAssign);
 	static std::string randomJob();
+	static std::string militiaName(std::string);
 
 	static void setupNameLists();
 	static std::vector<std::string> fileToStringVector(std::string myFileName);
+
 	static bool isGenerated;
 
 private:
@@ -25,6 +28,9 @@ private:
 
 	static std::vector<std::string> secRanks;
 	static std::vector<std::string> previousJobs;
+
+	static std::vector<std::string> militiaVerbs;
+	static std::vector<std::string> militiaNouns;
 
 	static std::vector<std::string> lowCapRooms;
 	
