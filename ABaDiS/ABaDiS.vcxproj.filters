@@ -142,5 +142,11 @@
     <None Include="data\previousJobs.csv">
       <Filter>Resource Files\Names\Ranks</Filter>
     </None>
+    <None Include="data\militiaNouns.csv">
+      <Filter>Resource Files\Names\Ranks</Filter>
+    </None>
+    <None Include="data\militiaVerbs.csv">
+      <Filter>Resource Files\Names\Ranks</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -81,7 +81,7 @@ void Being::printBeingFlavor()
 	}
 
 	if (occupation == "none")
-		occupationflav = "jobless person, ";
+		occupationflav = "unemployed person, ";
 	else
 		occupationflav = occupation + ", ";
 
@@ -127,11 +127,13 @@ void Being::printBeingFlavor()
 	
 	if ((strength >= 4 && willpower <= 2) || (strength <= 2 && willpower >= 4))
 		strbrvratio = " but ";
+	else if (strength == 3)
+		strbrvratio = " and is ";
 	else 
 		strbrvratio = " and ";
 
 	if (weapon.getName() == "Bare_Fist")
-		weaponflav = "is holding no weapon.";
+		weaponflav = "is holding no weapon";
 	else
 		weaponflav = "is holding a " + weapon.getName();
 
@@ -154,9 +156,9 @@ void Being::printBeingFlavor()
 
 
 	std::cout << fullName << ": " << std::endl;
-	std::cout << fullName << genderflav << occupationflav << locflav << std::endl;
-	std::cout << pronoun << strengthflav << strbrvratio << willpowerflav << std::endl;
-	std::cout << pronoun << weaponflav << armorflav << std::endl << std::endl;
+	std::cout << "	" << name[0] << ". " << surname << genderflav << occupationflav << locflav << std::endl;
+	std::cout << "	" << pronoun << strengthflav << strbrvratio << willpowerflav << std::endl;
+	std::cout << "	" << pronoun << weaponflav << armorflav << std::endl << std::endl;
 
 }
 

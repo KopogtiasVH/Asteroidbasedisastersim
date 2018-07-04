@@ -181,6 +181,8 @@
     <None Include="data\femaleNames.csv" />
     <None Include="data\lowCapRooms.csv" />
     <None Include="data\maleNames.csv" />
+    <None Include="data\militiaNouns.csv" />
+    <None Include="data\militiaVerbs.csv" />
     <None Include="data\pierceWeapons.csv" />
     <None Include="data\previousJobs.csv" />
     <None Include="data\rangedWeapons.csv" />
