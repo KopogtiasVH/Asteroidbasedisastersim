@@ -14,7 +14,7 @@ public:
 	SecOfficer(Room);
 	bool recruit();
 	bool recruit(SecTroop);
-	void printSubordinates();
+	void printSquad();
 	OfficerClass oClass;
 
 private:

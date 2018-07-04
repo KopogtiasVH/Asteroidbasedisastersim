@@ -38,13 +38,22 @@ SecOfficer::SecOfficer(Room startingLocation) : Being(startingLocation)
 	if (oClass == SecOfficer::riotSpecialist)
 		armor++;
 
+
+	// SecOfficers are always stronger than Troops, they earned this title
 	maxHealth += 10;
 	healthPoints = maxHealth;
 	maxMorale += 10;
 	morale = maxMorale;
 
+	armor = 2;
+
+	// Riot Specialists have more armor
+	if (oClass == SecOfficer::riotSpecialist)
+		armor++;
+
 	maxSquadSize = maxMorale - 5;
 
+	// Commanders can command a bigger squad
 	if (oClass == SecOfficer::commander)
 		maxSquadSize += 5;
 
@@ -64,6 +73,7 @@ bool SecOfficer::recruit() {
 	}
 }
 
+ // Add an existing SecTroop to the squad
 bool SecOfficer::recruit(SecTroop newRecruit) {
 	if (squad.size() < maxSquadSize) {
 		squad.push_back(newRecruit);
@@ -74,7 +84,8 @@ bool SecOfficer::recruit(SecTroop newRecruit) {
 	}
 }
 
-void SecOfficer::printSubordinates() {
+ // Print the Squad to the console
+void SecOfficer::printSquad() {
 	std::cout << name << "'s Squad: (" << squad.size() << "/" << maxSquadSize << ")" << std::endl;
 	for (int i = 0; i < squad.size(); i++) {
 		std::cout << " - " << squad[i].getName() << std::endl;

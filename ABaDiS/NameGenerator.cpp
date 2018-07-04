@@ -13,8 +13,9 @@ std::vector<std::string> NameGenerator::maleNames;
 std::vector<std::string> NameGenerator::femaleNames;
 std::vector<std::string> NameGenerator::surNames;
 
-// Security Ranks
+// Security Ranks & ANARC Jobs
 std::vector<std::string> NameGenerator::secRanks;
+std::vector<std::string> NameGenerator::previousJobs;
 
 // Room Names
 std::vector<std::string> NameGenerator::lowCapRooms;
@@ -102,6 +103,10 @@ std::string NameGenerator::randomRank(std::string toAssign) {
 		return secRanks[rand() % 5 + 5];
 }
 
+std::string NameGenerator::randomJob() {
+	return previousJobs[rand() % previousJobs.size()];
+}
+
 
 void NameGenerator::setupNameLists()
 {
@@ -110,6 +115,7 @@ void NameGenerator::setupNameLists()
 	surNames = fileToStringVector("./data/surNames.csv");
 
 	secRanks = fileToStringVector("./data/secRanks.csv");
+	previousJobs = fileToStringVector("./data/previousJobs.csv");
 
 	lowCapRooms = fileToStringVector("./data/lowCapRooms.csv");
 

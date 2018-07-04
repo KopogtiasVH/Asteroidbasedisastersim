@@ -6,7 +6,7 @@ Nothing more but a hired muscle.
 
 MobGoon::MobGoon(Room startingLocation) : Being(startingLocation)
 {
-	occupation = "Rioteer";
+	occupation = NameGenerator::randomJob();
 
 	// choosing a starting weapon
 	int weaponGen = rand() % 100 + 1;
