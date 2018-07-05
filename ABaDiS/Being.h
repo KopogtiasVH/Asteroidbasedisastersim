@@ -8,7 +8,7 @@ public:
 	Being(Room startingLocation);
 	void doDamage(int);
 	void changeMorale(int);
-	void printBeing();
+	void printBeingTable();
 	void printBeingFlavor();
 	void printWeapon();
 

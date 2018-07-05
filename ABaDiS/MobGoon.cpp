@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 /*
-Nothing more but a hired muscle.
+	Nothing more but a hired muscle.
 */
 
 MobGoon::MobGoon(Room startingLocation) : Being(startingLocation)
@@ -21,5 +21,6 @@ MobGoon::MobGoon(Room startingLocation) : Being(startingLocation)
 	else
 		weapon = Weapon(Weapon::explosive);
 
+	// Goons have either no ore light armor.
 	armor = rand() % 2;
 }

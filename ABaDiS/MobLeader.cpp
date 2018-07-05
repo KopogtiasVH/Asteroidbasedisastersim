@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "MobLeader.h"
 
+/*
+	MobLeaders are the most important asset of the ANARC. Without them the raging mob has no coordination and is doomed to fail.
+*/
 
 MobLeader::MobLeader(Room startingLocation) : Being(startingLocation)
 {
@@ -33,18 +36,22 @@ MobLeader::MobLeader(Room startingLocation) : Being(startingLocation)
 
 	armor = 2;
 
+	// MobLeaders always carry a ranged weapon.
 	weapon = Weapon(Weapon::ranged);
 
+	// Stronger willpower controls greater mobs.
 	maxMobSize = maxMorale - 5;
 
 	// Crime Bosses have a bigger squad
 	if (lClass == MobLeader::crimeBoss)
 		maxMobSize += 5;
 
+	// Initialize the following mob and generate it a name
 	mob = std::vector<MobGoon>();
 	mobName = NameGenerator::militiaName(surname);
 }
 
+// Generate a new Goon and add it to the mob
 bool MobLeader::recruit() {
 	if (mob.size() < maxMobSize) {
 		MobGoon newGoon = MobGoon(currentLocation);
@@ -56,6 +63,7 @@ bool MobLeader::recruit() {
 	}
 }
 
+// print the mob to the console
 void MobLeader::printMob() {
 	std::cout << mobName << ": (" << mob.size() << "/" << maxMobSize << ")" << std::endl;
 	for (int i = 0; i < mob.size(); i++) {
@@ -64,6 +72,7 @@ void MobLeader::printMob() {
 	std::cout << std::endl;
 }
 
+// return the mob
 std::vector<MobGoon> MobLeader::getMob() const {
 	return mob;
 }

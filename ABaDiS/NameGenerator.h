@@ -9,7 +9,7 @@ class NameGenerator
 public:
 	static std::string humanName(std::string gender);
 	static std::string humanSurname();
-	static std::string roomName(int cap);
+	static std::string lowCapRoomName(int cap);
 	static std::string weaponName(Weapon::weapontype);
 	static std::string randomRank(std::string toAssign);
 	static std::string randomJob();

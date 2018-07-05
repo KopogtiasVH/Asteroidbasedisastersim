@@ -6,6 +6,8 @@
 
 Being::Being(Room startingLocation)
 {
+
+	// General Setup of a regular Human Being
 	isAlive = true;
 	eager = true;
 	currentLocation = startingLocation;
@@ -33,6 +35,8 @@ Being::Being(Room startingLocation)
 	armor = 0;
 }
 
+// Deal Damage to the being, check for status
+// TODO: implement status check
 void Being::doDamage(int d)
 {
 	healthPoints -= d;
@@ -40,11 +44,14 @@ void Being::doDamage(int d)
 		isAlive = false;
 }
 
+// Deal Morale Damage, check for status
+// TODO: implement status check
 void Being::changeMorale(int d) 
 {
 	morale -= d;
 }
 
+// Return the name of the being (duh)
 std::string Being::getName() const {
 	return fullName;
 }
@@ -52,7 +59,8 @@ std::string Being::getName() const {
 
 // Functions for printing stuff to the console
 
-void Being::printBeing() 
+// Print the being as a table
+void Being::printBeingTable() 
 {
 	std::cout << "Being:" << std::endl
 		<< "	Name:       " << fullName << std::endl
@@ -67,6 +75,7 @@ void Being::printBeing()
 		<< "	Occupation: " << occupation << std::endl << std::endl;
 }
 
+// Print the being in a prosaic form
 void Being::printBeingFlavor()
 {
 	std::string genderflav, occupationflav, locflav, strengthflav, willpowerflav, weaponflav, armorflav, pronoun, strbrvratio;
@@ -162,6 +171,7 @@ void Being::printBeingFlavor()
 
 }
 
+// Print the weapon of the Being in a prosaic form
 void Being::printWeapon()
 {
 	std::cout << fullName << " is holding a " << weapon.getName() << std::endl;

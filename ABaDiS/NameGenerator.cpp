@@ -30,7 +30,7 @@ std::vector<std::string> NameGenerator::pierceWeapons;
 std::vector<std::string> NameGenerator::rangedWeapons;
 std::vector<std::string> NameGenerator::explosiveWeapons;
 
-std::string NameGenerator::roomName(int cap) {
+std::string NameGenerator::lowCapRoomName(int cap) {
 	if (!isGenerated) {
 		setupNameLists();
 	}

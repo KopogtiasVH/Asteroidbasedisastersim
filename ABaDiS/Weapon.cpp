@@ -4,6 +4,7 @@
 	A weapon used in battle. There are 4 general types of weapons.
 */
 
+// The weapon without parameters are your bare hands.
 Weapon::Weapon() {
 	name = "Bare_Fist";
 	wt = Weapon::blunt;
@@ -15,6 +16,7 @@ Weapon::Weapon() {
 	accuracy = 90;
 }
 
+// Return a random weapon, based on a given type
 Weapon::Weapon(Weapon::weapontype t)
 {
 	name = NameGenerator::weaponName(t);
@@ -58,8 +60,9 @@ Weapon::Weapon(Weapon::weapontype t)
 	}
 }
 
+// Generate a Weapon based on a string (e.G. Special weapons)
 Weapon::Weapon(std::string type) {
-	if (type == "sec_cqc") {
+	if (type == "sec_cqc") {	// Police Baton
 		name = "Police_Baton";
 		wt = Weapon::blunt;
 		strengthMod = 2;
@@ -69,7 +72,7 @@ Weapon::Weapon(std::string type) {
 		riskOfUse = 0;
 		accuracy = 90;
 	}
-	else if (type == "sec_ranged") {
+	else if (type == "sec_ranged") {	// Security Revolver
 		name = "Security_Revolver";
 		wt = Weapon::ranged;
 		strengthMod = 0;
@@ -79,7 +82,7 @@ Weapon::Weapon(std::string type) {
 		riskOfUse = 5;
 		accuracy = 60;
 	}
-	else if (type == "sec_riotSpecialist") {
+	else if (type == "sec_riotSpecialist") {	// Energy Baton
 		name = "Energy_Baton";
 		wt = Weapon::blunt;
 		strengthMod = 2;
@@ -94,6 +97,7 @@ Weapon::Weapon(std::string type) {
 	}
 }
 
+// Return the name of the weapon
 std::string Weapon::getName() const
 {
 	return name;

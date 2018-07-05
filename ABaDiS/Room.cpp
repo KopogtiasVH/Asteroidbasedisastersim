@@ -13,7 +13,7 @@ Room::Room()
 	intact = true;
 	connectedTo = std::vector<Room>();
 
-	name = NameGenerator::roomName(capacity);
+	name = NameGenerator::lowCapRoomName(capacity);
 	
 	//printRoom();
 }

@@ -101,14 +101,14 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Source Files\Usables</Filter>
     </ClCompile>
-    <ClCompile Include="MobGoon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SecOfficer.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
+    <ClCompile Include="MobGoon.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
     <ClCompile Include="MobLeader.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
