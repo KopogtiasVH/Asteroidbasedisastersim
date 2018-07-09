@@ -1,6 +1,7 @@
 #pragma once
-#include "Being.h"
-class SecOfficer : public Being
+#include "Leader.h"
+
+class SecOfficer : public Leader
 {
 public:
 
@@ -12,17 +13,15 @@ public:
 	};
 
 	SecOfficer(Room);
+
 	bool recruit();
 	bool recruit(SecTroop);
-	void printSquad();
-	OfficerClass oClass;
 
-	std::vector<SecTroop> getSquad() const;
+	OfficerClass oClass;
 
 private:
 
 	int maxSquadSize;
-	std::vector<SecTroop> squad;
 
 };
 

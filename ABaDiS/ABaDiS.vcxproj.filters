@@ -69,13 +69,22 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files\Generic</Filter>
     </ClInclude>
-    <ClInclude Include="MobGoon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SecOfficer.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
+    <ClInclude Include="MobGoon.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
     <ClInclude Include="MobLeader.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Squad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Leader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -109,6 +118,15 @@
     </ClCompile>
     <ClCompile Include="MobLeader.cpp">
       <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Squad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Leader.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

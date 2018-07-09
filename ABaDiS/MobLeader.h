@@ -1,7 +1,6 @@
 #pragma once
-#include "Being.h"
-class MobLeader :
-	public Being
+#include "Leader.h"
+class MobLeader : public Leader
 {
 public:
 
@@ -14,16 +13,13 @@ public:
 
 	MobLeader(Room);
 	bool recruit();
-	void printMob();
 	LeaderClass lClass;
 
-	std::vector<MobGoon> getMob() const;
+	Squad getSquad() const;
 
 private:
 
-	int maxMobSize;
-	std::vector<MobGoon> mob;
-	std::string mobName;
+	int maxSquadSize;
 
 };
 

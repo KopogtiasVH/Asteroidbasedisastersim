@@ -1,13 +1,16 @@
 ﻿  stdafx.cpp
   ABaDiS.cpp
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\abadis.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  BaseSystem.cpp
   Being.cpp
+  Leader.cpp
   MobGoon.cpp
   MobLeader.cpp
   NameGenerator.cpp
   Room.cpp
   SecOfficer.cpp
   SecTroop.cpp
+  Squad.cpp
   Weapon.cpp
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
