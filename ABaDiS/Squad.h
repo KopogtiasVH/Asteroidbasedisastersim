@@ -9,6 +9,7 @@ public:
 
 	std::vector<Being> getMembers() const;
 	int getSize() const;
+	int getMaxSize() const;
 
 	bool recruit(Being);
 

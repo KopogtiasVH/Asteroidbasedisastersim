@@ -8,7 +8,7 @@
 MobLeader::MobLeader(Room startingLocation) : Leader(startingLocation, Faction::ANARC)
 {
 	// Get a Random class
-	switch (rand() % 4) {
+	switch (0) {
 	case 0:
 		lClass = MobLeader::crimeBoss;
 		occupation = "Crime_Boss";

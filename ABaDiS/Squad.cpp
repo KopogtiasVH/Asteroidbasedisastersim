@@ -31,10 +31,16 @@ int Squad::getSize() const
 	return size;
 }
 
+int Squad::getMaxSize() const
+{
+	return maxSize;
+}
+
 bool Squad::recruit(Being toRecruit)
 {
 	if (size < maxSize) {
 		members.push_back(toRecruit);
+		size++;
 		return true;
 	}
 	else {
