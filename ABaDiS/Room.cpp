@@ -9,29 +9,62 @@
 
 Room::Room()
 {
-	capacity = ((rand() % 20) + 1) * 10;
+	currentCapacity = 0;
+	maxCapacity = ((rand() % 20) + 1) * 10;
 	intact = true;
+	inSystem = false;
 	connectedTo = std::vector<Room>();
 
-	name = NameGenerator::lowCapRoomName(capacity);
+	ID = rand();
+
+	name = NameGenerator::lowCapRoomName(maxCapacity);
 	
 	//printRoom();
 }
 
 Room::Room(std::string n_) 
 {
-	capacity = ((rand() % 20) + 1) * 10;
+	currentCapacity = 0;
+	maxCapacity = ((rand() % 20) + 1) * 10;
 	intact = true;
+	inSystem = false;
 	connectedTo = std::vector<Room>();
+
+	ID = rand();
 
 	name = n_;
 
 	//printRoom();
 }
 
+// Function to enter Room
+bool Room::enterRoom(int toEnter) {
+	if (currentCapacity + toEnter <= maxCapacity) {
+		currentCapacity += toEnter;
+		return true;
+	}
+	else {
+		std::cerr << "Entering Squad is too big." << std::endl;
+		return false;
+	}
+}
+
+bool Room::connectTo(Room toConnectTo) {
+	connectedTo.push_back(toConnectTo);
+	inSystem = true;
+	return true;
+}
+
+/*
+	Getter and Setter Functions
+*/
 int Room::getCapacity() const
 {
-	return capacity;
+	return maxCapacity;
+}
+
+int Room::getCurrentCapacity() const{
+	return currentCapacity;
 }
 
 bool Room::isIntact() const
@@ -44,13 +77,22 @@ std::string Room::getName() const
 	return name;
 }
 
-std::vector<Room> Room::isConnectedTo() const
+std::vector<Room> Room::getConnections() const
 {
 	return connectedTo;
 }
 
+bool Room::isConnectedTo(Room toCheck) const
+{
+	for (Room i : connectedTo)
+		if (i.ID == toCheck.ID) {
+			return true;
+		}
+	return false;
+}
 
+// Function to Print the Room to the console.
 void Room::printRoom() {
 	std::cout << name << ":" << std::endl 
-		<< "	Capacity: " << getCapacity() << std::endl << std::endl;
+		<< "	Capacity: " << getCurrentCapacity() << " / " << getCapacity() << std::endl << std::endl;
 }
