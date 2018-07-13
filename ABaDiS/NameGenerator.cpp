@@ -35,10 +35,18 @@ std::string NameGenerator::lowCapRoomName(int cap) {
 		setupNameLists();
 	}
 
-	std::string name = "Sector-";
+	std::string name = "";
 
-	if (cap < 200) {
-		name += lowCapRooms[rand() % lowCapRooms.size()];
+	if (cap < 2000) {
+		if (!lowCapRooms.empty()) {
+			int i = rand() % lowCapRooms.size();
+			name += lowCapRooms[i];
+			lowCapRooms.erase(lowCapRooms.begin() + i);
+		}
+		else {
+			std::cout << "Room List Empty" << std::endl;
+			name = "UNKNOWN_SECTOR";
+		}
 	}
 
 	return name;
