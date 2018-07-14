@@ -1,4 +1,7 @@
 #pragma once
+#include "stdafx.h"
+#include "Enumerators.h"
+
 class Weapon
 {
 public:
@@ -13,6 +16,7 @@ public:
 	Weapon();
 	Weapon(weapontype);
 	Weapon(std::string);
+	Weapon(Enumerators::OfficerClass);
 
 	std::string getName() const;
 

@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "Weapon.h"
+
 
 /*
 	A weapon used in battle. There are 4 general types of weapons.
@@ -60,6 +62,7 @@ Weapon::Weapon(Weapon::weapontype t)
 	}
 }
 
+
 // Generate a Weapon based on a string (e.G. Special weapons)
 Weapon::Weapon(std::string type) {
 	if (type == "sec_cqc") {	// Police Baton
@@ -96,6 +99,38 @@ Weapon::Weapon(std::string type) {
 		std::cerr << "Wrong argument for specified weapontype" << std::endl;
 	}
 }
+
+Weapon::Weapon(Enumerators::OfficerClass profession)
+{
+	if (profession == Enumerators::OfficerClass::detective ||
+		profession == Enumerators::OfficerClass::commander ||
+		profession == Enumerators::OfficerClass::officer) {	// Security Revolver
+		name = "Security_Revolver";
+		wt = Weapon::ranged;
+		strengthMod = 0;
+		range = 2;
+		extraDamage = 4;
+		noOfUses = 18;
+		riskOfUse = 5;
+		accuracy = 60;
+	}
+	else if (profession == Enumerators::OfficerClass::riotSpecialist) {	// Energy Baton
+		name = "Energy_Baton";
+		wt = Weapon::blunt;
+		strengthMod = 2;
+		range = 0;
+		extraDamage = 1;
+		noOfUses = INFINITY;
+		riskOfUse = 0;
+		accuracy = 90;
+	}
+	else {
+		std::cerr << "Wrong argument for specified weapontype" << std::endl;
+	}
+}
+
+
+
 
 // Return the name of the weapon
 std::string Weapon::getName() const
