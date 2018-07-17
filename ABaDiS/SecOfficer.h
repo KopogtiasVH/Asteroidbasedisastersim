@@ -1,23 +1,17 @@
 #pragma once
 #include "Leader.h"
+#include "Enumerators.h"
 
 class SecOfficer : public Leader
 {
 public:
-
-	enum OfficerClass {
-		riotSpecialist,
-		detective,
-		commander,
-		officer
-	};
 
 	SecOfficer(Room);
 
 	bool recruit();
 	bool recruit(SecTroop);
 
-	OfficerClass oClass;
+	Enumerators::OfficerClass oClass;
 
 private:
 

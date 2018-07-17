@@ -14,36 +14,35 @@ SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Faction
 	// Get a Random class
 	switch (rand() % 4) {
 	case 0:
-		oClass = OfficerClass::riotSpecialist;
+		oClass = Enumerators::OfficerClass::riotSpecialist;
 		occupation = "Riot_Specialist";
 		break;
 	case 1:
-		oClass = OfficerClass::detective;
+		oClass = Enumerators::OfficerClass::detective;
 		occupation = "Detective";
 		break;
 	case 2:
-		oClass = OfficerClass::commander;
+		oClass = Enumerators::OfficerClass::commander;
 		occupation = "Security_Commander";
 		break;
 	case 3:
-		oClass = OfficerClass::officer;
+		oClass = Enumerators::OfficerClass::officer;
 		occupation = "Security_Officer";
 		break;
 	default:
 		break;
 	}
 
-	// Regular Officers always carry a Revolver
-	weapon = Weapon("sec_ranged");
+	// SecOfficers recieve their weapon based on their class
+	weapon = Weapon(oClass);
 
 	// Riot Specialists have more armor and always carry an Energy Baton
-	if (oClass == OfficerClass::riotSpecialist) {
+	if (oClass == Enumerators::OfficerClass::riotSpecialist) {
 		armor++;
-		weapon = Weapon("sec_riotSpecialist");
 	}
 
 	// Commanders can command a bigger squad
-	if (oClass == OfficerClass::commander)
+	if (oClass == Enumerators::OfficerClass::commander)
 		maxSquadSize += 5;
 }
 

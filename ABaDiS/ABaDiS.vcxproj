@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="BaseSystem.h" />
     <ClInclude Include="Being.h" />
+    <ClInclude Include="Enumerators.h" />
     <ClInclude Include="Leader.h" />
     <ClInclude Include="MobGoon.h" />
     <ClInclude Include="MobLeader.h" />
