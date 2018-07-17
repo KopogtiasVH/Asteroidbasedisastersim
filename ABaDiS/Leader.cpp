@@ -31,6 +31,15 @@ Leader::Leader(Room currentLocation, Faction f) : Being(currentLocation)
 	}
 }
 
+// return the squad.
+Squad Leader::getSquad() const{
+	return squad;
+}
+
+void printSquad() {
+
+}
+
 bool Leader::recruit(Being toRecruit) {
 	return squad.recruit(toRecruit);
 }

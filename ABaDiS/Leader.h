@@ -13,6 +13,10 @@ public:
 
 	Leader(Room, Leader::Faction);
 
+	void printSquad();
+
+	Squad getSquad() const;
+
 protected:
 	Faction faction;
 

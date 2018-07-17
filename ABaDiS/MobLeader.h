@@ -15,8 +15,6 @@ public:
 	bool recruit();
 	LeaderClass lClass;
 
-	Squad getSquad() const;
-
 private:
 
 

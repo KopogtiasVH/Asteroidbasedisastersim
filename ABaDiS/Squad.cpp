@@ -36,6 +36,10 @@ int Squad::getMaxSize() const
 	return maxSize;
 }
 
+Being Squad::getMember(int i) const{
+		return members[i];
+}
+
 bool Squad::recruit(Being toRecruit)
 {
 	if (size < maxSize) {

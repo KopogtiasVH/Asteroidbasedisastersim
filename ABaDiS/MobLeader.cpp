@@ -48,8 +48,3 @@ bool MobLeader::recruit() {
 	MobGoon newGoon = MobGoon(currentLocation);
 	return squad.recruit(newGoon);
 }
-
-// return the mob
-Squad MobLeader::getSquad() const {
-	return squad;
-}
