@@ -7,6 +7,9 @@
 
 MobLeader::MobLeader(Room startingLocation) : Leader(startingLocation, Faction::ANARC)
 {
+
+	kob = Enumerators::KindOfBeing::mobleader;
+
 	// Get a Random class
 	switch (rand() % 4) {
 	case 0:

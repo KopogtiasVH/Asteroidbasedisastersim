@@ -6,6 +6,8 @@
 
 SecTroop::SecTroop(Room startingLocation) : Being(startingLocation)
 {
+	kob = Enumerators::KindOfBeing::sectroop;
+
 	occupation = "Security Enforcer";
 
 	// Security Troops start with standardized security weapons. Either a Security Revolver or a Police Baton.
@@ -15,7 +17,7 @@ SecTroop::SecTroop(Room startingLocation) : Being(startingLocation)
 		weapon = Weapon("sec_cqc");
 
 	// Add a random rank to the name.
-	fullName = NameGenerator::randomRank("sectroop") + " " + fullName;
+	fullName = NameGenerator::randomRank(kob) + " " + fullName;
 
 	// Security is always armored
 	armor = 2;

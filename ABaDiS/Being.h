@@ -20,6 +20,7 @@ protected:
 
 	Room currentLocation;
 	Weapon weapon;
+	Enumerators::KindOfBeing kob;
 
 	int maxHealth;
 	int healthPoints;

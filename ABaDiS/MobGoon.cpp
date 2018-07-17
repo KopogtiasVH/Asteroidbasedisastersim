@@ -6,6 +6,8 @@
 
 MobGoon::MobGoon(Room startingLocation) : Being(startingLocation)
 {
+	kob = Enumerators::KindOfBeing::mobgoon;
+
 	occupation = NameGenerator::randomJob();
 
 	// choosing a starting weapon

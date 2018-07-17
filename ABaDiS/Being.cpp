@@ -33,6 +33,8 @@ Being::Being(Room startingLocation)
 
 	weapon = Weapon();
 	armor = 0;
+
+	kob = Enumerators::KindOfBeing::none;
 }
 
 // Deal Damage to the being, check for status

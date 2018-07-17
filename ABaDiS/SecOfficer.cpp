@@ -8,8 +8,11 @@
 
 SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Faction::SEC)
 {
+
+	kob = Enumerators::KindOfBeing::secofficer;
+
 	// Add a random rank to the name.
-	fullName = NameGenerator::randomRank("secofficer") + " " + fullName;
+	fullName = NameGenerator::randomRank(kob) + " " + fullName;
 
 	// Get a Random class
 	switch (rand() % 4) {

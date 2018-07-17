@@ -116,6 +116,19 @@ std::string NameGenerator::randomRank(std::string toAssign) {
 		return secRanks[rand() % 5 + 5];
 }
 
+std::string NameGenerator::randomRank(Enumerators::KindOfBeing toAssign)
+{
+	switch (toAssign) {
+	case (Enumerators::KindOfBeing::sectroop):
+		return secRanks[rand() % 5];
+	case (Enumerators::KindOfBeing::secofficer):
+		return secRanks[rand() % 5 + 5];
+	default:
+		std::cerr << "Wrong Kind of Being to recieve a Rank" << std::endl;
+		return "";
+	}
+}
+
 std::string NameGenerator::randomJob() {
 	if (!isGenerated) {
 		setupNameLists();

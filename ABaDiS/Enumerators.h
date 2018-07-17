@@ -12,5 +12,14 @@ public:
 		officer
 	};
 
+	// The identifiers of Beings
+	enum class KindOfBeing {
+		none,
+		sectroop,
+		secofficer,
+		mobgoon,
+		mobleader
+	};
+
 };
 
