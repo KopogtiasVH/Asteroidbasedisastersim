@@ -87,9 +87,6 @@
     <ClInclude Include="Leader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enumerators.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABaDiS.cpp">
