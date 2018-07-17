@@ -12,6 +12,7 @@ public:
 	static std::string lowCapRoomName(int cap);
 	static std::string weaponName(Weapon::weapontype);
 	static std::string randomRank(std::string toAssign);
+	static std::string randomRank(Being*);
 	static std::string randomJob();
 	static std::string militiaName(std::string);
 
