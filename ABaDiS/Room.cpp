@@ -11,13 +11,16 @@ Room::Room()
 {
 	currentCapacity = 0;
 	maxCapacity = ((rand() % 20) + 1) * 10;
+	priority = rand() % 10 + 1;
+	maxCondition = maxCapacity * priority;
+	currentCondition = maxCondition;
 	intact = true;
 	inSystem = false;
 	connectedTo = std::vector<Room>();
 
 	ID = rand();
 
-	name = NameGenerator::lowCapRoomName(maxCapacity);
+	name = NameGenerator::roomName(maxCapacity, priority);
 	
 	//printRoom();
 }
@@ -67,6 +70,18 @@ int Room::getCurrentCapacity() const{
 	return currentCapacity;
 }
 
+int Room::getPriority() const {
+	return priority;
+}
+
+int Room::getCurrentCondition() const {
+	return currentCondition;
+}
+
+int Room::getMaxCondition() const {
+	return maxCondition;
+}
+
 bool Room::isIntact() const
 {
 	return intact;
@@ -93,6 +108,7 @@ bool Room::isConnectedTo(Room toCheck) const
 
 // Function to Print the Room to the console.
 void Room::printRoom() {
-	std::cout << name << ":" << std::endl 
-		<< "	Capacity: " << getCurrentCapacity() << " / " << getCapacity() << std::endl << std::endl;
+	std::cout << name << ":" << std::endl
+		<< "	Capacity:  " << getCurrentCapacity() << " / " << getCapacity() << std::endl
+		<< "	Condition: " << getCurrentCondition() << " / " << getMaxCondition() << std::endl << std::endl;
 }

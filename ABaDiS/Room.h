@@ -18,6 +18,9 @@ public:
 
 	int getCapacity() const;
 	int getCurrentCapacity() const;
+	int getPriority() const;
+	int getCurrentCondition() const;
+	int getMaxCondition() const;
 
 	bool isIntact() const;
 	bool enterRoom(int);
@@ -33,6 +36,9 @@ private:
 	int maxCapacity;
 	int currentCapacity;
 	int population;
+	int priority;
+	int maxCondition;
+	int currentCondition;
 
 	bool intact;
 	bool inSystem;

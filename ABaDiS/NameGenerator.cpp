@@ -23,6 +23,7 @@ std::vector<std::string> NameGenerator::militiaNouns;
 
 // Room Names
 std::vector<std::string> NameGenerator::lowCapRooms;
+std::vector<std::string> NameGenerator::medCapMedPrioRooms;
 
 // Weapon Names
 std::vector<std::string> NameGenerator::bluntWeapons;
@@ -42,6 +43,39 @@ std::string NameGenerator::lowCapRoomName(int cap) {
 			int i = rand() % lowCapRooms.size();
 			name += lowCapRooms[i];
 			lowCapRooms.erase(lowCapRooms.begin() + i);
+		}
+		else {
+			std::cout << "Room List Empty" << std::endl;
+			name = "UNKNOWN_SECTOR";
+		}
+	}
+
+	return name;
+}
+
+std::string NameGenerator::roomName(int cap, int prio) {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
+	std::string name = "";
+
+	if (cap < 100) {
+		if (!lowCapRooms.empty()) {
+			int i = rand() % lowCapRooms.size();
+			name += lowCapRooms[i];
+			lowCapRooms.erase(lowCapRooms.begin() + i);
+		}
+		else {
+			std::cout << "Room List Empty" << std::endl;
+			name = "UNKNOWN_SECTOR";
+		}
+	}
+	else if (cap < 300) {
+		if (!medCapMedPrioRooms.empty()) {
+			int i = rand() % medCapMedPrioRooms.size();
+			name += medCapMedPrioRooms[i];
+			medCapMedPrioRooms.erase(medCapMedPrioRooms.begin() + i);
 		}
 		else {
 			std::cout << "Room List Empty" << std::endl;
@@ -169,6 +203,7 @@ void NameGenerator::setupNameLists()
 	militiaNouns = fileToStringVector("./data/militiaNouns.csv");
 
 	lowCapRooms = fileToStringVector("./data/lowCapRooms.csv");
+	medCapMedPrioRooms = fileToStringVector("./data/medCapLowPrioRooms.csv");
 
 	bluntWeapons = fileToStringVector("./data/bluntWeapons.csv");
 	pierceWeapons = fileToStringVector("./data/pierceWeapons.csv");

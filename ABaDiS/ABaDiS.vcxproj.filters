@@ -169,5 +169,8 @@
     <None Include="data\militiaVerbs.csv">
       <Filter>Resource Files\Names\Ranks</Filter>
     </None>
+    <None Include="data\medCapLowPrioRooms.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
   </ItemGroup>
 </Project>

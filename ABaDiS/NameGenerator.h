@@ -10,6 +10,7 @@ public:
 	static std::string humanName(std::string gender);
 	static std::string humanSurname();
 	static std::string lowCapRoomName(int cap);
+	static std::string roomName(int, int);
 	static std::string weaponName(Weapon::weapontype);
 	static std::string randomRank(std::string toAssign);
 	static std::string randomRank(Enumerators::KindOfBeing);
@@ -34,6 +35,7 @@ private:
 	static std::vector<std::string> militiaNouns;
 
 	static std::vector<std::string> lowCapRooms;
+	static std::vector<std::string> medCapMedPrioRooms;
 	
 	static std::vector<std::string> bluntWeapons;
 	static std::vector<std::string> pierceWeapons;
