@@ -46,14 +46,14 @@
     <Filter Include="Resource Files\Names\Ranks">
       <UniqueIdentifier>{9484b04d-3c37-4be2-9ff6-194dadc2f06e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Rooms">
+      <UniqueIdentifier>{eaf7c959-0c25-437b-8773-e50bc981ba16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rooms">
+      <UniqueIdentifier>{b71cbc3d-7e64-4d09-927c-eebb274979dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NameGenerator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Being.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
@@ -78,29 +78,29 @@
     <ClInclude Include="MobLeader.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
-    <ClInclude Include="BaseSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Squad.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files\Rooms</Filter>
     </ClInclude>
     <ClInclude Include="Leader.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Squad.h">
+      <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="Enumerators.h">
+      <Filter>Header Files\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="NameGenerator.h">
+      <Filter>Header Files\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSystem.h">
+      <Filter>Header Files\Rooms</Filter>
+    </ClInclude>
+    <ClInclude Include="Corridor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ABaDiS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Room.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NameGenerator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Being.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -123,12 +123,24 @@
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="BaseSystem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rooms</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files\Rooms</Filter>
     </ClCompile>
     <ClCompile Include="Squad.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="Leader.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="NameGenerator.cpp">
+      <Filter>Source Files\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="ABaDiS.cpp">
+      <Filter>Source Files\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="Corridor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -170,6 +182,12 @@
       <Filter>Resource Files\Names\Ranks</Filter>
     </None>
     <None Include="data\medCapLowPrioRooms.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\streetNamesLast.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\streetNamesFirst.csv">
       <Filter>Resource Files\Names\rooms</Filter>
     </None>
   </ItemGroup>

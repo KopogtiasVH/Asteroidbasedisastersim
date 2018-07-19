@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="BaseSystem.h" />
     <ClInclude Include="Being.h" />
+    <ClInclude Include="Corridor.h" />
     <ClInclude Include="Enumerators.h" />
     <ClInclude Include="Leader.h" />
     <ClInclude Include="MobGoon.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="ABaDiS.cpp" />
     <ClCompile Include="BaseSystem.cpp" />
     <ClCompile Include="Being.cpp" />
+    <ClCompile Include="Corridor.cpp" />
     <ClCompile Include="Leader.cpp" />
     <ClCompile Include="MobGoon.cpp" />
     <ClCompile Include="MobLeader.cpp" />
@@ -195,6 +197,8 @@
     <None Include="data\previousJobs.csv" />
     <None Include="data\rangedWeapons.csv" />
     <None Include="data\secRanks.csv" />
+    <None Include="data\streetNamesFirst.csv" />
+    <None Include="data\streetNamesLast.csv" />
     <None Include="data\surNames.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

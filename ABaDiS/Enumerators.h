@@ -21,5 +21,11 @@ public:
 		mobleader
 	};
 
+	// Identifies Corridors from Living Quarters
+	enum class KindOfRoom {
+		street,
+		livingQuarter
+	};
+
 };
 

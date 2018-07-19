@@ -32,7 +32,7 @@ public:
 
 	int ID;
 
-private:
+protected:
 	int maxCapacity;
 	int currentCapacity;
 	int population;

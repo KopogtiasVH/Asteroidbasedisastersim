@@ -24,6 +24,8 @@ std::vector<std::string> NameGenerator::militiaNouns;
 // Room Names
 std::vector<std::string> NameGenerator::lowCapRooms;
 std::vector<std::string> NameGenerator::medCapMedPrioRooms;
+std::vector<std::string> NameGenerator::streetNamesFirst;
+std::vector<std::string> NameGenerator::streetNamesLast;
 
 // Weapon Names
 std::vector<std::string> NameGenerator::bluntWeapons;
@@ -81,6 +83,38 @@ std::string NameGenerator::roomName(int cap, int prio) {
 			std::cout << "Room List Empty" << std::endl;
 			name = "UNKNOWN_SECTOR";
 		}
+	}
+
+	return name;
+}
+
+std::string NameGenerator::streetName(Enumerators::KindOfRoom kor) {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
+	std::string name = "";
+	if (!streetNamesFirst.empty()) {
+		int i = rand() % streetNamesFirst.size();
+		name += streetNamesFirst[i];
+		streetNamesFirst.erase(streetNamesFirst.begin() + i);
+	}
+	else {
+		std::cout << "Room List Empty" << std::endl;
+		name += "UNKNOWN";
+	}
+
+	switch (kor) {
+	case (Enumerators::KindOfRoom::livingQuarter):
+		name += " " + streetNamesLast[rand() % streetNamesLast.size()];
+		break;
+	case (Enumerators::KindOfRoom::street):
+		name += " " + streetNamesLast[rand() % streetNamesLast.size()];
+		break;
+	default:
+		std::cout << "Wrong Kind of Room to recieve a street name" << std::endl;
+		name += " UNKNOWN";
+		break;
 	}
 
 	return name;
@@ -204,6 +238,8 @@ void NameGenerator::setupNameLists()
 
 	lowCapRooms = fileToStringVector("./data/lowCapRooms.csv");
 	medCapMedPrioRooms = fileToStringVector("./data/medCapLowPrioRooms.csv");
+	streetNamesFirst = fileToStringVector("./data/streetNamesFirst.csv");
+	streetNamesLast = fileToStringVector("./data/streetNamesLast.csv");
 
 	bluntWeapons = fileToStringVector("./data/bluntWeapons.csv");
 	pierceWeapons = fileToStringVector("./data/pierceWeapons.csv");
