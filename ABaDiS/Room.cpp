@@ -29,6 +29,7 @@ Room::Room(std::string n_)
 {
 	currentCapacity = 0;
 	maxCapacity = ((rand() % 20) + 1) * 10;
+	priority = rand() % 10 + 1;
 	intact = true;
 	inSystem = false;
 	connectedTo = std::vector<Room>();
@@ -110,5 +111,6 @@ bool Room::isConnectedTo(Room toCheck) const
 void Room::printRoom() {
 	std::cout << name << ":" << std::endl
 		<< "	Capacity:  " << getCurrentCapacity() << " / " << getCapacity() << std::endl
-		<< "	Condition: " << getCurrentCondition() << " / " << getMaxCondition() << std::endl << std::endl;
+		<< "	Condition: " << getCurrentCondition() << " / " << getMaxCondition() << std::endl
+		<< "	Priority:  " << getPriority() << std::endl << std::endl;
 }

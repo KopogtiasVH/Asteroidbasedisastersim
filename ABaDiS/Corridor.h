@@ -4,9 +4,11 @@ class Corridor :
 	public Room
 {
 public:
-	Corridor();
+	Corridor(Room*, Room*);
 
-	std::vector<Room> toFrom;
+	std::vector<Room*> toFrom;
+	
+	void printRoom();
 
 protected:
 	Enumerators::KindOfRoom kor;

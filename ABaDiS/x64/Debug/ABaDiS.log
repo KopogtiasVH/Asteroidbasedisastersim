@@ -1,4 +1,2 @@
-﻿  NameGenerator.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(173): warning C4715: 'NameGenerator::weaponName': not all control paths return a value
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(185): warning C4715: 'NameGenerator::randomRank': not all control paths return a value
+﻿  Corridor.cpp
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

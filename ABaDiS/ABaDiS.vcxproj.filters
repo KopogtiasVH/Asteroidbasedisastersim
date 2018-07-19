@@ -97,7 +97,7 @@
       <Filter>Header Files\Rooms</Filter>
     </ClInclude>
     <ClInclude Include="Corridor.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Rooms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +141,7 @@
       <Filter>Source Files\Generic</Filter>
     </ClCompile>
     <ClCompile Include="Corridor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rooms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
