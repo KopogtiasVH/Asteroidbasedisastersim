@@ -11,9 +11,9 @@ public:
 	Room();
 	Room(std::string);
 
-	void printRoom();
+	virtual void printRoom();
 
-	bool connectTo(Room);
+	bool connectTo(Room*);
 
 
 	int getCapacity() const;
@@ -26,9 +26,7 @@ public:
 	bool enterRoom(int);
 
 	std::string getName() const;
-	std::vector<Room> getConnections() const;
-
-	bool isConnectedTo(Room) const;
+	std::vector<Room*> getConnections() const;
 
 	int ID;
 
@@ -43,7 +41,7 @@ protected:
 	bool intact;
 	bool inSystem;
 
-	std::vector<Room> connectedTo;
+	std::vector<Room*> connectedTo;
 	std::string name;
 };
 

@@ -16,7 +16,7 @@ Room::Room()
 	currentCondition = maxCondition;
 	intact = true;
 	inSystem = false;
-	connectedTo = std::vector<Room>();
+	connectedTo = std::vector<Room*>();
 
 	ID = rand();
 
@@ -32,7 +32,7 @@ Room::Room(std::string n_)
 	priority = rand() % 10 + 1;
 	intact = true;
 	inSystem = false;
-	connectedTo = std::vector<Room>();
+	connectedTo = std::vector<Room*>();
 
 	ID = rand();
 
@@ -53,7 +53,7 @@ bool Room::enterRoom(int toEnter) {
 	}
 }
 
-bool Room::connectTo(Room toConnectTo) {
+bool Room::connectTo(Room* toConnectTo) {
 	connectedTo.push_back(toConnectTo);
 	inSystem = true;
 	return true;
@@ -93,18 +93,9 @@ std::string Room::getName() const
 	return name;
 }
 
-std::vector<Room> Room::getConnections() const
+std::vector<Room*> Room::getConnections() const
 {
 	return connectedTo;
-}
-
-bool Room::isConnectedTo(Room toCheck) const
-{
-	for (Room i : connectedTo)
-		if (i.ID == toCheck.ID) {
-			return true;
-		}
-	return false;
 }
 
 // Function to Print the Room to the console.

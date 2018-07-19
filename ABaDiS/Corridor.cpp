@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Corridor.h"
 
-
 Corridor::Corridor(Room* a, Room* b) : Room()
 {
 	kor = Enumerators::KindOfRoom::street;
@@ -22,6 +21,8 @@ Corridor::Corridor(Room* a, Room* b) : Room()
 	maxCondition = maxCapacity * 4;
 	currentCondition = maxCondition;
 }
+
+Corridor::Corridor() : Room() {};
 
 void Corridor::printRoom() {
 	std::cout << name << ":" << std::endl

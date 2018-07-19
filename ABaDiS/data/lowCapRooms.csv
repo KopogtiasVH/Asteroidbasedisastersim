@@ -42,6 +42,9 @@ YELLOW-Sector
 GREEN-Sector
 PINK-Sector
 GRAY-Sector
+CYAN-Sector
+BROWN-Sector
+LIME-Sector
 BLACK-Sector
 WHITE-Sector
 ORANGE-Sector
@@ -58,3 +61,8 @@ Tunnel-IV
 Tunnel-V
 Miningshaft-1
 Miningshaft-2
+Sewers-I
+Sewers-II
+Sewers-III
+Sewers-IV
+Sewers-V
