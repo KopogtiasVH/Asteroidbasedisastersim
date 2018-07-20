@@ -36,11 +36,15 @@ Squad Leader::getSquad() const{
 	return squad;
 }
 
-void printSquad() {
-
+// print the squad.
+void Leader::printSquad() {
+	squad.printSquad();
 }
 
 bool Leader::recruit(Being toRecruit) {
 	return squad.recruit(toRecruit);
 }
 
+bool Leader::recruit() {
+	return false;
+}

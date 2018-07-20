@@ -13,7 +13,9 @@ public:
 
 	Leader(Room, Leader::Faction);
 
-	void printSquad();
+	virtual void printSquad();
+	virtual bool recruit();
+	virtual bool recruit(Being);
 
 	Squad getSquad() const;
 
@@ -24,6 +26,6 @@ protected:
 
 	Squad squad;
 	
-	bool recruit(Being);
+	
 };
 
