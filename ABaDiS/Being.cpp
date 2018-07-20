@@ -58,7 +58,6 @@ std::string Being::getName() const {
 	return fullName;
 }
 
-
 // Functions for printing stuff to the console
 
 // Print the being as a table

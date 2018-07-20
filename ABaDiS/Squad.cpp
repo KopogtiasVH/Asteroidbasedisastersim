@@ -64,4 +64,3 @@ void Squad::printSquad() {
 void Squad::setMaxSize(int i) {
 	maxSize = i;
 }
-
