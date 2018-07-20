@@ -22,5 +22,5 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(122)
   Generating Code...
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(173): warning C4715: 'NameGenerator::weaponName': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.cpp(185): warning C4715: 'NameGenerator::randomRank': not all control paths return a value
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.cpp(42): warning C4715: 'BaseSystem::connectRooms': not all control paths return a value
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.cpp(46): warning C4715: 'BaseSystem::connectRooms': not all control paths return a value
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe
