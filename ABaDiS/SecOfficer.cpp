@@ -37,7 +37,7 @@ SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Enumera
 	}
 
 	// SecOfficers recieve their weapon based on their class
-	weapon = Weapon(oClass);
+	weapon = new Weapon(oClass);
 
 	// Riot Specialists have more armor and always carry an Energy Baton
 	if (oClass == Enumerators::OfficerClass::riotSpecialist)

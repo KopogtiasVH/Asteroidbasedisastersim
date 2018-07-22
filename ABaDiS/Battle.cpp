@@ -8,11 +8,19 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	attackerFirstRow = std::vector<Being*>();
 	attackerSecondRow = std::vector<Being*>();
 	attackerReserve = &attackingLeader->getSquad();
+	
+	attackerMorale = attackingLeader->getCurrentMorale();
+	for (Being* b : attackerReserve->getMembers())
+		attackerMorale += b->getCurrentMorale();
 
 	defendingLeader = b;
 	defenderFirstRow = std::vector<Being*>();
 	defenderSecondRow = std::vector<Being*>();
 	defenderReserve = &defendingLeader->getSquad();
+
+	defenderMorale = defendingLeader->getCurrentMorale();
+	for (Being* b : defenderReserve->getMembers())
+		defenderMorale += b->getCurrentMorale();
 
 	battleground = r;
 	currentCondition = battleground->getCurrentCondition();

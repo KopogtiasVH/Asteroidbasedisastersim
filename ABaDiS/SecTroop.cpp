@@ -12,9 +12,9 @@ SecTroop::SecTroop(Room startingLocation) : Being(startingLocation)
 
 	// Security Troops start with standardized security weapons. Either a Security Revolver or a Police Baton.
 	if ((rand() % 100 + 1) <= 20) 
-		weapon = Weapon("sec_ranged");
+		weapon = new Weapon("sec_ranged");
 	else
-		weapon = Weapon("sec_cqc");
+		weapon = new Weapon("sec_cqc");
 
 	// Add a random rank to the name.
 	fullName = NameGenerator::randomRank(kob) + " " + fullName;

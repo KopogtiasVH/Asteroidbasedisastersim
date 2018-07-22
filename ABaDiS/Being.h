@@ -13,19 +13,21 @@ public:
 	void printWeapon();
 
 	std::string getName() const;
+	int getMaxMorale() const;
+	int getCurrentMorale() const;
 
 protected:
 	bool isAlive;
 	bool eager;
 
 	Room currentLocation;
-	Weapon weapon;
+	Weapon* weapon;
 	Enumerators::KindOfBeing kob;
 
 	int maxHealth;
 	int healthPoints;
 	int maxMorale;
-	int morale;
+	int currentMorale;
 
 	int strength;
 	int willpower;

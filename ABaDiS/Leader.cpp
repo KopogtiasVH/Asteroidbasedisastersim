@@ -10,7 +10,7 @@ Leader::Leader(Room currentLocation, Enumerators::Faction f) : Being(currentLoca
 	maxHealth += 10;
 	healthPoints = maxHealth;
 	maxMorale += 10;
-	morale = maxMorale;
+	currentMorale = maxMorale;
 
 	// Leaders are always armored
 	armor = 2;

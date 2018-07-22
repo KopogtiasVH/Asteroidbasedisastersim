@@ -16,14 +16,14 @@ private:
 	std::vector<Being*> attackerFirstRow;
 	std::vector<Being*> attackerSecondRow;
 	Squad* attackerReserve;
-	int attackerMaxMorale;
+	int attackerMorale;
 
 	// Defender Data
 	Leader* defendingLeader;
 	std::vector<Being*> defenderFirstRow;
 	std::vector<Being*> defenderSecondRow;
 	Squad* defenderReserve;
-	int defenderMaxMorale;
+	int defenderMorale;
 
 	// Theater Data
 	Room* battleground;

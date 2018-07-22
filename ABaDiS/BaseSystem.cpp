@@ -44,6 +44,16 @@ bool BaseSystem::connectRooms(int a, int b) {
 	}
 }
 
+Leader* BaseSystem::getLeader(int i) {
+	if (i <= leaders.size()) {
+		return leaders[i];
+	}
+	else {
+		std::cerr << "Index out of Bounds" << std::endl;
+		return NULL;
+	}
+}
+
 void BaseSystem::printRooms() {
 	for (Room* room : rooms) {
 		room->printRoom();

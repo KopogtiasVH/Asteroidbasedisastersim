@@ -14,27 +14,37 @@ Being::Being(Room startingLocation)
 
 	willpower = (rand() % 5) + 1;
 	maxMorale = 5 + willpower;
-	morale = maxMorale;
+	currentMorale = maxMorale;
 
 	strength = (rand() % 5) + 1;
 	maxHealth = 5 + strength;
 	healthPoints = maxHealth;
 
+	// TODO: Might switch gender from string to enum
 	if (rand() % 2 >= 1)
 		gender = "m";
 	else
 		gender = "f";
 
+	// TODO: Switch name into 3 distinct preNames
 	name = NameGenerator::humanName(gender);
 	surname = NameGenerator::humanSurname();
 	fullName = name + " " + surname;
 
 	occupation = "none";
 
-	weapon = Weapon();
+	weapon = new Weapon();
 	armor = 0;
 
 	kob = Enumerators::KindOfBeing::none;
+}
+
+int Being::getMaxMorale() const {
+	return maxMorale;
+}
+
+int Being::getCurrentMorale() const {
+	return currentMorale;
 }
 
 // Deal Damage to the being, check for status
@@ -50,7 +60,7 @@ void Being::doDamage(int d)
 // TODO: implement status check
 void Being::changeMorale(int d) 
 {
-	morale -= d;
+	currentMorale -= d;
 }
 
 // Return the name of the being (duh)
@@ -68,10 +78,10 @@ void Being::printBeingTable()
 		<< "	Gender:     " << gender << std::endl
 		<< "	Location:   " << currentLocation.getName() << std::endl
 		<< "	Health:     " << healthPoints << "/" << maxHealth << std::endl
-		<< "	Morale:     " << morale << "/" << maxMorale << std::endl
+		<< "	Morale:     " << currentMorale << "/" << maxMorale << std::endl
 		<< "	Strength:   " << strength << std::endl
 		<< "	Willpower:  " << willpower << std::endl
-		<< "	Weapon:     " << weapon.getName() << std::endl
+		<< "	Weapon:     " << weapon->getName() << std::endl
 		<< "	Armor:      " << armor << std::endl
 		<< "	Occupation: " << occupation << std::endl << std::endl;
 }
@@ -142,10 +152,10 @@ void Being::printBeingFlavor()
 	else 
 		strbrvratio = " and ";
 
-	if (weapon.getName() == "Bare_Fist")
+	if (weapon->getName() == "Bare_Fist")
 		weaponflav = "is holding no weapon";
 	else
-		weaponflav = "is holding a " + weapon.getName();
+		weaponflav = "is holding a " + weapon->getName();
 
 	switch (armor) {
 	case 0:
@@ -175,5 +185,5 @@ void Being::printBeingFlavor()
 // Print the weapon of the Being in a prosaic form
 void Being::printWeapon()
 {
-	std::cout << fullName << " is holding a " << weapon.getName() << std::endl;
+	std::cout << fullName << " is holding a " << weapon->getName() << std::endl;
 }

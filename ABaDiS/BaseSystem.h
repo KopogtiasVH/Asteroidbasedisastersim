@@ -25,6 +25,9 @@ public:
 	bool recruit(Leader*);
 	bool recruit(int);
 
+	// Getters
+	Leader* getLeader(int i);
+
 
 private:
 	std::vector<Room*> rooms;
