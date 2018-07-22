@@ -6,7 +6,7 @@
 	TODO: They can get orders from an allknowing security system which monitors the whole base.
 */
 
-SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Faction::SEC)
+SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Enumerators::Faction::SEC)
 {
 
 	kob = Enumerators::KindOfBeing::secofficer;
@@ -51,11 +51,10 @@ SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Faction
 
 // Generate a new SecTroop and add it to the squad
 bool SecOfficer::recruit() {
-	SecTroop newRecruit = SecTroop(currentLocation);
-	return squad.recruit(newRecruit);
+	return squad.recruit(new SecTroop(currentLocation));
 }
 
  // Add an existing SecTroop to the squad
 bool SecOfficer::recruit(SecTroop newRecruit) {
-	return squad.recruit(newRecruit);
+	return squad.recruit(&newRecruit);
 }

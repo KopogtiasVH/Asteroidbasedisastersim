@@ -6,12 +6,7 @@ class Leader : public Being
 {
 public:
 
-	enum Faction {
-		ANARC,
-		SEC
-	};
-
-	Leader(Room, Leader::Faction);
+	Leader(Room, Enumerators::Faction);
 
 	virtual void printSquad();
 	virtual bool recruit();
@@ -20,7 +15,7 @@ public:
 	Squad getSquad() const;
 
 protected:
-	Faction faction;
+	Enumerators::Faction faction;
 
 	int maxSquadSize;
 

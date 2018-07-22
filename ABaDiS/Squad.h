@@ -4,15 +4,15 @@
 class Squad
 {
 public:
-	Squad(int ms, std::string, std::string);
+	Squad(int ms, Enumerators::Faction, std::string);
 	Squad();
 
-	std::vector<Being> getMembers() const;
+	std::vector<Being*> getMembers() const;
 	int getSize() const;
 	int getMaxSize() const;
-	Being getMember(int) const;
+	Being* getMember(int) const;
 
-	bool recruit(Being);
+	bool recruit(Being*);
 
 	void printSquad();
 	void setMaxSize(int);
@@ -20,7 +20,7 @@ public:
 private:
 	int size;
 	int maxSize;
-	std::vector<Being> members;
+	std::vector<Being*> members;
 	std::string squadName;
 };
 

@@ -5,23 +5,25 @@ Squad::Squad() {
 
 }
 
-Squad::Squad(int ms, std::string f, std::string ln)
+Squad::Squad(int ms, Enumerators::Faction f, std::string ln)
 {
-	if (f == "ANARC") {
+	switch (f) {
+	case Enumerators::Faction::ANARC:
 		squadName = NameGenerator::militiaName(ln);
-	}
-	else if (f == "SEC") {
+		break;
+	case Enumerators::Faction::SEC:
 		squadName = ln + "'s Squad";
+		break;
+	default:
+		std::cerr << "Wrong faction identifier" << std::endl;
 	}
-	else {
-		std::cerr << "wrong faction identifier" << std::endl;
-	}
-	members = std::vector<Being>();
+
+	members = std::vector<Being*>();
 	maxSize = ms;
 	size = 0;
 }
 
-std::vector<Being> Squad::getMembers() const
+std::vector<Being*> Squad::getMembers() const
 {
 	return members;
 }
@@ -36,11 +38,11 @@ int Squad::getMaxSize() const
 	return maxSize;
 }
 
-Being Squad::getMember(int i) const{
+Being* Squad::getMember(int i) const{
 		return members[i];
 }
 
-bool Squad::recruit(Being toRecruit)
+bool Squad::recruit(Being* toRecruit)
 {
 	if (size < maxSize) {
 		members.push_back(toRecruit);
@@ -56,7 +58,7 @@ bool Squad::recruit(Being toRecruit)
 void Squad::printSquad() {
 		std::cout << "Squad: " << squadName << ": (" << size << "/" << maxSize << ")" << std::endl;
 		for (int i = 0; i < size; i++) {
-			std::cout << "	- " << members[i].getName() << std::endl;
+			std::cout << "	- " << members[i] -> getName() << std::endl;
 		}
 		std::cout << std::endl;
 }

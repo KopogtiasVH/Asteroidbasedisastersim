@@ -5,7 +5,7 @@
 	MobLeaders are the most important asset of the ANARC. Without them the raging mob has no coordination and is doomed to fail.
 */
 
-MobLeader::MobLeader(Room startingLocation) : Leader(startingLocation, Faction::ANARC)
+MobLeader::MobLeader(Room startingLocation) : Leader(startingLocation, Enumerators::Faction::ANARC)
 {
 
 	kob = Enumerators::KindOfBeing::mobleader;
@@ -45,6 +45,5 @@ MobLeader::MobLeader(Room startingLocation) : Leader(startingLocation, Faction::
 
 // Generate a new Goon and add it to the mob
 bool MobLeader::recruit() {
-	MobGoon newGoon = MobGoon(currentLocation);
-	return squad.recruit(newGoon);
+	return squad.recruit(new MobGoon(currentLocation));
 }

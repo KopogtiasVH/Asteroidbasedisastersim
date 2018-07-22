@@ -27,5 +27,9 @@ public:
 		livingQuarter
 	};
 
+	enum class Faction {
+		ANARC,
+		SEC
+	};
 };
 

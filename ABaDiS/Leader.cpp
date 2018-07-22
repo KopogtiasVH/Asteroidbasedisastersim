@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Being.h"
 
-Leader::Leader(Room currentLocation, Faction f) : Being(currentLocation)
+Leader::Leader(Room currentLocation, Enumerators::Faction f) : Being(currentLocation)
 {
 	// Leaders have a Faction to determine their fighting behavior
 	faction = f;
@@ -19,16 +19,7 @@ Leader::Leader(Room currentLocation, Faction f) : Being(currentLocation)
 	maxSquadSize = maxMorale - 5;
 
 	// All Leaders have a Squad
-	switch (faction) {
-	case ANARC:
-		squad = Squad(maxSquadSize, "ANARC", surname);
-		break;
-	case SEC:
-		squad = Squad(maxSquadSize, "SEC", surname);
-		break;
-	default:
-		break;
-	}
+	squad = Squad(maxSquadSize, f, surname);
 }
 
 // return the squad.
@@ -42,7 +33,7 @@ void Leader::printSquad() {
 }
 
 bool Leader::recruit(Being toRecruit) {
-	return squad.recruit(toRecruit);
+	return squad.recruit(&toRecruit);
 }
 
 bool Leader::recruit() {
