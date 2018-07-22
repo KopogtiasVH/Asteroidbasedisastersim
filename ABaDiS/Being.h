@@ -5,7 +5,7 @@
 class Being
 {
 public:
-	Being(Room startingLocation);
+	Being(Room*);
 	void doDamage(int);
 	void changeMorale(int);
 	void printBeingTable();
@@ -16,11 +16,13 @@ public:
 	int getMaxMorale() const;
 	int getCurrentMorale() const;
 
+	Room* getCurrentLocation() const;
+
 protected:
 	bool isAlive;
 	bool eager;
 
-	Room currentLocation;
+	Room* currentLocation;
 	Weapon* weapon;
 	Enumerators::KindOfBeing kob;
 
@@ -37,7 +39,8 @@ protected:
 	std::string fullName;
 	std::string name;
 	std::string surname;
-	std::string gender;
 	std::string occupation;
+
+	Enumerators::Gender gender;
 };
 

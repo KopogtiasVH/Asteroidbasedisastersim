@@ -6,11 +6,11 @@ class Leader : public Being
 {
 public:
 
-	Leader(Room, Enumerators::Faction);
+	Leader(Room*, Enumerators::Faction);
 
 	virtual void printSquad();
 	virtual bool recruit();
-	virtual bool recruit(Being);
+	virtual bool recruit(Being*);
 
 	Squad getSquad() const;
 

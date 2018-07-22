@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Being.h"
 
-Leader::Leader(Room currentLocation, Enumerators::Faction f) : Being(currentLocation)
+Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLocation)
 {
 	// Leaders have a Faction to determine their fighting behavior
 	faction = f;
@@ -35,8 +35,8 @@ void Leader::printSquad() {
 	squad.printSquad();
 }
 
-bool Leader::recruit(Being toRecruit) {
-	return squad.recruit(&toRecruit);
+bool Leader::recruit(Being* toRecruit) {
+	return squad.recruit(toRecruit);
 }
 
 bool Leader::recruit() {

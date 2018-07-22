@@ -3,6 +3,6 @@
 class MobGoon : public Being
 {
 public:
-	MobGoon(Room);
+	MobGoon(Room*);
 };
 

@@ -120,30 +120,33 @@ std::string NameGenerator::streetName(Enumerators::KindOfRoom kor) {
 	return name;
 }
 
-std::string NameGenerator::humanName(std::string gender) {
+std::string NameGenerator::humanName(Enumerators::Gender gender) {
 	std::string name = "";
 
 	if (!isGenerated) {
 		setupNameLists();
 	}
-
-	if (gender == "m") {
+	switch (gender) {
+	case (Enumerators::Gender::male):
 		name = name + maleNames[rand() % maleNames.size()];
-		if (rand() % 100 + 1 < 30) {
+		if (rand() % 100 + 1 < 25) {
 			name += " " + maleNames[rand() % maleNames.size()];
 		}
-		if (rand() % 100 + 1 < 30) {
+		if (rand() % 100 + 1 < 25) {
 			name += " " + maleNames[rand() % maleNames.size()];
 		}
-	}
-	else if (gender =="f") {
+		break;
+	case (Enumerators::Gender::female):
 		name += femaleNames[rand() % femaleNames.size()];
-		if (rand() % 100 + 1 < 30) {
+		if (rand() % 100 + 1 < 25) {
 			name += " " + femaleNames[rand() % femaleNames.size()];
 		}
-		if (rand() % 100 + 1 < 30) {
+		if (rand() % 100 + 1 < 25) {
 			name += " " + femaleNames[rand() % femaleNames.size()];
 		}
+		break;
+	default:
+		std::cerr << "No suitable Gender found" << std::endl;
 	}
 
 	return name;

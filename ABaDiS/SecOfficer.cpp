@@ -6,7 +6,7 @@
 	TODO: They can get orders from an allknowing security system which monitors the whole base.
 */
 
-SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Enumerators::Faction::SEC)
+SecOfficer::SecOfficer(Room* startingLocation) : Leader(startingLocation, Enumerators::Faction::SEC)
 {
 
 	kob = Enumerators::KindOfBeing::secofficer;

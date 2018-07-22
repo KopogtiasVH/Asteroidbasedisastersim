@@ -5,7 +5,7 @@
 	MobLeaders are the most important asset of the ANARC. Without them the raging mob has no coordination and is doomed to fail.
 */
 
-MobLeader::MobLeader(Room startingLocation) : Leader(startingLocation, Enumerators::Faction::ANARC)
+MobLeader::MobLeader(Room* startingLocation) : Leader(startingLocation, Enumerators::Faction::ANARC)
 {
 
 	kob = Enumerators::KindOfBeing::mobleader;

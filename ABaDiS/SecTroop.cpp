@@ -4,7 +4,7 @@
 	SecTroop is a regular Security Enforcer. Usually he serves under a Security Officer but he can also recieve Orders from the Bases Security Network.
 */
 
-SecTroop::SecTroop(Room startingLocation) : Being(startingLocation)
+SecTroop::SecTroop(Room* startingLocation) : Being(startingLocation)
 {
 	kob = Enumerators::KindOfBeing::sectroop;
 

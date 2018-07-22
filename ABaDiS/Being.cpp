@@ -4,7 +4,7 @@
 	Being is the general AI class. Every living thing on the Asteroid Base is a Being.
 */
 
-Being::Being(Room startingLocation)
+Being::Being(Room* startingLocation)
 {
 
 	// General Setup of a regular Human Being
@@ -22,9 +22,9 @@ Being::Being(Room startingLocation)
 
 	// TODO: Might switch gender from string to enum
 	if (rand() % 2 >= 1)
-		gender = "m";
+		gender = Enumerators::Gender::male;
 	else
-		gender = "f";
+		gender = Enumerators::Gender::female;
 
 	// TODO: Switch name into 3 distinct preNames
 	name = NameGenerator::humanName(gender);
@@ -45,6 +45,10 @@ int Being::getMaxMorale() const {
 
 int Being::getCurrentMorale() const {
 	return currentMorale;
+}
+
+Room* Being::getCurrentLocation() const {
+	return currentLocation;
 }
 
 // Deal Damage to the being, check for status
@@ -73,10 +77,23 @@ std::string Being::getName() const {
 // Print the being as a table
 void Being::printBeingTable() 
 {
+	std::string genderString = "";
+	switch (gender) {
+	case (Enumerators::Gender::male):
+		genderString = "m";
+		break;
+	case (Enumerators::Gender::female):
+		genderString = "f";
+		break;
+	default:
+		genderString = "ERROR";
+		break;
+	}
+
 	std::cout << "Being:" << std::endl
 		<< "	Name:       " << fullName << std::endl
-		<< "	Gender:     " << gender << std::endl
-		<< "	Location:   " << currentLocation.getName() << std::endl
+		<< "	Gender:     " << genderString << std::endl
+		<< "	Location:   " << currentLocation->getName() << std::endl
 		<< "	Health:     " << healthPoints << "/" << maxHealth << std::endl
 		<< "	Morale:     " << currentMorale << "/" << maxMorale << std::endl
 		<< "	Strength:   " << strength << std::endl
@@ -91,13 +108,17 @@ void Being::printBeingFlavor()
 {
 	std::string genderflav, occupationflav, locflav, strengthflav, willpowerflav, weaponflav, armorflav, pronoun, strbrvratio;
 	
-	if (gender == "m") {
+	switch (gender) {
+	case (Enumerators::Gender::male):
 		genderflav = " is a male ";
 		pronoun = "He ";
-	}
-	else {
+		break;
+	case (Enumerators::Gender::female):
 		genderflav = " is a female ";
 		pronoun = "She ";
+		break;
+	default:
+		break;
 	}
 
 	if (occupation == "none")
@@ -105,7 +126,7 @@ void Being::printBeingFlavor()
 	else
 		occupationflav = occupation + ", ";
 
-	locflav = "who is currently at " + currentLocation.getName() + ".";
+	locflav = "who is currently at " + currentLocation->getName() + ".";
 
 	switch (strength) {
 	case 1:

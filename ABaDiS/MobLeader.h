@@ -11,7 +11,7 @@ public:
 		leader
 	};
 
-	MobLeader(Room);
+	MobLeader(Room*);
 	bool recruit();
 	LeaderClass lClass;
 

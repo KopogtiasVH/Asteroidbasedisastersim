@@ -65,7 +65,7 @@ bool BaseSystem::createRoom() {
 	return true;
 }
 
-bool BaseSystem::createMobLeader(Room r) {
+bool BaseSystem::createMobLeader(Room* r) {
 	leaders.push_back(new MobLeader(r));
 	return true;
 }
@@ -74,7 +74,7 @@ Room* BaseSystem::getRandomRoom() {
 	return rooms[rand() % rooms.size()];
 }
 
-bool BaseSystem::createSecLeader(Room r) {
+bool BaseSystem::createSecLeader(Room* r) {
 	leaders.push_back(new SecOfficer(r));
 	return true;
 }

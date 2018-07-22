@@ -4,7 +4,7 @@
 	Nothing more but a hired muscle.
 */
 
-MobGoon::MobGoon(Room startingLocation) : Being(startingLocation)
+MobGoon::MobGoon(Room* startingLocation) : Being(startingLocation)
 {
 	kob = Enumerators::KindOfBeing::mobgoon;
 

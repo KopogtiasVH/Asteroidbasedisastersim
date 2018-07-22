@@ -7,7 +7,7 @@
 class NameGenerator
 {
 public:
-	static std::string humanName(std::string gender);
+	static std::string humanName(Enumerators::Gender);
 	static std::string humanSurname();
 	static std::string lowCapRoomName(int cap);
 	static std::string roomName(int, int);

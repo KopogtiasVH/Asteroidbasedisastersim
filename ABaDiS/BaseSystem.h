@@ -19,8 +19,8 @@ public:
 	Room* getRandomRoom();
 	
 	// LEADER Section
-	bool createMobLeader(Room);
-	bool createSecLeader(Room);
+	bool createMobLeader(Room*);
+	bool createSecLeader(Room*);
 	void printLeaders();
 	bool recruit(Leader*);
 	bool recruit(int);

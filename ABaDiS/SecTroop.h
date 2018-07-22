@@ -5,6 +5,6 @@
 class SecTroop : public Being
 {
 public:
-	SecTroop(Room startingLocation);
+	SecTroop(Room*);
 };
 

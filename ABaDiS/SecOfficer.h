@@ -6,7 +6,7 @@ class SecOfficer : public Leader
 {
 public:
 
-	SecOfficer(Room);
+	SecOfficer(Room*);
 
 	bool recruit();
 	bool recruit(SecTroop);

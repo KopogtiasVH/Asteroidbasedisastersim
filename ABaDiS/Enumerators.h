@@ -27,9 +27,16 @@ public:
 		livingQuarter
 	};
 
+	// The Factions a Leader can belong to
 	enum class Faction {
 		ANARC,
 		SEC
+	};
+
+	// Genders
+	enum class Gender {
+		male,
+		female
 	};
 };
 
