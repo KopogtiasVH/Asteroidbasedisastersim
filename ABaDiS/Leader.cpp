@@ -20,6 +20,9 @@ Leader::Leader(Room currentLocation, Enumerators::Faction f) : Being(currentLoca
 
 	// All Leaders have a Squad
 	squad = Squad(maxSquadSize, f, surname);
+
+	// Leaders don't start in fights
+	isFighting = false;
 }
 
 // return the squad.

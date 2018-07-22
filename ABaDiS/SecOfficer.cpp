@@ -40,9 +40,8 @@ SecOfficer::SecOfficer(Room startingLocation) : Leader(startingLocation, Enumera
 	weapon = Weapon(oClass);
 
 	// Riot Specialists have more armor and always carry an Energy Baton
-	if (oClass == Enumerators::OfficerClass::riotSpecialist) {
+	if (oClass == Enumerators::OfficerClass::riotSpecialist)
 		armor++;
-	}
 
 	// Commanders can command a bigger squad
 	if (oClass == Enumerators::OfficerClass::commander)

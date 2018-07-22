@@ -18,6 +18,7 @@ protected:
 	Enumerators::Faction faction;
 
 	int maxSquadSize;
+	bool isFighting;
 
 	Squad squad;
 	
