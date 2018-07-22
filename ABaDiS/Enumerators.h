@@ -38,5 +38,13 @@ public:
 		male,
 		female
 	};
+
+	// Weapontypes
+	enum class Weapontype {
+		blunt,
+		pierce,
+		ranged,
+		explosive
+	};
 };
 

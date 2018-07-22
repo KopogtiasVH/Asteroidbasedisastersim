@@ -15,13 +15,13 @@ MobGoon::MobGoon(Room* startingLocation) : Being(startingLocation)
 	if (weaponGen < 25)
 		weapon = new Weapon();
 	else if (weaponGen < 50)
-		weapon = new Weapon(Weapon::blunt);
+		weapon = new Weapon(Enumerators::Weapontype::blunt);
 	else if (weaponGen < 75)
-		weapon = new Weapon(Weapon::pierce);
+		weapon = new Weapon(Enumerators::Weapontype::pierce);
 	else if (weaponGen < 95)
-		weapon = new Weapon(Weapon::ranged);
+		weapon = new Weapon(Enumerators::Weapontype::ranged);
 	else
-		weapon = new Weapon(Weapon::explosive);
+		weapon = new Weapon(Enumerators::Weapontype::explosive);
 
 	// Goons have either no ore light armor.
 	armor = rand() % 2;
@@ -38,13 +38,13 @@ MobGoon::MobGoon(Leader* startingLeader) : Being(currentLocation)
 	if (weaponGen < 25)
 		weapon = new Weapon();
 	else if (weaponGen < 50)
-		weapon = new Weapon(Weapon::blunt);
+		weapon = new Weapon(Enumerators::Weapontype::blunt);
 	else if (weaponGen < 75)
-		weapon = new Weapon(Weapon::pierce);
+		weapon = new Weapon(Enumerators::Weapontype::pierce);
 	else if (weaponGen < 95)
-		weapon = new Weapon(Weapon::ranged);
+		weapon = new Weapon(Enumerators::Weapontype::ranged);
 	else
-		weapon = new Weapon(Weapon::explosive);
+		weapon = new Weapon(Enumerators::Weapontype::explosive);
 
 	// Goons have either no ore light armor.
 	armor = rand() % 2;

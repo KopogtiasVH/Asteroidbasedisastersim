@@ -20,6 +20,7 @@ public:
 	int getCurrentMorale() const;
 
 	Room* getCurrentLocation() const;
+	Weapon* getWeapon() const;
 
 protected:
 	bool isAlive;

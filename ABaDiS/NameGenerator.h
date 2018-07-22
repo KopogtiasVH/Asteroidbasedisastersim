@@ -12,7 +12,7 @@ public:
 	static std::string lowCapRoomName(int cap);
 	static std::string roomName(int, int);
 	static std::string streetName(Enumerators::KindOfRoom);
-	static std::string weaponName(Weapon::weapontype);
+	static std::string weaponName(Enumerators::Weapontype);
 	static std::string randomRank(std::string toAssign);
 	static std::string randomRank(Enumerators::KindOfBeing);
 	static std::string randomJob();

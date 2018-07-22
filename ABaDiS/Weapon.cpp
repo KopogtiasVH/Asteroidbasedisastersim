@@ -8,7 +8,7 @@
 // The weapon without parameters are your bare hands.
 Weapon::Weapon() {
 	name = "Bare_Fist";
-	wt = Weapon::blunt;
+	wt = Enumerators::Weapontype::blunt;
 	strengthMod = 0;
 	range = 0;
 	extraDamage = 0;
@@ -18,13 +18,13 @@ Weapon::Weapon() {
 }
 
 // Return a random weapon, based on a given type
-Weapon::Weapon(Weapon::weapontype t)
+Weapon::Weapon(Enumerators::Weapontype t)
 {
 	name = NameGenerator::weaponName(t);
 	wt = t;
 
 	switch (t) {
-	case Weapon::blunt:
+	case Enumerators::Weapontype::blunt:
 		strengthMod = rand() % 3 + 1;
 		range = 0;
 		extraDamage = 0;
@@ -32,7 +32,7 @@ Weapon::Weapon(Weapon::weapontype t)
 		riskOfUse = 0;
 		accuracy = 90;
 		break;
-	case Weapon::pierce:
+	case Enumerators::Weapontype::pierce:
 		strengthMod = rand() % 2;
 		range = 0;
 		extraDamage = rand() % 3 + 1;
@@ -40,7 +40,7 @@ Weapon::Weapon(Weapon::weapontype t)
 		riskOfUse = 0;
 		accuracy = 90;
 		break;
-	case Weapon::ranged:
+	case Enumerators::Weapontype::ranged:
 		strengthMod = 0;
 		range = 2;
 		extraDamage = rand() % 5 + 1;
@@ -48,7 +48,7 @@ Weapon::Weapon(Weapon::weapontype t)
 		riskOfUse = 10;
 		accuracy = 50;
 		break;
-	case Weapon::explosive:
+	case Enumerators::Weapontype::explosive:
 		strengthMod = 0;
 		range = 1;
 		extraDamage = rand() % 10 + 5;
@@ -66,7 +66,7 @@ Weapon::Weapon(Weapon::weapontype t)
 Weapon::Weapon(std::string type) {
 	if (type == "sec_cqc") {	// Police Baton
 		name = "Police_Baton";
-		wt = Weapon::blunt;
+		wt = Enumerators::Weapontype::blunt;
 		strengthMod = 2;
 		range = 0;
 		extraDamage = 0;
@@ -76,7 +76,7 @@ Weapon::Weapon(std::string type) {
 	}
 	else if (type == "sec_ranged") {	// Security Revolver
 		name = "Security_Revolver";
-		wt = Weapon::ranged;
+		wt = Enumerators::Weapontype::ranged;
 		strengthMod = 0;
 		range = 2;
 		extraDamage = 4;
@@ -86,7 +86,7 @@ Weapon::Weapon(std::string type) {
 	}
 	else if (type == "sec_riotSpecialist") {	// Energy Baton
 		name = "Energy_Baton";
-		wt = Weapon::blunt;
+		wt = Enumerators::Weapontype::blunt;
 		strengthMod = 2;
 		range = 0;
 		extraDamage = 1;
@@ -105,7 +105,7 @@ Weapon::Weapon(Enumerators::OfficerClass profession)
 		profession == Enumerators::OfficerClass::commander ||
 		profession == Enumerators::OfficerClass::officer) {	// Security Revolver
 		name = "Security_Revolver";
-		wt = Weapon::ranged;
+		wt = Enumerators::Weapontype::ranged;
 		strengthMod = 0;
 		range = 2;
 		extraDamage = 4;
@@ -115,7 +115,7 @@ Weapon::Weapon(Enumerators::OfficerClass profession)
 	}
 	else if (profession == Enumerators::OfficerClass::riotSpecialist) {	// Energy Baton
 		name = "Energy_Baton";
-		wt = Weapon::blunt;
+		wt = Enumerators::Weapontype::blunt;
 		strengthMod = 2;
 		range = 0;
 		extraDamage = 1;
@@ -128,11 +128,13 @@ Weapon::Weapon(Enumerators::OfficerClass profession)
 	}
 }
 
-
-
-
 // Return the name of the weapon
 std::string Weapon::getName() const
 {
 	return name;
+}
+
+// Return the weapontype
+Enumerators::Weapontype Weapon::getWeapontype() const{
+	return wt;
 }

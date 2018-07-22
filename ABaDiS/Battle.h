@@ -4,25 +4,28 @@ class Battle
 public:
 	Battle(Leader*, Leader*, Room*);
 
+	// Important Methods
 	bool prepareNextRound();
 	bool calculateRound();
 	bool endRound();
 	bool aftermath();
 
+	// Helping Methods
+	
 
 private:
 	// Attacker Data
 	Leader * attackingLeader;
 	std::vector<Being*> attackerFirstRow;
 	std::vector<Being*> attackerSecondRow;
-	Squad* attackerReserve;
+	std::vector<Being*> attackerReserve;
 	int attackerMorale;
 
 	// Defender Data
 	Leader* defendingLeader;
 	std::vector<Being*> defenderFirstRow;
 	std::vector<Being*> defenderSecondRow;
-	Squad* defenderReserve;
+	std::vector<Being*> defenderReserve;
 	int defenderMorale;
 
 	// Theater Data

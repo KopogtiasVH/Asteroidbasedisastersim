@@ -51,6 +51,10 @@ Room* Being::getCurrentLocation() const {
 	return currentLocation;
 }
 
+Weapon* Being::getWeapon() const {
+	return weapon;
+}
+
 // Deal Damage to the being, check for status
 // TODO: implement status check
 void Being::doDamage(int d)

@@ -160,22 +160,22 @@ std::string NameGenerator::humanSurname() {
 	return surNames[rand() % surNames.size()];
 }
 
-std::string NameGenerator::weaponName(Weapon::weapontype t) {
+std::string NameGenerator::weaponName(Enumerators::Weapontype t) {
 	if (!isGenerated) {
 		setupNameLists();
 	}
 
 	switch (t) {
-	case (Weapon::blunt):
+	case (Enumerators::Weapontype::blunt):
 		return bluntWeapons[rand() % bluntWeapons.size()];
 		break;
-	case (Weapon::pierce):
+	case (Enumerators::Weapontype::pierce):
 		return pierceWeapons[rand() % pierceWeapons.size()];
 		break;
-	case (Weapon::ranged):
+	case (Enumerators::Weapontype::ranged):
 		return rangedWeapons[rand() % rangedWeapons.size()];
 		break;
-	case (Weapon::explosive):
+	case (Enumerators::Weapontype::explosive):
 		return explosiveWeapons[rand() % explosiveWeapons.size()];
 		break;
 	default:

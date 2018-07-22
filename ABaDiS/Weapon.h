@@ -6,23 +6,19 @@ class Weapon
 {
 public:
 	
-	enum weapontype {
-		blunt,
-		pierce,
-		ranged,
-		explosive
-	};
+	
 
 	Weapon();
-	Weapon(weapontype);
+	Weapon(Enumerators::Weapontype);
 	Weapon(std::string);
 	Weapon(Enumerators::OfficerClass);
 
 	std::string getName() const;
+	Enumerators::Weapontype getWeapontype() const;
 
 private:
 	std::string name;
-	weapontype wt;
+	Enumerators::Weapontype wt;
 	int strengthMod;
 	int range;
 	int extraDamage;

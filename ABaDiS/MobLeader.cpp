@@ -32,7 +32,7 @@ MobLeader::MobLeader(Room* startingLocation) : Leader(startingLocation, Enumerat
 	}
 
 	// MobLeaders always carry a ranged weapon.
-	weapon = new Weapon(Weapon::ranged);
+	weapon = new Weapon(Enumerators::Weapontype::ranged);
 
 
 	// Crime Bosses have a bigger squad
