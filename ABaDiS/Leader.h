@@ -12,7 +12,9 @@ public:
 	virtual bool recruit();
 	virtual bool recruit(Being*);
 
-	Squad getSquad() const;
+	Squad* getSquad() const;
+
+	std::string getSquadName() const;
 
 protected:
 	Enumerators::Faction faction;
@@ -20,7 +22,6 @@ protected:
 	int maxSquadSize;
 	bool isFighting;
 
-	Squad squad;
-	
-	
+	Squad* squad;
+	std::string squadName;
 };

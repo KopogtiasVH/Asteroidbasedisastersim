@@ -50,10 +50,10 @@ SecOfficer::SecOfficer(Room* startingLocation) : Leader(startingLocation, Enumer
 
 // Generate a new SecTroop and add it to the squad
 bool SecOfficer::recruit() {
-	return squad.recruit(new SecTroop(currentLocation));
+	return squad->recruit(new SecTroop(this));
 }
 
  // Add an existing SecTroop to the squad
 bool SecOfficer::recruit(SecTroop newRecruit) {
-	return squad.recruit(&newRecruit);
+	return squad->recruit(&newRecruit);
 }

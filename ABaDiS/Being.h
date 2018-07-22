@@ -8,11 +8,14 @@ public:
 	Being(Room*);
 	void doDamage(int);
 	void changeMorale(int);
-	void printBeingTable();
-	void printBeingFlavor();
-	void printWeapon();
+
+	//Printers
+	virtual void printBeingTable();
+	virtual void printBeingFlavor();
+	virtual void printWeapon();
 
 	std::string getName() const;
+	std::string getSurName() const;
 	int getMaxMorale() const;
 	int getCurrentMorale() const;
 

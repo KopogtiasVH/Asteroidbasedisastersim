@@ -17,6 +17,8 @@ public:
 	void printSquad();
 	void setMaxSize(int);
 
+	std::string getSquadName() const;
+
 private:
 	int size;
 	int maxSize;

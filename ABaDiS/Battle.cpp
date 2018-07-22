@@ -7,7 +7,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	attackingLeader = a;
 	attackerFirstRow = std::vector<Being*>();
 	attackerSecondRow = std::vector<Being*>();
-	attackerReserve = &attackingLeader->getSquad();
+	attackerReserve = attackingLeader->getSquad();
 	
 	attackerMorale = attackingLeader->getCurrentMorale();
 	for (Being* b : attackerReserve->getMembers())
@@ -16,7 +16,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	defendingLeader = b;
 	defenderFirstRow = std::vector<Being*>();
 	defenderSecondRow = std::vector<Being*>();
-	defenderReserve = &defendingLeader->getSquad();
+	defenderReserve = defendingLeader->getSquad();
 
 	defenderMorale = defendingLeader->getCurrentMorale();
 	for (Being* b : defenderReserve->getMembers())

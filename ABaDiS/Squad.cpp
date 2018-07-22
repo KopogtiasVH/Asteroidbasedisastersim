@@ -63,6 +63,10 @@ void Squad::printSquad() {
 		std::cout << std::endl;
 }
 
+std::string Squad::getSquadName() const{
+	return squadName;
+}
+
 void Squad::setMaxSize(int i) {
 	maxSize = i;
 }

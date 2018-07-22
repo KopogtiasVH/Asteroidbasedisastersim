@@ -38,12 +38,12 @@ MobLeader::MobLeader(Room* startingLocation) : Leader(startingLocation, Enumerat
 	// Crime Bosses have a bigger squad
 	if (lClass == MobLeader::crimeBoss) {
 		maxSquadSize += 5;
-		squad.setMaxSize(maxSquadSize);
+		squad->setMaxSize(maxSquadSize);
 	}
 
 }
 
 // Generate a new Goon and add it to the mob
 bool MobLeader::recruit() {
-	return squad.recruit(new MobGoon(currentLocation));
+	return squad->recruit(new MobGoon(this));
 }

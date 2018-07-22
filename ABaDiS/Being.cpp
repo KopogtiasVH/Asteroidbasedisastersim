@@ -72,6 +72,11 @@ std::string Being::getName() const {
 	return fullName;
 }
 
+// Return only the Surname
+std::string Being::getSurName() const {
+	return surname;
+}
+
 // Functions for printing stuff to the console
 
 // Print the being as a table

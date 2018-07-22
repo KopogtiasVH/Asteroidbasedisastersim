@@ -165,26 +165,23 @@ std::string NameGenerator::weaponName(Weapon::weapontype t) {
 		setupNameLists();
 	}
 
-	if (t == Weapon::blunt)
+	switch (t) {
+	case (Weapon::blunt):
 		return bluntWeapons[rand() % bluntWeapons.size()];
-	else if (t == Weapon::pierce)
+		break;
+	case (Weapon::pierce):
 		return pierceWeapons[rand() % pierceWeapons.size()];
-	else if (t == Weapon::ranged)
+		break;
+	case (Weapon::ranged):
 		return rangedWeapons[rand() % rangedWeapons.size()];
-	else if (t == Weapon::explosive)
+		break;
+	case (Weapon::explosive):
 		return explosiveWeapons[rand() % explosiveWeapons.size()];
-}
-
-
-std::string NameGenerator::randomRank(std::string toAssign) {
-	if (!isGenerated) {
-		setupNameLists();
+		break;
+	default:
+		std::cerr << "Wrong Weapon Type" << std::endl;
+		return "";
 	}
-	
-	if (toAssign == "sectroop")
-		return secRanks[rand() % 5];
-	else if (toAssign == "secofficer")
-		return secRanks[rand() % 5 + 5];
 }
 
 std::string NameGenerator::randomRank(Enumerators::KindOfBeing toAssign)

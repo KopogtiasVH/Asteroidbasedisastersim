@@ -19,24 +19,30 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 	maxSquadSize = maxMorale - 5;
 
 	// All Leaders have a Squad
-	squad = Squad(maxSquadSize, f, surname);
+	squad = new Squad(maxSquadSize, f, surname);
+	squadName = squad->getSquadName();
 
 	// Leaders don't start in fights
 	isFighting = false;
 }
 
 // return the squad.
-Squad Leader::getSquad() const{
+Squad* Leader::getSquad() const{
 	return squad;
+}
+
+// return squad's name
+std::string Leader::getSquadName() const {
+	return squadName;
 }
 
 // print the squad.
 void Leader::printSquad() {
-	squad.printSquad();
+	squad->printSquad();
 }
 
 bool Leader::recruit(Being* toRecruit) {
-	return squad.recruit(toRecruit);
+	return squad->recruit(toRecruit);
 }
 
 bool Leader::recruit() {
