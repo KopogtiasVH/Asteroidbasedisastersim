@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BaseSystem.h" />
+    <ClInclude Include="Battle.h" />
     <ClInclude Include="Being.h" />
     <ClInclude Include="Corridor.h" />
     <ClInclude Include="Enumerators.h" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClCompile Include="ABaDiS.cpp" />
     <ClCompile Include="BaseSystem.cpp" />
+    <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Being.cpp" />
     <ClCompile Include="Corridor.cpp" />
     <ClCompile Include="Leader.cpp" />
