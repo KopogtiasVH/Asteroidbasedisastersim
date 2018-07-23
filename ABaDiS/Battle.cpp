@@ -28,6 +28,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	// Prepare the Battlefield
 	battleground = r;
 	currentCondition = battleground->getCurrentCondition();
+	environmentalDamage = 0;
 	frontWidth = battleground->getCapacity() / 10;
 
 	// Additional Setup
@@ -38,9 +39,18 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	memorial = std::vector<Being*>();
 	title = "";
 
-	std::cout << "Attackers Morale: " << attackerMorale << std::endl;
-	std::cout << "Defenders Morale: " << defenderMorale << std::endl;
+	prepareReserves();
 }
+
+// One Fighting Round
+void Battle::fight() {
+	prepareNextRound();
+	calculateRound();
+	endRound();
+	if (!isOngoing)
+		aftermath();
+}
+
 // Fill the Row Vectors with new Units to max out the frontWidth
 bool Battle::prepareNextRound() {
 
@@ -170,24 +180,47 @@ bool Battle::prepareNextRound() {
 bool Battle::calculateRound() {
 	// Attackers Front Row Attacks
 	for (int i = 0; i < attackerFirstRow.size(); i++) {
+		int currentDamage = attackerFirstRow[i]->attack();
+		if (currentDamage >= ENV_THRESHOLD || 
+			(attackerFirstRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged &&
+			 attackerFirstRow[i]->getWeapon()->getNoOfUses() > 0))
+			environmentalDamage++;
+		if (attackerFirstRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive &&
+			attackerFirstRow[i]->getWeapon()->getNoOfUses() > 0)
+			environmentalDamage += EXPLOSIVE_DAMAGE;
 		if (attackerFirstRow.size() <= defenderFirstRow.size()) {
-			defenderFirstRow[i]->doDamage(attackerFirstRow[i]->attack());
+			defenderFirstRow[i]->doDamage(currentDamage);
 		}
 		else {
-			defenderFirstRow[rand() % defenderFirstRow.size()]->doDamage(attackerFirstRow[i]->attack());
+			defenderFirstRow[rand() % defenderFirstRow.size()]->doDamage(currentDamage);
 		}
 	}
 
 	// Attackers Second Row Attacks if the have Ranged or Explosive Weapons
 	for (int i = 0; i < attackerSecondRow.size(); i++) {
+		if (attackerSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged &&
+			attackerSecondRow[i]->getWeapon()->getNoOfUses() > 0)
+			environmentalDamage++;
+		if (attackerSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive &&
+			attackerSecondRow[i]->getWeapon()->getNoOfUses() > 0)
+			environmentalDamage += EXPLOSIVE_DAMAGE;
 		if (attackerSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged ||
 			attackerSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive) {
 			defenderFirstRow[rand() % defenderFirstRow.size()]->doDamage(attackerSecondRow[i]->attack());
 		}
+		
 	}
 
 	// Defenders Front Row Attacks
 	for (int i = 0; i < defenderFirstRow.size(); i++) {
+		int currentDamage = defenderFirstRow[i]->attack();
+		if (currentDamage >= ENV_THRESHOLD ||
+			(defenderFirstRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged &&
+				defenderFirstRow[i]->getWeapon()->getNoOfUses() > 0))
+			environmentalDamage++;
+		if (defenderFirstRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive &&
+			defenderFirstRow[i]->getWeapon()->getNoOfUses() > 0)
+			environmentalDamage += EXPLOSIVE_DAMAGE;
 		if (defenderFirstRow.size() <= attackerFirstRow.size()) {
 			attackerFirstRow[i]->doDamage(defenderFirstRow[i]->attack());
 		}
@@ -198,6 +231,12 @@ bool Battle::calculateRound() {
 
 	// Defenders Second Row Attacks if it has Ranged or Explosive Weapons
 	for (int i = 0; i < defenderSecondRow.size(); i++) {
+		if (defenderSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged &&
+			defenderSecondRow[i]->getWeapon()->getNoOfUses() > 0)
+			environmentalDamage++;
+		if (defenderSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive &&
+			defenderSecondRow[i]->getWeapon()->getNoOfUses() > 0)
+			environmentalDamage += EXPLOSIVE_DAMAGE;
 		if (defenderSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged ||
 			defenderSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive) {
 			attackerFirstRow[rand() % attackerFirstRow.size()]->doDamage(defenderSecondRow[i]->attack());
@@ -207,8 +246,90 @@ bool Battle::calculateRound() {
 	return true;
 }
 
+// Empty out fallen and fleeing Units and check if the fight is going for another round
 bool Battle::endRound() {
-	// Empty out fallen and fleeing Units and check if the fight is going for another round
+	// Clear Attacker First Row and apply Morale Hits
+	std::vector<Being*>::iterator it = attackerFirstRow.begin();
+	while (it != attackerFirstRow.end()) {
+		Being* b = *it;
+		if (b->getStatus() == Enumerators::BodyStatus::dead ||
+			b->getStatus() == Enumerators::BodyStatus::severlyWounded ||
+			b->getStatus() == Enumerators::BodyStatus::fleeing) {
+			if (b->getStatus() == Enumerators::BodyStatus::dead) {
+				bodyCount++;
+				defenderMorale -= 3;
+				memorial.push_back(b);
+			}
+			if (b->getStatus() == Enumerators::BodyStatus::severlyWounded) {
+				woundedCount++;
+				defenderMorale--;
+			}
+			if (b->getStatus() == Enumerators::BodyStatus::fleeing) {
+				defenderMorale -= 2;
+			}
+			it = attackerFirstRow.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
+
+	// Clear Attacker Second Row Completely
+	it = attackerSecondRow.begin();
+	while (it != attackerSecondRow.end()) {
+		Being* b = *it;
+		attackerReserve.push_back(b);
+		++it;
+	}
+	attackerSecondRow = std::vector<Being*>();
+
+	// Clear Defender First Row and apply Morale Hits
+	it = defenderFirstRow.begin();
+	while (it != defenderFirstRow.end()) {
+		Being* b = *it;
+		if (b->getStatus() == Enumerators::BodyStatus::dead ||
+			b->getStatus() == Enumerators::BodyStatus::severlyWounded ||
+			b->getStatus() == Enumerators::BodyStatus::fleeing) {
+			if (b->getStatus() == Enumerators::BodyStatus::dead) {
+				bodyCount++;
+				attackerMorale -= 3;
+				memorial.push_back(b);
+			}
+			if (b->getStatus() == Enumerators::BodyStatus::severlyWounded) {
+				woundedCount++;
+				attackerMorale--;
+			}
+			if (b->getStatus() == Enumerators::BodyStatus::fleeing) {
+				attackerMorale -= 2;
+			}
+			it = defenderFirstRow.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
+	// Clear out the Second Row Completely
+	it = defenderSecondRow.begin();
+	while (it != defenderSecondRow.end()) {
+		Being* b = *it;
+		defenderReserve.push_back(b);
+		++it;
+	}
+	defenderSecondRow = std::vector<Being*>();
+
+	// Apply Additional Morale Hits
+	attackerMorale -= moraleCounter;
+	defenderMorale -= moraleCounter;
+	moraleCounter += 5;
+
+	// Check if the Fight will continue another Round
+	if (attackingLeader->getStatus() == Enumerators::BodyStatus::dead ||
+		defendingLeader->getStatus() == Enumerators::BodyStatus::dead ||
+		attackerMorale <= 0 ||
+		defenderMorale <= 0 ||
+		environmentalDamage >= currentCondition) {
+		return false;
+	}
 	return true;
 }
 

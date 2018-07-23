@@ -5,6 +5,7 @@ public:
 	Battle(Leader*, Leader*, Room*);
 
 	// Important Methods
+	void fight();
 	bool prepareNextRound();
 	bool calculateRound();
 	bool endRound();
@@ -31,6 +32,7 @@ private:
 	// Theater Data
 	Room* battleground;
 	int currentCondition;
+	int environmentalDamage;
 	int frontWidth;
 
 	// Important Data
@@ -40,7 +42,12 @@ private:
 
 	// Additional Data
 	int bodyCount;
+	int woundedCount;
 	std::vector<Being*> memorial;
 	std::string title;
+
+	// Constants
+	int ENV_THRESHOLD = 5;
+	int EXPLOSIVE_DAMAGE = 5;
 };
 
