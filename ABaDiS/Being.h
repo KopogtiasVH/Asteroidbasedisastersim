@@ -14,16 +14,18 @@ public:
 	virtual void printBeingFlavor();
 	virtual void printWeapon();
 
+	int attack();
+
 	std::string getName() const;
 	std::string getSurName() const;
 	int getMaxMorale() const;
 	int getCurrentMorale() const;
+	Enumerators::BodyStatus getStatus() const;
 
 	Room* getCurrentLocation() const;
 	Weapon* getWeapon() const;
 
 protected:
-	bool isAlive;
 	bool eager;
 
 	Room* currentLocation;
@@ -34,6 +36,8 @@ protected:
 	int healthPoints;
 	int maxMorale;
 	int currentMorale;
+
+	Enumerators::BodyStatus status;
 
 	int strength;
 	int willpower;

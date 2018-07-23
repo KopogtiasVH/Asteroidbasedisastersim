@@ -5,6 +5,7 @@
 
 Battle::Battle(Leader* a, Leader* b, Room* r)
 {
+	// Prepare Attackers Vectors and Morale.
 	attackingLeader = a;
 	defenderFirstRow = std::vector<Being*>();
 	attackerSecondRow = std::vector<Being*>();
@@ -14,6 +15,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	for (Being* b : attackerReserve)
 		attackerMorale += b->getCurrentMorale();
 
+	// Prepare Defenders Vectors and Morale.
 	defendingLeader = b;
 	defenderFirstRow = std::vector<Being*>();
 	defenderSecondRow = std::vector<Being*>();
@@ -23,20 +25,24 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	for (Being* b : defenderReserve)
 		defenderMorale += b->getCurrentMorale();
 
+	// Prepare the Battlefield
 	battleground = r;
 	currentCondition = battleground->getCurrentCondition();
 	frontWidth = battleground->getCapacity() / 10;
 
+	// Additional Setup
 	moraleCounter = 0;
 	isOngoing = true;
 
 	bodyCount = 0;
 	memorial = std::vector<Being*>();
 	title = "";
-}
 
+	std::cout << "Attackers Morale: " << attackerMorale << std::endl;
+	std::cout << "Defenders Morale: " << defenderMorale << std::endl;
+}
+// Fill the Row Vectors with new Units to max out the frontWidth
 bool Battle::prepareNextRound() {
-	// Fill the Row Vectors with new Units to max out the frontWidth
 
 	// Fill the Front Row, preferably with Closed Range Units
 	std::vector<Being*>::iterator it = attackerReserve.begin();
@@ -52,121 +58,152 @@ bool Battle::prepareNextRound() {
 			++it;
 		}
 	}
-		// If there is still space in the front row, fill it with other units
+	// If there is still space in the front row, fill it with other units
 	if (attackerFirstRow.size() < frontWidth &&
 		attackerReserve.size() > 0) {
-		std::vector<Being*>::iterator itii = attackerReserve.begin();
-		while (itii != attackerReserve.end()) {
-			Being* b = *itii;
+		it = attackerReserve.begin();
+		while (it != attackerReserve.end()) {
+			Being* b = *it;
 			if (attackerFirstRow.size() < frontWidth) {
 				attackerFirstRow.push_back(b);
-				itii = attackerReserve.erase(itii);
+				it = attackerReserve.erase(it);
 			}
 			else {
-				++itii;
+				++it;
 			}
 		}
 	}
 	// Fill the second Row, preferably with ranged or explosive weapons.
-	std::vector<Being*>::iterator itiii = attackerReserve.begin();
-	while (itiii != attackerReserve.end()) {
-		Being* b = *itiii;
+	it = attackerReserve.begin();
+	while (it != attackerReserve.end()) {
+		Being* b = *it;
 		if ((b->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged ||
 			b->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive) &&
 			attackerSecondRow.size() < frontWidth) {
 			attackerSecondRow.push_back(b);
-			itiii = attackerReserve.erase(itiii);
+			it = attackerReserve.erase(it);
 		}
 		else {
-			++itiii;
+			++it;
 		}
 	}
 	// If there is still space in the second row, fill it with other units
 	if (attackerSecondRow.size() < frontWidth &&
 		attackerReserve.size() > 0) {
-		std::vector<Being*>::iterator itiv = attackerReserve.begin();
-		while (itiv != attackerReserve.end()) {
-			Being* b = *itiv;
+		it = attackerReserve.begin();
+		while (it != attackerReserve.end()) {
+			Being* b = *it;
 			if (attackerSecondRow.size() < frontWidth) {
 				attackerSecondRow.push_back(b);
-				itiv = attackerReserve.erase(itiv);
+				it = attackerReserve.erase(it);
 			}
 			else {
-				++itiv;
+				++it;
 			}
 		}
 	}
 
 	// Repeat this for the defender.
 	// Fill the Front Row, preferably with Closed Range Units
-	std::vector<Being*>::iterator itv = defenderReserve.begin();
-	while (itv != defenderReserve.end()) {
-		Being* b = *itv;
+	it = defenderReserve.begin();
+	while (it != defenderReserve.end()) {
+		Being* b = *it;
 		if ((b->getWeapon()->getWeapontype() == Enumerators::Weapontype::blunt ||
 			b->getWeapon()->getWeapontype() == Enumerators::Weapontype::pierce) &&
 			defenderFirstRow.size() < frontWidth) {
 			defenderFirstRow.push_back(b);
-			itv = defenderReserve.erase(itv);
+			it = defenderReserve.erase(it);
 		}
 		else {
-			++itv;
+			++it;
 		}
 	}
 	// If there is still space in the front row, fill it with other units
 	if (defenderFirstRow.size() < frontWidth &&
 		defenderReserve.size() > 0) {
-		std::vector<Being*>::iterator itvi = defenderReserve.begin();
-		while (itvi != defenderReserve.end()) {
-			Being* b = *itvi;
+		it = defenderReserve.begin();
+		while (it != defenderReserve.end()) {
+			Being* b = *it;
 			if (defenderFirstRow.size() < frontWidth) {
 				defenderFirstRow.push_back(b);
-				itvi = defenderReserve.erase(itvi);
+				it = defenderReserve.erase(it);
 			}
 			else {
-				++itvi;
+				++it;
 			}
 		}
 	}
 	// Fill the second Row, preferably with ranged or explosive weapons.
-	std::vector<Being*>::iterator itvii = defenderReserve.begin();
-	while (itvii != defenderReserve.end()) {
-		Being* b = *itvii;
+	it = defenderReserve.begin();
+	while (it != defenderReserve.end()) {
+		Being* b = *it;
 		if ((b->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged ||
 			b->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive) &&
 			defenderSecondRow.size() < frontWidth) {
 			defenderSecondRow.push_back(b);
-			itvii = defenderReserve.erase(itvii);
+			it = defenderReserve.erase(it);
 		}
 		else {
-			++itvii;
+			++it;
 		}
 	}
 	// If there is still space in the second row, fill it with other units
 	if (defenderSecondRow.size() < frontWidth &&
 		defenderReserve.size() > 0) {
-		std::vector<Being*>::iterator itviii = defenderReserve.begin();
-		while (itviii != defenderReserve.end()) {
-			Being* b = *itviii;
+		it = defenderReserve.begin();
+		while (it != defenderReserve.end()) {
+			Being* b = *it;
 			if (defenderSecondRow.size() < frontWidth) {
 				defenderSecondRow.push_back(b);
-				itviii = defenderReserve.erase(itviii);
+				it = defenderReserve.erase(it);
 			}
 			else {
-				++itviii;
+				++it;
 			}
 		}
 	}
 
-	std::cout << "frontline: " << std::endl << std::endl;
-	for (Being* b : attackerFirstRow)
-		std::cout << "	" << b->getName() << std::endl;
-
-
 	return true;
 }
 
+// Calculate and distribute the Damage
 bool Battle::calculateRound() {
-	// Calculate and distribute the Damage
+	// Attackers Front Row Attacks
+	for (int i = 0; i < attackerFirstRow.size(); i++) {
+		if (attackerFirstRow.size() <= defenderFirstRow.size()) {
+			defenderFirstRow[i]->doDamage(attackerFirstRow[i]->attack());
+		}
+		else {
+			defenderFirstRow[rand() % defenderFirstRow.size()]->doDamage(attackerFirstRow[i]->attack());
+		}
+	}
+
+	// Attackers Second Row Attacks if the have Ranged or Explosive Weapons
+	for (int i = 0; i < attackerSecondRow.size(); i++) {
+		if (attackerSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged ||
+			attackerSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive) {
+			defenderFirstRow[rand() % defenderFirstRow.size()]->doDamage(attackerSecondRow[i]->attack());
+		}
+	}
+
+	// Defenders Front Row Attacks
+	for (int i = 0; i < defenderFirstRow.size(); i++) {
+		if (defenderFirstRow.size() <= attackerFirstRow.size()) {
+			attackerFirstRow[i]->doDamage(defenderFirstRow[i]->attack());
+		}
+		else {
+			attackerFirstRow[rand() % attackerFirstRow.size()]->doDamage(defenderFirstRow[i]->attack());
+		}
+	}
+
+	// Defenders Second Row Attacks if it has Ranged or Explosive Weapons
+	for (int i = 0; i < defenderSecondRow.size(); i++) {
+		if (defenderSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::ranged ||
+			defenderSecondRow[i]->getWeapon()->getWeapontype() == Enumerators::Weapontype::explosive) {
+			attackerFirstRow[rand() % attackerFirstRow.size()]->doDamage(defenderSecondRow[i]->attack());
+		}
+	}
+
 	return true;
 }
 
@@ -177,5 +214,30 @@ bool Battle::endRound() {
 
 bool Battle::aftermath() {
 	// Tell the Basesystem and the participating Leaders the outcome of the battle
+	return true;
+}
+
+// Remove the Severly Wounded from the reserves
+bool Battle::prepareReserves() {
+	std::vector<Being*>::iterator it = attackerReserve.begin();
+	while (it != attackerReserve.end()) {
+		Being* b = *it;
+		if (b->getStatus() == Enumerators::BodyStatus::severlyWounded) {
+			it = attackerReserve.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
+	it = defenderReserve.begin();
+	while (it != defenderReserve.end()) {
+		Being* b = *it;
+		if (b->getStatus() == Enumerators::BodyStatus::severlyWounded) {
+			it = defenderReserve.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
 	return true;
 }

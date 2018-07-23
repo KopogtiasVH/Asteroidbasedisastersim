@@ -8,7 +8,7 @@ Being::Being(Room* startingLocation)
 {
 
 	// General Setup of a regular Human Being
-	isAlive = true;
+	status = Enumerators::BodyStatus::well;
 	eager = true;
 	currentLocation = startingLocation;
 
@@ -47,6 +47,10 @@ int Being::getCurrentMorale() const {
 	return currentMorale;
 }
 
+Enumerators::BodyStatus Being::getStatus() const {
+	return status;
+}
+
 Room* Being::getCurrentLocation() const {
 	return currentLocation;
 }
@@ -55,13 +59,41 @@ Weapon* Being::getWeapon() const {
 	return weapon;
 }
 
+// Calculate the Damage this Being will do
+int Being::attack() {
+	if (rand() % 100 + 1 <= weapon->getAccuracy() && weapon->getNoOfUses() > 0) {
+		weapon->useWeapon();
+		float damage = 0;
+		// Blunt and Pierce Weapons
+		if (weapon->getWeapontype() == Enumerators::Weapontype::blunt ||
+			weapon->getWeapontype() == Enumerators::Weapontype::pierce) {
+			damage += (strength + weapon->getStrengthMod()) / 2;
+		}
+		damage += weapon->getExtraDamage();
+
+		if (rand() % 100 + 1 <= weapon->getRiskOfUse()) {
+			doDamage(damage/2);
+			return 0;
+		}
+		else {
+			return damage;
+		}
+	}
+	return 0;
+}
+
 // Deal Damage to the being, check for status
 // TODO: implement status check
 void Being::doDamage(int d)
 {
+	d -= armor;
 	healthPoints -= d;
 	if (healthPoints <= 0)
-		isAlive = false;
+		status = Enumerators::BodyStatus::dead;
+	else if (healthPoints <= maxHealth * 0.2)
+		status = Enumerators::BodyStatus::severlyWounded;
+	else if (healthPoints <= maxHealth * 0.6)
+		status = Enumerators::BodyStatus::wounded;
 }
 
 // Deal Morale Damage, check for status

@@ -43,7 +43,7 @@ Weapon::Weapon(Enumerators::Weapontype t)
 	case Enumerators::Weapontype::ranged:
 		strengthMod = 0;
 		range = 2;
-		extraDamage = rand() % 5 + 1;
+		extraDamage = rand() % 5 + 5;
 		noOfUses = rand() % 12 + 12;
 		riskOfUse = 10;
 		accuracy = 50;
@@ -128,13 +128,48 @@ Weapon::Weapon(Enumerators::OfficerClass profession)
 	}
 }
 
-// Return the name of the weapon
+// Use the Weapon == NoOfUses goes down
+void Weapon::useWeapon() {
+	if (noOfUses > 0)
+		noOfUses--;
+}
+
+// Getters and Setters
 std::string Weapon::getName() const
 {
 	return name;
 }
 
-// Return the weapontype
 Enumerators::Weapontype Weapon::getWeapontype() const{
 	return wt;
+}
+
+int Weapon::getStrengthMod() const
+{
+	return strengthMod;
+}
+
+int Weapon::getRange() const
+{
+	return range;
+}
+
+int Weapon::getExtraDamage() const
+{
+	return extraDamage;
+}
+
+int Weapon::getNoOfUses() const
+{
+	return noOfUses;
+}
+
+int Weapon::getRiskOfUse() const
+{
+	return riskOfUse;
+}
+
+int Weapon::getAccuracy() const
+{
+	return accuracy;
 }

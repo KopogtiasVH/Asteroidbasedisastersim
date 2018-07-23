@@ -46,5 +46,15 @@ public:
 		ranged,
 		explosive
 	};
+
+	// Health Status
+	enum class BodyStatus {
+		well,
+		scared,
+		fleeing,
+		wounded,
+		severlyWounded,
+		dead
+	};
 };
 

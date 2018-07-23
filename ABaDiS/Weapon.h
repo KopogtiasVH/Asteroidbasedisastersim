@@ -15,6 +15,14 @@ public:
 
 	std::string getName() const;
 	Enumerators::Weapontype getWeapontype() const;
+	int getStrengthMod() const;
+	int getRange() const;
+	int getExtraDamage() const;
+	int getNoOfUses() const;
+	int getRiskOfUse() const;
+	int getAccuracy() const;
+
+	void useWeapon();
 
 private:
 	std::string name;

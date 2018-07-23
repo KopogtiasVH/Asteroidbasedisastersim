@@ -11,7 +11,7 @@ public:
 	bool aftermath();
 
 	// Helping Methods
-	
+	bool prepareReserves();
 
 private:
 	// Attacker Data
