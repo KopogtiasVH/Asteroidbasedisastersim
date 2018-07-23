@@ -10,6 +10,8 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	defenderFirstRow = std::vector<Being*>();
 	attackerSecondRow = std::vector<Being*>();
 	attackerReserve = attackingLeader->getSquad()->getMembers();
+	attackerReserve.push_back(attackingLeader); // The Leader joins in Last
+	
 	
 	attackerMorale = attackingLeader->getCurrentMorale();
 	for (Being* b : attackerReserve)
@@ -20,6 +22,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	defenderFirstRow = std::vector<Being*>();
 	defenderSecondRow = std::vector<Being*>();
 	defenderReserve = defendingLeader->getSquad()->getMembers();
+	defenderReserve.push_back(defendingLeader);	// The Leader joins in last
 
 	defenderMorale = defendingLeader->getCurrentMorale();
 	for (Being* b : defenderReserve)
@@ -36,6 +39,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	isOngoing = true;
 
 	bodyCount = 0;
+	woundedCount = 0;
 	memorial = std::vector<Being*>();
 	title = "";
 
@@ -83,6 +87,7 @@ bool Battle::prepareNextRound() {
 			}
 		}
 	}
+
 	// Fill the second Row, preferably with ranged or explosive weapons.
 	it = attackerReserve.begin();
 	while (it != attackerReserve.end()) {
@@ -308,7 +313,7 @@ bool Battle::endRound() {
 			++it;
 		}
 	}
-	// Clear out the Second Row Completely
+	// Clear out the Defender Second Row Completely
 	it = defenderSecondRow.begin();
 	while (it != defenderSecondRow.end()) {
 		Being* b = *it;

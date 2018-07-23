@@ -25,6 +25,8 @@ MobGoon::MobGoon(Room* startingLocation) : Being(startingLocation)
 
 	// Goons have either no ore light armor.
 	armor = rand() % 2;
+
+	currentLeader = NULL;
 }
 
 MobGoon::MobGoon(Leader* startingLeader) : Being(currentLocation)

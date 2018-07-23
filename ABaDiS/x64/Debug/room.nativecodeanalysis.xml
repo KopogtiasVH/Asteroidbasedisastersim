@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\</FILEPATH>
+      <FILENAME>room.cpp</FILENAME>
+      <LINE>10</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Room::{ctor}</FUNCTION>
+    <DECORATED>??0Room@@QEAA@XZ</DECORATED>
+    <FUNCLINE>10</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\</FILEPATH>
+      <FILENAME>room.cpp</FILENAME>
+      <LINE>10</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Room::population' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Room::{ctor}</FUNCTION>
+    <DECORATED>??0Room@@QEAA@XZ</DECORATED>
+    <FUNCLINE>10</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\</FILEPATH>
+      <FILENAME>room.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Room::maxCondition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Room::{ctor}</FUNCTION>
+    <DECORATED>??0Room@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\</FILEPATH>
+      <FILENAME>room.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Room::population' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Room::{ctor}</FUNCTION>
+    <DECORATED>??0Room@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\</FILEPATH>
+      <FILENAME>room.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Room::currentCondition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Room::{ctor}</FUNCTION>
+    <DECORATED>??0Room@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
