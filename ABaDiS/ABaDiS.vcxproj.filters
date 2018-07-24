@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Rooms">
       <UniqueIdentifier>{b71cbc3d-7e64-4d09-927c-eebb274979dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Names\Battles">
+      <UniqueIdentifier>{b6b730b2-c38a-42fc-bcbd-f2a393b24ef6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Being.h">
@@ -195,6 +198,12 @@
     </None>
     <None Include="data\streetNamesFirst.csv">
       <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\battleNouns.csv">
+      <Filter>Resource Files\Names\Battles</Filter>
+    </None>
+    <None Include="data\battlePrepositions.csv">
+      <Filter>Resource Files\Names\Battles</Filter>
     </None>
   </ItemGroup>
 </Project>

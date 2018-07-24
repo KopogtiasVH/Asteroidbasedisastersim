@@ -6,6 +6,7 @@ public:
 
 	// A structure to summarize the battle.
 	struct battleResult {
+		std::string title;
 		bool draw;
 		Leader* winningLeader;
 		Leader* losingLeader;
@@ -26,6 +27,7 @@ public:
 	bool prepareReserves();
 	bool cleanSquads();
 	battleResult* getBattleResult();
+	std::string createTitle();
 
 private:
 	// Attacker Data

@@ -33,6 +33,10 @@ std::vector<std::string> NameGenerator::pierceWeapons;
 std::vector<std::string> NameGenerator::rangedWeapons;
 std::vector<std::string> NameGenerator::explosiveWeapons;
 
+// Battle Names
+std::vector<std::string> NameGenerator::battleNouns;
+std::vector<std::string> NameGenerator::battlePrepositions;
+
 std::string NameGenerator::lowCapRoomName(int cap) {
 	if (!isGenerated) {
 		setupNameLists();
@@ -223,6 +227,20 @@ std::string NameGenerator::militiaName(std::string name) {
 	return result;
 }
 
+std::string NameGenerator::battleName(std::string rN, int bc) {
+	std::string name;
+	if (bc <= 20) {
+		name = battleNouns[rand() % 10] + " " 
+			+ battlePrepositions[rand() % battlePrepositions.size()] + " " 
+			+ rN;
+	}
+	else {
+		name = rN + " " + battleNouns[(rand() % 10) + 10];
+	}
+
+	return name;
+}
+
 
 void NameGenerator::setupNameLists()
 {
@@ -245,6 +263,9 @@ void NameGenerator::setupNameLists()
 	pierceWeapons = fileToStringVector("./data/pierceWeapons.csv");
 	rangedWeapons = fileToStringVector("./data/rangedWeapons.csv");
 	explosiveWeapons = fileToStringVector("./data/explosiveWeapons.csv");
+
+	battleNouns = fileToStringVector("./data/battleNouns.csv");
+	battlePrepositions = fileToStringVector("./data/battlePrepositions.csv");
 	
 	isGenerated = true;
 }

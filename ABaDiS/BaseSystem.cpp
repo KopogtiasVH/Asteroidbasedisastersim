@@ -6,8 +6,20 @@ BaseSystem::BaseSystem()
 {
 	rooms = std::vector<Room*>();
 	leaders = std::vector<Leader*>();
+	battles = std::vector<Battle>();
 
 	tension = 0;
+}
+
+// Generic Section
+
+
+
+// ROOM Section
+
+bool BaseSystem::createRoom() {
+	rooms.push_back(new Room());
+	return true;
 }
 
 bool BaseSystem::connectRooms(Room* a, Room* b) {
@@ -16,11 +28,13 @@ bool BaseSystem::connectRooms(Room* a, Room* b) {
 			Corridor* newCorridor = new Corridor(a, b);
 			rooms.push_back(newCorridor);
 			return true;
-		} else {
+		}
+		else {
 			std::cerr << "Something went wrong" << std::endl;
 			return false;
 		}
-	} else {
+	}
+	else {
 		std::cerr << "You can't connect a Room to itself" << std::endl;
 		return false;
 	}
@@ -44,34 +58,21 @@ bool BaseSystem::connectRooms(int a, int b) {
 	}
 }
 
-Leader* BaseSystem::getLeader(int i) {
-	if (i <= leaders.size()) {
-		return leaders[i];
-	}
-	else {
-		std::cerr << "Index out of Bounds" << std::endl;
-		return NULL;
-	}
-}
-
 void BaseSystem::printRooms() {
 	for (Room* room : rooms) {
 		room->printRoom();
 	}
 }
 
-bool BaseSystem::createRoom() {
-	rooms.push_back(new Room());
-	return true;
+Room* BaseSystem::getRandomRoom() {
+	return rooms[rand() % rooms.size()];
 }
+
+// LEADER Section
 
 bool BaseSystem::createMobLeader(Room* r) {
 	leaders.push_back(new MobLeader(r));
 	return true;
-}
-
-Room* BaseSystem::getRandomRoom() {
-	return rooms[rand() % rooms.size()];
 }
 
 bool BaseSystem::createSecLeader(Room* r) {
@@ -97,4 +98,58 @@ bool BaseSystem::recruit(int i) {
 		return recruit(leaders[i]);
 	}
 	return false;
+}
+
+// Battle Section
+
+void BaseSystem::createFight(Leader* a, Leader* b, Room* r) {
+	battles.push_back(Battle(a, b, r));
+}
+
+void BaseSystem::fight(Battle* b) {
+	Battle::battleResult* btr = b->fight();
+	if (btr == NULL) {
+		std::cout << "The Fighting Continues" << std::endl;
+	}
+	else {
+		printBattleResult(*btr);
+		delete b;
+	}
+}
+
+void BaseSystem::printBattleResult(Battle::battleResult result) {
+	std::cout << result.title << ":" << std::endl;
+
+	if (result.draw) {
+		std::cout << "The " << result.title << " between " << result.winningLeader->getSquadName()
+			<< " and " << result.losingLeader->getSquadName() << " ended in a draw." << std::endl;
+	}
+	else {
+		std::cout << result.winningLeader->getSquadName() << " dominated over " << result.losingLeader->getSquadName()
+			<< " in the " << result.title << "." << std::endl;
+	}
+	std::cout << result.bodyCount << " have been killed and " << result.woundedCount << " have been wounded." << std::endl
+		<< "The Fighting lastet for " << result.noOfRounds << " cycles." << std::endl;
+}
+
+// Getters
+
+Leader* BaseSystem::getLeader(int i) {
+	if (i <= leaders.size()) {
+		return leaders[i];
+	}
+	else {
+		std::cerr << "Index out of Bounds" << std::endl;
+		return NULL;
+	}
+}
+
+Battle* BaseSystem::getBattle(int i) {
+	if (i <= battles.size()) {
+		return &battles[i];
+	}
+	else {
+		std::cerr << "Index out of bounds." << std::endl;
+		return NULL;
+	}
 }

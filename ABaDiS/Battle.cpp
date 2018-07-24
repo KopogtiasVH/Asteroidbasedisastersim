@@ -357,8 +357,8 @@ bool Battle::aftermath() {
 		defenderMorale <= 0))
 	{
 		draw = true;
-		wL = NULL;
-		lL = NULL;
+		wL = attackingLeader;
+		lL = defendingLeader;
 	}
 	else if (
 		attackingLeader->getStatus() == Enumerators::BodyStatus::dead ||
@@ -372,7 +372,10 @@ bool Battle::aftermath() {
 		wL = attackingLeader;
 		lL = defendingLeader;
 	}
+	title = createTitle();
+
 	result = battleResult{
+		title,
 		draw,
 		wL,
 		lL,
@@ -427,3 +430,7 @@ bool Battle::cleanSquads() {
 	return true;
 }
 
+// Create a Title for this Battle
+std::string Battle::createTitle() {
+	return NameGenerator::battleName(battleground->getName(), bodyCount);
+}

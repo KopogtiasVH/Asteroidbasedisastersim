@@ -13,10 +13,10 @@ public:
 	static std::string roomName(int, int);
 	static std::string streetName(Enumerators::KindOfRoom);
 	static std::string weaponName(Enumerators::Weapontype);
-	static std::string randomRank(std::string toAssign);
 	static std::string randomRank(Enumerators::KindOfBeing);
 	static std::string randomJob();
 	static std::string militiaName(std::string);
+	static std::string battleName(std::string, int);
 
 	static void setupNameLists();
 	static std::vector<std::string> fileToStringVector(std::string myFileName);
@@ -44,5 +44,8 @@ private:
 	static std::vector<std::string> pierceWeapons;
 	static std::vector<std::string> rangedWeapons;
 	static std::vector<std::string> explosiveWeapons;
+
+	static std::vector<std::string> battleNouns;
+	static std::vector<std::string> battlePrepositions;
 };
 
