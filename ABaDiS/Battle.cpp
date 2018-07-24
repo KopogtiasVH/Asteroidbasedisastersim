@@ -37,9 +37,11 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	// Additional Setup
 	moraleCounter = 0;
 	isOngoing = true;
+	battleResult result = {};
 
 	bodyCount = 0;
 	woundedCount = 0;
+	noOfRounds = 0;
 	memorial = std::vector<Being*>();
 	title = "";
 
@@ -47,12 +49,17 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 }
 
 // One Fighting Round
-void Battle::fight() {
+Battle::battleResult* Battle::fight() {
 	prepareNextRound();
 	calculateRound();
 	endRound();
-	if (!isOngoing)
+	if (!isOngoing) {
 		aftermath();
+		return &result;
+	}
+	else {
+		return NULL;
+	}
 }
 
 // Fill the Row Vectors with new Units to max out the frontWidth
@@ -326,6 +333,7 @@ bool Battle::endRound() {
 	attackerMorale -= moraleCounter;
 	defenderMorale -= moraleCounter;
 	moraleCounter += 5;
+	noOfRounds++;
 
 	// Check if the Fight will continue another Round
 	if (attackingLeader->getStatus() == Enumerators::BodyStatus::dead ||
@@ -338,8 +346,42 @@ bool Battle::endRound() {
 	return true;
 }
 
+// Tell the Basesystem and the participating Leaders the outcome of the battle
 bool Battle::aftermath() {
-	// Tell the Basesystem and the participating Leaders the outcome of the battle
+	bool draw;
+	Leader* wL;
+	Leader* lL;
+	if ((attackingLeader->getStatus() == Enumerators::BodyStatus::dead &&
+		defendingLeader->getStatus() == Enumerators::BodyStatus::dead) ||
+		(attackerMorale <= 0 &&
+		defenderMorale <= 0))
+	{
+		draw = true;
+		wL = NULL;
+		lL = NULL;
+	}
+	else if (
+		attackingLeader->getStatus() == Enumerators::BodyStatus::dead ||
+		attackerMorale <= 0) {
+		draw = false;
+		wL = defendingLeader;
+		lL = attackingLeader;
+	}
+	else {
+		draw = false;
+		wL = attackingLeader;
+		lL = defendingLeader;
+	}
+	result = battleResult{
+		draw,
+		wL,
+		lL,
+		bodyCount,
+		woundedCount,
+		noOfRounds,
+		memorial
+	};
+
 	return true;
 }
 
@@ -367,3 +409,21 @@ bool Battle::prepareReserves() {
 	}
 	return true;
 }
+
+// Get the battle result before the fight is over
+Battle::battleResult* Battle::getBattleResult() {
+	if (!isOngoing)
+		return &result;
+	else {
+		std::cerr << "Fight is still ongoing" << std::endl;
+		return NULL;
+	}
+}
+
+// clean the squads of the leaders from dead beings
+bool Battle::cleanSquads() {
+	attackingLeader->getSquad()->cleanDead();
+	defendingLeader->getSquad()->cleanDead();
+	return true;
+}
+

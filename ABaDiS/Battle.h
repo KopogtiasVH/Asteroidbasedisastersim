@@ -4,8 +4,19 @@ class Battle
 public:
 	Battle(Leader*, Leader*, Room*);
 
+	// A structure to summarize the battle.
+	struct battleResult {
+		bool draw;
+		Leader* winningLeader;
+		Leader* losingLeader;
+		int bodyCount;
+		int woundedCount;
+		int noOfRounds;
+		std::vector<Being*> memorial;
+	};
+
 	// Important Methods
-	void fight();
+	battleResult* fight();
 	bool prepareNextRound();
 	bool calculateRound();
 	bool endRound();
@@ -13,10 +24,12 @@ public:
 
 	// Helping Methods
 	bool prepareReserves();
+	bool cleanSquads();
+	battleResult* getBattleResult();
 
 private:
 	// Attacker Data
-	Leader * attackingLeader;
+	Leader* attackingLeader;
 	std::vector<Being*> attackerFirstRow;
 	std::vector<Being*> attackerSecondRow;
 	std::vector<Being*> attackerReserve;
@@ -38,11 +51,13 @@ private:
 	// Important Data
 	int moraleCounter;
 	bool isOngoing;
+	battleResult result;
 
 
 	// Additional Data
 	int bodyCount;
 	int woundedCount;
+	int noOfRounds;
 	std::vector<Being*> memorial;
 	std::string title;
 

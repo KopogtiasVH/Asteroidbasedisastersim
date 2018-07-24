@@ -16,6 +16,7 @@ public:
 
 	void printSquad();
 	void setMaxSize(int);
+	void cleanDead();
 
 	std::string getSquadName() const;
 

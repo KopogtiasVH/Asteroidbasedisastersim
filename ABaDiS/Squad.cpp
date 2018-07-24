@@ -70,3 +70,17 @@ std::string Squad::getSquadName() const{
 void Squad::setMaxSize(int i) {
 	maxSize = i;
 }
+
+void Squad::cleanDead() {
+	std::vector<Being*>::iterator it = members.begin();
+	while (it != members.end()) {
+		Being* b = *it;
+		if (b->getStatus() == Enumerators::BodyStatus::dead) {
+			it = members.erase(it);
+			delete b;
+		}
+		else {
+			++it;
+		}
+	}
+}

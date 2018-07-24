@@ -20,7 +20,6 @@ Being::Being(Room* startingLocation)
 	maxHealth = 5 + strength;
 	healthPoints = maxHealth;
 
-	// TODO: Might switch gender from string to enum
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
 	else
