@@ -29,11 +29,15 @@ public:
 	// BATTLE Section
 	void createFight(Leader*, Leader*, Room*);
 	void fight(Battle*);
+	void fightAllBattles();
 	void printBattleResult(Battle::battleResult);
+	void cleanBattles();
 
 	// Getters
 	Leader* getLeader(int i);
 	Battle* getBattle(int i);
+	std::vector<Battle> getBattles();
+	
 
 
 private:

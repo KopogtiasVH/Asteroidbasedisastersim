@@ -109,16 +109,30 @@ void BaseSystem::createFight(Leader* a, Leader* b, Room* r) {
 void BaseSystem::fight(Battle* b) {
 	Battle::battleResult* btr = b->fight();
 	if (btr == NULL) {
-		std::cout << "The Fighting Continues" << std::endl;
+		
 	}
 	else {
 		printBattleResult(*btr);
-		delete b;
 	}
 }
 
+void BaseSystem::fightAllBattles() {
+	std::vector<Battle>::iterator it = battles.begin();
+	while (it != battles.end()) {
+		Battle* b = &*it;
+		fight(b);
+		if (!b->isFightOngoing()) {
+			it = battles.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
+
+}
+
 void BaseSystem::printBattleResult(Battle::battleResult result) {
-	std::cout << result.title << ":" << std::endl;
+	std::cout << std::endl << result.title << ":" << std::endl;
 
 	if (result.draw) {
 		std::cout << "The " << result.title << " between " << result.winningLeader->getSquadName()
@@ -152,4 +166,8 @@ Battle* BaseSystem::getBattle(int i) {
 		std::cerr << "Index out of bounds." << std::endl;
 		return NULL;
 	}
+}
+
+std::vector<Battle> BaseSystem::getBattles() {
+	return battles;
 }

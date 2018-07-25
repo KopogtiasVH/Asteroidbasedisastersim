@@ -52,8 +52,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 Battle::battleResult* Battle::fight() {
 	prepareNextRound();
 	calculateRound();
-	endRound();
-	if (!isOngoing) {
+	if(!endRound()) {
 		aftermath();
 		return &result;
 	}
@@ -332,7 +331,7 @@ bool Battle::endRound() {
 	// Apply Additional Morale Hits
 	attackerMorale -= moraleCounter;
 	defenderMorale -= moraleCounter;
-	moraleCounter += 5;
+	moraleCounter = bodyCount+woundedCount;
 	noOfRounds++;
 
 	// Check if the Fight will continue another Round
@@ -384,7 +383,8 @@ bool Battle::aftermath() {
 		noOfRounds,
 		memorial
 	};
-
+	isOngoing = false;
+	cleanSquads();
 	return true;
 }
 
@@ -432,5 +432,10 @@ bool Battle::cleanSquads() {
 
 // Create a Title for this Battle
 std::string Battle::createTitle() {
-	return NameGenerator::battleName(battleground->getName(), bodyCount);
+	return NameGenerator::battleName(battleground->getName(), bodyCount+woundedCount);
+}
+
+// Return isOngoing
+bool Battle::isFightOngoing() const {
+	return isOngoing;
 }

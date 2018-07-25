@@ -28,6 +28,7 @@ public:
 	bool cleanSquads();
 	battleResult* getBattleResult();
 	std::string createTitle();
+	bool isFightOngoing() const;
 
 private:
 	// Attacker Data

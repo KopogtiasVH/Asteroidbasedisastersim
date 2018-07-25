@@ -56,8 +56,8 @@ bool Squad::recruit(Being* toRecruit)
 }
 
 void Squad::printSquad() {
-		std::cout << "Squad: " << squadName << ": (" << size << "/" << maxSize << ")" << std::endl;
-		for (int i = 0; i < size; i++) {
+		std::cout << "Squad: " << squadName << ": (" << members.size() << "/" << maxSize << ")" << std::endl;
+		for (int i = 0; i < members.size(); i++) {
 			std::cout << "	- " << members[i] -> getName() << std::endl;
 		}
 		std::cout << std::endl;
