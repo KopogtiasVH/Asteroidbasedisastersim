@@ -53,6 +53,14 @@ bool Room::enterRoom(int toEnter) {
 	}
 }
 
+// Returns true if this Room is connected to other
+bool Room::isConnectedTo(Room* toCheck) {
+	for (Room* r : connectedTo)
+		if (r == toCheck)
+			return true;
+	return false;
+}
+
 bool Room::connectTo(Room* toConnectTo) {
 	connectedTo.push_back(toConnectTo);
 	inSystem = true;

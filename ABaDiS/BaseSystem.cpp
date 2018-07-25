@@ -71,6 +71,15 @@ void BaseSystem::createBase(int minimumNoOfRooms) {
 	connectRooms(prev, a);
 	if (rooms.size() < minimumNoOfRooms)
 		createBase(minimumNoOfRooms);
+	else {
+		for (int i = 0; i < minimumNoOfRooms / 10; i++) {
+			Room* a = rooms[rand() % rooms.size()];
+			Room* b = rooms[rand() % rooms.size()];
+			if (!a->isConnectedTo(b))
+				connectRooms(a, b);
+			else --i;
+		}
+	}
 }
 
 void BaseSystem::printRooms() {

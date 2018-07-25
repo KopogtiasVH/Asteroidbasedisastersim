@@ -24,6 +24,7 @@ public:
 
 	bool isIntact() const;
 	bool enterRoom(int);
+	bool isConnectedTo(Room*);
 
 	std::string getName() const;
 	std::vector<Room*> getConnections() const;
