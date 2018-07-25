@@ -5,15 +5,14 @@ Corridor::Corridor(Room* a, Room* b) : Room()
 {
 	kor = Enumerators::KindOfRoom::street;
 	name = NameGenerator::streetName(kor);
-	toFrom = std::vector<Room*>();
-	toFrom.push_back(a);
-	toFrom.push_back(b);
+	connectedTo.push_back(a);
+	connectedTo.push_back(b);
 
 	maxCapacity = (rand() % 5 + 1) * 10;
 	
 	//set priority to be equal to the highest priority of rooms it connects
 	int tempPrio = -INT32_MAX;
-	for (Room* r : toFrom)
+	for (Room* r : connectedTo)
 		if ((r)->getPriority() > tempPrio)
 			tempPrio = (r)->getPriority();
 	priority = tempPrio;
@@ -29,17 +28,19 @@ void Corridor::printRoom() {
 		<< "	Capacity:  " << getCurrentCapacity() << " / " << getCapacity() << std::endl
 		<< "	Condition: " << getCurrentCondition() << " / " << getMaxCondition() << std::endl
 		<< "	Priority:  " << getPriority() << std::endl;
-	if (toFrom.size() == 2)
-		std::cout << "	Connects " << (toFrom[0])->getName() << " and " << (toFrom[1])->getName() << "." << std::endl << std::endl;
+	if (connectedTo.size() == 2)
+		std::cout << "	Connects " << (connectedTo[0])->getName() << " and " << (connectedTo[1])->getName() << "." << std::endl << std::endl;
 	else {
-		std::cout << "	Connects " << toFrom[0];
-		std::vector<Room*>::iterator it = toFrom.begin()+1;
-		while (it != toFrom.end()-1) {
+		std::cout << "	Connects " << connectedTo[0]->getName();
+		std::vector<Room*>::iterator it = connectedTo.begin();
+		++it;
+		while (it != connectedTo.end()-1) {
 			Room* r = *it;
 			std::cout << ", " << r->getName();
 			++it;
 		}
-		Room* r = *toFrom.end();
+		it = connectedTo.end()-1;
+		Room* r = *it;
 		std::cout << " and " << r->getName() << std::endl << std::endl;
 	}
 }
