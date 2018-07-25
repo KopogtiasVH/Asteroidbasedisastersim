@@ -58,6 +58,20 @@ bool BaseSystem::connectRooms(int a, int b) {
 	}
 }
 
+// Connect everything !!!IMPORTANAT!!! Room Number must be even
+bool BaseSystem::connectEverything() {
+	if (rooms.size() % 2 != 0) {
+		std::cerr << "No. of Rooms must be even" << std::endl;
+		return false;
+	}
+	else {
+		for (int i = 1; i < rooms.size(); i += 2) {
+
+			connectRooms(i, i - 1);
+		}
+	}
+}
+
 void BaseSystem::printRooms() {
 	for (Room* room : rooms) {
 		room->printRoom();
@@ -108,10 +122,7 @@ void BaseSystem::createFight(Leader* a, Leader* b, Room* r) {
 
 void BaseSystem::fight(Battle* b) {
 	Battle::battleResult* btr = b->fight();
-	if (btr == NULL) {
-		
-	}
-	else {
+	if (btr != NULL) {
 		printBattleResult(*btr);
 	}
 }
@@ -143,7 +154,7 @@ void BaseSystem::printBattleResult(Battle::battleResult result) {
 			<< " in the " << result.title << "." << std::endl;
 	}
 	std::cout << result.bodyCount << " have been killed and " << result.woundedCount << " have been wounded." << std::endl
-		<< "The Fighting lastet for " << result.noOfRounds << " cycles." << std::endl;
+		<< "The Fighting lastet for " << result.noOfRounds << " cycles." << std::endl << std::endl;
 }
 
 // Getters
@@ -165,6 +176,15 @@ Battle* BaseSystem::getBattle(int i) {
 	else {
 		std::cerr << "Index out of bounds." << std::endl;
 		return NULL;
+	}
+}
+
+Room* BaseSystem::getRoom(int i) {
+	if (i <= rooms.size()) {
+		return rooms[i];
+	}
+	else {
+		std::cerr << "Index out of Bounds." << std::endl;
 	}
 }
 

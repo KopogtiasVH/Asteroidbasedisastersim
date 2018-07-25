@@ -52,6 +52,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 Battle::battleResult* Battle::fight() {
 	prepareNextRound();
 	calculateRound();
+	std::cout << attackingLeader->getCurrentHealth() << std::endl;
 	if(!endRound()) {
 		aftermath();
 		return &result;

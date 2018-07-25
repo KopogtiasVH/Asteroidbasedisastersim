@@ -1,2 +1,4 @@
-﻿  Squad.cpp
+﻿  Being.cpp
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(82): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(86): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

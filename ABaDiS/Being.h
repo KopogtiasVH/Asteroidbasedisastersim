@@ -16,12 +16,14 @@ public:
 
 	int attack();
 
+	// Getters
 	std::string getName() const;
 	std::string getSurName() const;
 	int getMaxMorale() const;
 	int getCurrentMorale() const;
+	int getMaxHealth() const;
+	int getCurrentHealth() const;
 	Enumerators::BodyStatus getStatus() const;
-
 	Room* getCurrentLocation() const;
 	Weapon* getWeapon() const;
 

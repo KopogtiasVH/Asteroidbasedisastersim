@@ -46,6 +46,14 @@ int Being::getCurrentMorale() const {
 	return currentMorale;
 }
 
+int Being::getMaxHealth() const {
+	return maxHealth;
+}
+
+int Being::getCurrentHealth() const {
+	return healthPoints;
+}
+
 Enumerators::BodyStatus Being::getStatus() const {
 	return status;
 }
@@ -82,10 +90,11 @@ int Being::attack() {
 }
 
 // Deal Damage to the being, check for status
-// TODO: implement status check
 void Being::doDamage(int d)
 {
 	d -= armor;
+	if (d < 0)
+		d = 0;
 	healthPoints -= d;
 	if (healthPoints <= 0)
 		status = Enumerators::BodyStatus::dead;
