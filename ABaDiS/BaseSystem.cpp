@@ -58,18 +58,19 @@ bool BaseSystem::connectRooms(int a, int b) {
 	}
 }
 
-// Connect everything !!!IMPORTANAT!!! Room Number must be even
-bool BaseSystem::connectEverything() {
-	if (rooms.size() % 2 != 0) {
-		std::cerr << "No. of Rooms must be even" << std::endl;
-		return false;
-	}
-	else {
-		for (int i = 1; i < rooms.size(); i += 2) {
-
-			connectRooms(i, i - 1);
-		}
-	}
+// Creates a new System with minimum number of rooms
+void BaseSystem::createBase(int minimumNoOfRooms) {
+	if (rooms.size() <= 0)
+		rooms.push_back(new Room());
+	Room* prev = rooms[rand() % rooms.size()];
+	Room* a = new Room();
+	Room* b = new Room();
+	rooms.push_back(a);
+	rooms.push_back(b);
+	connectRooms(a, b);
+	connectRooms(prev, a);
+	if (rooms.size() < minimumNoOfRooms)
+		createBase(minimumNoOfRooms);
 }
 
 void BaseSystem::printRooms() {
@@ -190,4 +191,8 @@ Room* BaseSystem::getRoom(int i) {
 
 std::vector<Battle> BaseSystem::getBattles() {
 	return battles;
+}
+
+std::vector<Room*> BaseSystem::getRooms() {
+	return rooms;
 }

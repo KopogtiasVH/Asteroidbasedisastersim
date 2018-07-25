@@ -28,6 +28,18 @@ void Corridor::printRoom() {
 	std::cout << name << ":" << std::endl
 		<< "	Capacity:  " << getCurrentCapacity() << " / " << getCapacity() << std::endl
 		<< "	Condition: " << getCurrentCondition() << " / " << getMaxCondition() << std::endl
-		<< "	Priority:  " << getPriority() << std::endl
-		<< "	Connects " << (toFrom[0])->getName() << " and " << (toFrom[1])->getName() << "." << std::endl << std::endl;
+		<< "	Priority:  " << getPriority() << std::endl;
+	if (toFrom.size() == 2)
+		std::cout << "	Connects " << (toFrom[0])->getName() << " and " << (toFrom[1])->getName() << "." << std::endl << std::endl;
+	else {
+		std::cout << "	Connects " << toFrom[0];
+		std::vector<Room*>::iterator it = toFrom.begin()+1;
+		while (it != toFrom.end()-1) {
+			Room* r = *it;
+			std::cout << ", " << r->getName();
+			++it;
+		}
+		Room* r = *toFrom.end();
+		std::cout << " and " << r->getName() << std::endl << std::endl;
+	}
 }

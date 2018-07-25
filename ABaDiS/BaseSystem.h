@@ -16,9 +16,9 @@ public:
 	bool createRoom();
 	bool connectRooms(Room*, Room*);
 	bool connectRooms(int, int);
-	bool connectEverything();
 	void printRooms();
 	Room* getRandomRoom();
+	void createBase(int);
 	
 	// LEADER Section
 	bool createMobLeader(Room*);
@@ -38,6 +38,7 @@ public:
 	Battle* getBattle(int i);
 	Room* getRoom(int i);
 	std::vector<Battle> getBattles();
+	std::vector<Room*> getRooms();
 	
 
 
