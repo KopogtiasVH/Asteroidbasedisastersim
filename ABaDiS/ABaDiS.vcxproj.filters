@@ -205,5 +205,17 @@
     <None Include="data\battlePrepositions.csv">
       <Filter>Resource Files\Names\Battles</Filter>
     </None>
+    <None Include="data\nightlifeWords.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\nerdWords.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\asianWords.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\medCapLowPrioType.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
   </ItemGroup>
 </Project>

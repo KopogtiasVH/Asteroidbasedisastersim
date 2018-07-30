@@ -10,6 +10,7 @@ public:
 	static std::string humanName(Enumerators::Gender);
 	static std::string humanSurname();
 	static std::string lowCapRoomName(int cap);
+	static std::string medCapRoomName();
 	static std::string roomName(int, int);
 	static std::string streetName(Enumerators::KindOfRoom);
 	static std::string weaponName(Enumerators::Weapontype);
@@ -37,8 +38,12 @@ private:
 
 	static std::vector<std::string> lowCapRooms;
 	static std::vector<std::string> medCapMedPrioRooms;
+	static std::vector<std::string> medCapLowPrioTypes;
 	static std::vector<std::string> streetNamesFirst;
 	static std::vector<std::string> streetNamesLast;
+	static std::vector<std::string> asianWords;
+	static std::vector<std::string> nerdWords;
+	static std::vector<std::string> nightlifeWords;
 	
 	static std::vector<std::string> bluntWeapons;
 	static std::vector<std::string> pierceWeapons;

@@ -187,6 +187,7 @@
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\asianWords.csv" />
     <None Include="data\battleNouns.csv" />
     <None Include="data\battlePrepositions.csv" />
     <None Include="data\bluntWeapons.csv" />
@@ -195,8 +196,11 @@
     <None Include="data\lowCapRooms.csv" />
     <None Include="data\maleNames.csv" />
     <None Include="data\medCapLowPrioRooms.csv" />
+    <None Include="data\medCapLowPrioType.csv" />
     <None Include="data\militiaNouns.csv" />
     <None Include="data\militiaVerbs.csv" />
+    <None Include="data\nerdWords.csv" />
+    <None Include="data\nightlifeWords.csv" />
     <None Include="data\pierceWeapons.csv" />
     <None Include="data\previousJobs.csv" />
     <None Include="data\rangedWeapons.csv" />

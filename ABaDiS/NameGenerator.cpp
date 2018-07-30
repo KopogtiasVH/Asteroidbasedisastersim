@@ -26,6 +26,10 @@ std::vector<std::string> NameGenerator::lowCapRooms;
 std::vector<std::string> NameGenerator::medCapMedPrioRooms;
 std::vector<std::string> NameGenerator::streetNamesFirst;
 std::vector<std::string> NameGenerator::streetNamesLast;
+std::vector<std::string> NameGenerator::asianWords;
+std::vector<std::string> NameGenerator::nerdWords;
+std::vector<std::string> NameGenerator::nightlifeWords;
+std::vector<std::string> NameGenerator::medCapLowPrioTypes;
 
 // Weapon Names
 std::vector<std::string> NameGenerator::bluntWeapons;
@@ -78,18 +82,74 @@ std::string NameGenerator::roomName(int cap, int prio) {
 		}
 	}
 	else if (cap < 300) {
-		if (!medCapMedPrioRooms.empty()) {
-			int i = rand() % medCapMedPrioRooms.size();
-			name += medCapMedPrioRooms[i];
-			medCapMedPrioRooms.erase(medCapMedPrioRooms.begin() + i);
-		}
-		else {
-			std::cout << "Room List Empty" << std::endl;
-			name = "UNKNOWN_SECTOR";
-		}
+			name = medCapRoomName();
 	}
 
 	return name;
+}
+
+std::string NameGenerator::medCapRoomName() {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
+	std::string type = "";
+	std::string name = "";
+	std::string fullname = "";
+
+	type = medCapLowPrioTypes[rand() % medCapLowPrioTypes.size()];
+	if (type == "Brothel" || type == "Nightclub" || type == "Pub" || type == "Bar" || type == "Truckstop") {
+		if (rand() % 100 < 33 || nightlifeWords.empty()) {
+			name = surNames[rand() % surNames.size()];
+			name += "'s";
+		}
+		else {
+			int i = rand() % nightlifeWords.size();
+			name = nightlifeWords[i];
+			nightlifeWords.erase(nightlifeWords.begin() + i);
+		}
+		fullname = name + " " + type;
+	}
+	else if (type == "AsianRestaurant") {
+		int i = rand() % asianWords.size();
+		name = asianWords[i];
+		asianWords.erase(asianWords.begin() + i);
+		fullname = type + " " + name;
+	}
+	else if (type == "CapsuleHotel") {
+		if (rand() % 100 < 75) {
+			int i = rand() % asianWords.size();
+			name = asianWords[i];
+			asianWords.erase(asianWords.begin() + i);
+			fullname = name + " " + type;
+		}
+		else {
+			int i = rand() % streetNamesFirst.size();
+			name = streetNamesFirst[i];
+			streetNamesFirst.erase(streetNamesFirst.begin() + i);
+			fullname = name + " " + type;
+		}
+	}
+	else if (type == "Internetcafe") {
+		int i = rand() % nerdWords.size();
+		name = nerdWords[i];
+		nerdWords.erase(nerdWords.begin() + i);
+		fullname = name + " " + type;
+	}
+	else {
+		if (rand() % 100 < 50) {
+			int i = rand() % streetNamesFirst.size();
+			name = streetNamesFirst[i];
+			streetNamesFirst.erase(streetNamesFirst.begin() + i);
+			fullname = name + " " + type;
+		}
+		else {
+			name = surNames[rand() % surNames.size()];
+			name += "'s";
+			fullname = name + " " + type;
+		}
+	}
+	return fullname;
 }
 
 std::string NameGenerator::streetName(Enumerators::KindOfRoom kor) {
@@ -258,6 +318,10 @@ void NameGenerator::setupNameLists()
 	medCapMedPrioRooms = fileToStringVector("./data/medCapLowPrioRooms.csv");
 	streetNamesFirst = fileToStringVector("./data/streetNamesFirst.csv");
 	streetNamesLast = fileToStringVector("./data/streetNamesLast.csv");
+	asianWords = fileToStringVector("./data/asianWords.csv");
+	nerdWords = fileToStringVector("./data/nerdWords.csv");
+	nightlifeWords = fileToStringVector("./data/nightlifeWords.csv");
+	medCapLowPrioTypes = fileToStringVector("./data/medCapLowPrioType.csv");
 
 	bluntWeapons = fileToStringVector("./data/bluntWeapons.csv");
 	pierceWeapons = fileToStringVector("./data/pierceWeapons.csv");
