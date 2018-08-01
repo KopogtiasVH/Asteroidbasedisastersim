@@ -23,6 +23,22 @@ Room::Room()
 	//printRoom();
 }
 
+Room::Room(int p)
+{
+	currentCapacity = 0;
+	maxCapacity = ((rand() % 20) + 1) * 10;
+	priority = p;
+	maxCondition = maxCapacity * priority;
+	currentCondition = maxCondition;
+	intact = true;
+	inSystem = false;
+	connectedTo = std::vector<Room*>();
+
+	name = NameGenerator::roomName(maxCapacity, priority);
+
+	//printRoom();
+}
+
 Room::Room(std::string n_) 
 {
 	currentCapacity = 0;

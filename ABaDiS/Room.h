@@ -9,6 +9,7 @@ class Room
 {
 public:
 	Room();
+	Room(int);
 	Room(std::string);
 
 	virtual void printRoom();

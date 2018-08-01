@@ -2,7 +2,7 @@
 #include "HiPRoom.h"
 
 
-HiPRoom::HiPRoom() : Room()
+HiPRoom::HiPRoom(int p) : Room(p)
 {
 	// Throw a dice to generate the type of this high priority room
 	switch (rand() % 4) {
@@ -41,6 +41,7 @@ HiPRoom::HiPRoom() : Room()
 	default:
 		std::cerr << "Something went wrong" << std::endl;
 	}
+
 }
 
 

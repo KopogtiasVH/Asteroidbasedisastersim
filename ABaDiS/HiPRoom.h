@@ -4,7 +4,7 @@ class HiPRoom :
 	public Room
 {
 public:
-	HiPRoom();
+	HiPRoom(int);
 
 	// Getters
 	int getFood();
