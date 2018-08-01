@@ -29,8 +29,6 @@ public:
 	std::string getName() const;
 	std::vector<Room*> getConnections() const;
 
-	int ID;
-
 protected:
 	int maxCapacity;
 	int currentCapacity;

@@ -24,7 +24,10 @@ public:
 	// Identifies Corridors from Living Quarters
 	enum class KindOfRoom {
 		street,
-		livingQuarter
+		livingQuarter,
+		docks,
+		warehouse,
+		security
 	};
 
 	// The Factions a Leader can belong to

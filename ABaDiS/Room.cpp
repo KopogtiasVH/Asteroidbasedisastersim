@@ -18,8 +18,6 @@ Room::Room()
 	inSystem = false;
 	connectedTo = std::vector<Room*>();
 
-	ID = rand();
-
 	name = NameGenerator::roomName(maxCapacity, priority);
 	
 	//printRoom();
