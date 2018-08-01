@@ -48,8 +48,6 @@ Room::Room(std::string n_)
 	inSystem = false;
 	connectedTo = std::vector<Room*>();
 
-	ID = rand();
-
 	name = n_;
 
 	//printRoom();

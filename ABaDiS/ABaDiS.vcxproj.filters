@@ -55,6 +55,12 @@
     <Filter Include="Resource Files\Names\Battles">
       <UniqueIdentifier>{b6b730b2-c38a-42fc-bcbd-f2a393b24ef6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Concepts">
+      <UniqueIdentifier>{d13a8290-db3a-4b5e-98a0-e2afedaee791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Concepts">
+      <UniqueIdentifier>{7d0c7625-97c7-48ae-b289-b66467919f6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Being.h">
@@ -103,7 +109,10 @@
       <Filter>Header Files\Rooms</Filter>
     </ClInclude>
     <ClInclude Include="Battle.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Concepts</Filter>
+    </ClInclude>
+    <ClInclude Include="HiPRoom.h">
+      <Filter>Header Files\Rooms</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -149,8 +158,11 @@
     <ClCompile Include="Corridor.cpp">
       <Filter>Source Files\Rooms</Filter>
     </ClCompile>
+    <ClCompile Include="HiPRoom.cpp">
+      <Filter>Source Files\Rooms</Filter>
+    </ClCompile>
     <ClCompile Include="Battle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Concepts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +228,18 @@
     </None>
     <None Include="data\medCapLowPrioType.csv">
       <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\alphabet.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\corporationFirst.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\corporationLast.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\corporationSecond.csv">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

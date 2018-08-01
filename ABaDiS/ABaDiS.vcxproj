@@ -152,6 +152,7 @@
     <ClInclude Include="Being.h" />
     <ClInclude Include="Corridor.h" />
     <ClInclude Include="Enumerators.h" />
+    <ClInclude Include="HiPRoom.h" />
     <ClInclude Include="Leader.h" />
     <ClInclude Include="MobGoon.h" />
     <ClInclude Include="MobLeader.h" />
@@ -170,6 +171,7 @@
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Being.cpp" />
     <ClCompile Include="Corridor.cpp" />
+    <ClCompile Include="HiPRoom.cpp" />
     <ClCompile Include="Leader.cpp" />
     <ClCompile Include="MobGoon.cpp" />
     <ClCompile Include="MobLeader.cpp" />
@@ -187,10 +189,14 @@
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\alphabet.csv" />
     <None Include="data\asianWords.csv" />
     <None Include="data\battleNouns.csv" />
     <None Include="data\battlePrepositions.csv" />
     <None Include="data\bluntWeapons.csv" />
+    <None Include="data\corporationFirst.csv" />
+    <None Include="data\corporationLast.csv" />
+    <None Include="data\corporationSecond.csv" />
     <None Include="data\explosiveWeapons.csv" />
     <None Include="data\femaleNames.csv" />
     <None Include="data\lowCapRooms.csv" />

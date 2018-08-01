@@ -30,11 +30,15 @@ public:
 	// Battles
 	static std::string battleName(std::string, int);
 
+	// Companies
+	static std::string companyName();
+
 	// Additional Methods
 	static void setupNameLists();
 	static std::vector<std::string> fileToStringVector(std::string myFileName);
 
 private:
+	// Boolean to detect if the following vectors are already populated
 	static bool isGenerated;
 
 	// Humans
@@ -67,5 +71,11 @@ private:
 	// Battles
 	static std::vector<std::string> battleNouns;
 	static std::vector<std::string> battlePrepositions;
+
+	// Companies
+	static std::vector<std::string> alphabet;
+	static std::vector<std::string> corporationFirst;
+	static std::vector<std::string> corporationSecond;
+	static std::vector<std::string> corporationLast;
 };
 

@@ -41,6 +41,12 @@ std::vector<std::string> NameGenerator::explosiveWeapons;
 std::vector<std::string> NameGenerator::battleNouns;
 std::vector<std::string> NameGenerator::battlePrepositions;
 
+// Companie Names
+std::vector<std::string> NameGenerator::alphabet;
+std::vector<std::string> NameGenerator::corporationFirst;
+std::vector<std::string> NameGenerator::corporationSecond;
+std::vector<std::string> NameGenerator::corporationLast;
+
 // Return a First (Or second/third) name for a Human
 std::string NameGenerator::humanName(Enumerators::Gender gender) {
 	std::string name = "";
@@ -299,6 +305,10 @@ std::string NameGenerator::weaponName(Enumerators::Weapontype t) {
 
 // Return a name for a battle fought in the Base
 std::string NameGenerator::battleName(std::string rN, int bc) {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
 	std::string name;
 	if (bc <= 20) {
 		name = battleNouns[rand() % 10] + " " 
@@ -307,6 +317,57 @@ std::string NameGenerator::battleName(std::string rN, int bc) {
 	}
 	else {
 		name = rN + " " + battleNouns[(rand() % 10) + 10];
+	}
+
+	return name;
+}
+
+// Return a Companie Name
+std::string NameGenerator::companyName() {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+
+	std::string name = "";
+	switch (rand() % 6) {
+	case 0:
+		name = corporationFirst[rand() % corporationFirst.size()] + " "
+			+ corporationSecond[rand() % corporationSecond.size()] + " "
+			+ corporationLast[rand() % corporationLast.size()];
+		break;
+	case 1:
+		name = surNames[rand() % surNames.size()] + " "
+			+ corporationSecond[rand() % corporationSecond.size()] + " "
+			+ corporationLast[rand() % corporationLast.size()];
+		break;
+	case 2:
+		name = corporationFirst[rand() % corporationFirst.size()] + " "
+			+ corporationLast[rand() % corporationLast.size()];
+		break;
+	case 3:
+		name = surNames[rand() % surNames.size()] + " "
+			+ corporationLast[rand() % corporationLast.size()];
+		break;
+	case 4:
+		if (rand() % 2 > 0)
+			name = alphabet[rand() % alphabet.size()] + alphabet[rand() % alphabet.size()] + alphabet[rand() % alphabet.size()]
+				+ " " + corporationLast[rand() % corporationLast.size()];
+		else
+			name = alphabet[rand() % alphabet.size()] + "&" + alphabet[rand() % alphabet.size()]
+			+ " " + corporationLast[rand() % corporationLast.size()];
+		break;
+	case 5:
+		if (rand() % 2 > 0)
+			name = alphabet[rand() % alphabet.size()] + alphabet[rand() % alphabet.size()] + alphabet[rand() % alphabet.size()]
+			+ " " + corporationSecond[rand() % corporationSecond.size()]
+			+ " " + corporationLast[rand() % corporationLast.size()];
+		else
+			name = alphabet[rand() % alphabet.size()] + "&" + alphabet[rand() % alphabet.size()]
+			+ " " + corporationSecond[rand() % corporationSecond.size()]
+			+ " " + corporationLast[rand() % corporationLast.size()];
+		break;
+	default:
+		std::cerr << "Something went wrong" << std::endl;
 	}
 
 	return name;
@@ -341,6 +402,11 @@ void NameGenerator::setupNameLists()
 
 	battleNouns = fileToStringVector("./data/battleNouns.csv");
 	battlePrepositions = fileToStringVector("./data/battlePrepositions.csv");
+
+	alphabet = fileToStringVector("./data/alphabet.csv");
+	corporationFirst = fileToStringVector("./data/corporationFirst.csv");
+	corporationSecond = fileToStringVector("./data/corporationSecond.csv");
+	corporationLast = fileToStringVector("./data/corporationLast.csv");
 	
 	isGenerated = true;
 }
