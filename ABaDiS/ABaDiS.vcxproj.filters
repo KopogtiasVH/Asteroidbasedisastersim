@@ -61,6 +61,9 @@
     <Filter Include="Header Files\Concepts">
       <UniqueIdentifier>{7d0c7625-97c7-48ae-b289-b66467919f6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Names\Company">
+      <UniqueIdentifier>{08ae3b85-b4df-4c52-9422-fbaccdd13563}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Being.h">
@@ -230,16 +233,16 @@
       <Filter>Resource Files\Names\rooms</Filter>
     </None>
     <None Include="data\alphabet.csv">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Names\Company</Filter>
     </None>
     <None Include="data\corporationFirst.csv">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Names\Company</Filter>
     </None>
     <None Include="data\corporationLast.csv">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Names\Company</Filter>
     </None>
     <None Include="data\corporationSecond.csv">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Names\Company</Filter>
     </None>
   </ItemGroup>
 </Project>
