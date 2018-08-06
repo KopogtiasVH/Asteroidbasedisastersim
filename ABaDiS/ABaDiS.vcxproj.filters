@@ -244,5 +244,11 @@
     <None Include="data\corporationSecond.csv">
       <Filter>Resource Files\Names\Company</Filter>
     </None>
+    <None Include="data\wareHouseLasts.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
+    <None Include="data\dockLasts.csv">
+      <Filter>Resource Files\Names\rooms</Filter>
+    </None>
   </ItemGroup>
 </Project>

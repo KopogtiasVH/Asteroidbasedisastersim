@@ -28,7 +28,6 @@ Ressource
 Spaceship
 Ship
 Cargo
-Warehouse
 Internal
 External
 Shipment
@@ -59,3 +58,5 @@ Neural
 Artificial
 Data
 Networking
+Asteroid
+Military

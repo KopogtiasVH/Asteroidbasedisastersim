@@ -30,6 +30,8 @@ std::vector<std::string> NameGenerator::asianWords;
 std::vector<std::string> NameGenerator::nerdWords;
 std::vector<std::string> NameGenerator::nightlifeWords;
 std::vector<std::string> NameGenerator::medCapLowPrioTypes;
+std::vector<std::string> NameGenerator::warehouseLasts;
+std::vector<std::string> NameGenerator::docksLasts;
 
 // Weapon Names
 std::vector<std::string> NameGenerator::bluntWeapons;
@@ -245,6 +247,56 @@ std::string NameGenerator::roomName(int cap, int prio) {
 	return name;
 }
 
+// Return a name of a High Priority Room based on it's type
+std::string NameGenerator::hiPRoomName(Enumerators::KindOfRoom kor, std::string connectedOned) {
+	if (!isGenerated) {
+		setupNameLists();
+	}
+	
+	std::string name = "";
+	int r = rand() % 100;
+	switch (kor) {
+	case Enumerators::KindOfRoom::warehouse:
+		if (r < 33) {
+			name = companyName() + " " + warehouseLasts[rand() % warehouseLasts.size()];
+		}
+		else if (r < 66) {
+			name = surNames[rand() % surNames.size()] + " " + warehouseLasts[rand() % warehouseLasts.size()];
+		}
+		else {
+			name = connectedOned + " " + warehouseLasts[rand() % warehouseLasts.size()];
+		}
+		break;
+	case Enumerators::KindOfRoom::security:
+		if (r < 44) {
+			name = connectedOned + " Security Checkpoint";
+		}
+		else if (r < 88) {
+			name = connectedOned + " Police Station";
+		}
+		else {
+			name = connectedOned + " Constabulary";
+		}
+		break;
+	case Enumerators::KindOfRoom::docks:
+		if (r < 50) {
+			name = connectedOned + " " + docksLasts[rand() % docksLasts.size()];
+		}
+		else {
+			name = surNames[rand()%surNames.size()] + " " + docksLasts[rand() % docksLasts.size()];
+		}
+		break;
+	case Enumerators::KindOfRoom::livingQuarter:
+		name = streetName(kor);
+		break;
+	default:
+		std::cerr << "Wrong Kind of Room to recieve a High Priority Name" << std::endl;
+		break;
+	}
+
+	return name;
+}
+
 // Return a name for a street or living quarter
 std::string NameGenerator::streetName(Enumerators::KindOfRoom kor) {
 	if (!isGenerated) {
@@ -376,37 +428,39 @@ std::string NameGenerator::companyName() {
 // Fill the Vectors with the words from the .csv files in the data Folder
 void NameGenerator::setupNameLists()
 {
-	maleNames = fileToStringVector("./data/maleNames.csv");
-	femaleNames = fileToStringVector("./data/femaleNames.csv");
-	surNames = fileToStringVector("./data/surNames.csv");
+	maleNames =				fileToStringVector("./data/maleNames.csv");
+	femaleNames =			fileToStringVector("./data/femaleNames.csv");
+	surNames =				fileToStringVector("./data/surNames.csv");
 
-	secRanks = fileToStringVector("./data/secRanks.csv");
-	previousJobs = fileToStringVector("./data/previousJobs.csv");
+	secRanks =				fileToStringVector("./data/secRanks.csv");
+	previousJobs =			fileToStringVector("./data/previousJobs.csv");
 
-	militiaVerbs = fileToStringVector("./data/militiaVerbs.csv");
-	militiaNouns = fileToStringVector("./data/militiaNouns.csv");
+	militiaVerbs =			fileToStringVector("./data/militiaVerbs.csv");
+	militiaNouns =			fileToStringVector("./data/militiaNouns.csv");
 
-	lowCapRooms = fileToStringVector("./data/lowCapRooms.csv");
-	medCapMedPrioRooms = fileToStringVector("./data/medCapLowPrioRooms.csv");
-	streetNamesFirst = fileToStringVector("./data/streetNamesFirst.csv");
-	streetNamesLast = fileToStringVector("./data/streetNamesLast.csv");
-	asianWords = fileToStringVector("./data/asianWords.csv");
-	nerdWords = fileToStringVector("./data/nerdWords.csv");
-	nightlifeWords = fileToStringVector("./data/nightlifeWords.csv");
-	medCapLowPrioTypes = fileToStringVector("./data/medCapLowPrioType.csv");
+	lowCapRooms =			fileToStringVector("./data/lowCapRooms.csv");
+	medCapMedPrioRooms =	fileToStringVector("./data/medCapLowPrioRooms.csv");
+	streetNamesFirst =		fileToStringVector("./data/streetNamesFirst.csv");
+	streetNamesLast =		fileToStringVector("./data/streetNamesLast.csv");
+	asianWords =			fileToStringVector("./data/asianWords.csv");
+	nerdWords =				fileToStringVector("./data/nerdWords.csv");
+	nightlifeWords =		fileToStringVector("./data/nightlifeWords.csv");
+	medCapLowPrioTypes =	fileToStringVector("./data/medCapLowPrioType.csv");
+	warehouseLasts =		fileToStringVector("./data/warehouseLasts.csv");
+	docksLasts =			fileToStringVector("./data/dockLasts.csv");
 
-	bluntWeapons = fileToStringVector("./data/bluntWeapons.csv");
-	pierceWeapons = fileToStringVector("./data/pierceWeapons.csv");
-	rangedWeapons = fileToStringVector("./data/rangedWeapons.csv");
-	explosiveWeapons = fileToStringVector("./data/explosiveWeapons.csv");
+	bluntWeapons =			fileToStringVector("./data/bluntWeapons.csv");
+	pierceWeapons =			fileToStringVector("./data/pierceWeapons.csv");
+	rangedWeapons =			fileToStringVector("./data/rangedWeapons.csv");
+	explosiveWeapons =		fileToStringVector("./data/explosiveWeapons.csv");
 
-	battleNouns = fileToStringVector("./data/battleNouns.csv");
-	battlePrepositions = fileToStringVector("./data/battlePrepositions.csv");
+	battleNouns =			fileToStringVector("./data/battleNouns.csv");
+	battlePrepositions =	fileToStringVector("./data/battlePrepositions.csv");
 
-	alphabet = fileToStringVector("./data/alphabet.csv");
-	corporationFirst = fileToStringVector("./data/corporationFirst.csv");
-	corporationSecond = fileToStringVector("./data/corporationSecond.csv");
-	corporationLast = fileToStringVector("./data/corporationLast.csv");
+	alphabet =				fileToStringVector("./data/alphabet.csv");
+	corporationFirst =		fileToStringVector("./data/corporationFirst.csv");
+	corporationSecond =		fileToStringVector("./data/corporationSecond.csv");
+	corporationLast =		fileToStringVector("./data/corporationLast.csv");
 	
 	isGenerated = true;
 }

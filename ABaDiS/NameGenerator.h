@@ -21,7 +21,7 @@ public:
 	static std::string lowCapRoomName(int cap);
 	static std::string medCapRoomName();
 	static std::string roomName(int, int);
-	static std::string hiPRoomName(Enumerators::KindOfRoom);
+	static std::string hiPRoomName(Enumerators::KindOfRoom, std::string);
 	static std::string streetName(Enumerators::KindOfRoom);
 
 	// Weapons
@@ -61,6 +61,8 @@ private:
 	static std::vector<std::string> asianWords;
 	static std::vector<std::string> nerdWords;
 	static std::vector<std::string> nightlifeWords;
+	static std::vector<std::string> warehouseLasts;
+	static std::vector<std::string> docksLasts;
 	
 	// Weapons
 	static std::vector<std::string> bluntWeapons;

@@ -197,6 +197,7 @@
     <None Include="data\corporationFirst.csv" />
     <None Include="data\corporationLast.csv" />
     <None Include="data\corporationSecond.csv" />
+    <None Include="data\dockLasts.csv" />
     <None Include="data\explosiveWeapons.csv" />
     <None Include="data\femaleNames.csv" />
     <None Include="data\lowCapRooms.csv" />
@@ -214,6 +215,7 @@
     <None Include="data\streetNamesFirst.csv" />
     <None Include="data\streetNamesLast.csv" />
     <None Include="data\surNames.csv" />
+    <None Include="data\wareHouseLasts.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
