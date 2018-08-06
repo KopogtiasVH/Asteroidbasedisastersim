@@ -53,6 +53,7 @@ void HiPRoom::setName() {
 		if (dynamic_cast<Corridor*>(r)) {
 			name = NameGenerator::hiPRoomName(kor, r->getName());
 			std::cout << "name assignment" << std::endl;
+			break;
 		}
 	}
 }

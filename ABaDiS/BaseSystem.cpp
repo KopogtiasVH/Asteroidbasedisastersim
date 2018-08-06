@@ -35,19 +35,11 @@ bool BaseSystem::createRoom() {
 
 bool BaseSystem::connectRooms(Room* a, Room* b) {
 	if (a != b) {
-		if (a->connectTo(b) && b->connectTo(a)) {
-			Corridor* newCorridor = new Corridor(a, b);
-			rooms.push_back(newCorridor);
-			return true;
-		}
-		else {
-			std::cerr << "Something went wrong" << std::endl;
-			return false;
-		}
-	}
-	else {
-		std::cerr << "You can't connect a Room to itself" << std::endl;
-		return false;
+		Corridor* newCorridor = new Corridor(a, b);
+		rooms.push_back(newCorridor);
+		a->connectTo(newCorridor);
+		b->connectTo(newCorridor);
+		return true;
 	}
 }
 
