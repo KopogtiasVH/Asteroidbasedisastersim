@@ -6,11 +6,13 @@ class HiPRoom :
 public:
 	HiPRoom(int);
 
+	// Other
+	void setName();
+
 	// Getters
 	int getFood();
 	int getScrap();
 	int getWeapons();
-	
 	int getPopulation();
 	Enumerators::KindOfRoom getKor();
 

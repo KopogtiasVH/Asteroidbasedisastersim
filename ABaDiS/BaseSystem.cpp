@@ -11,6 +11,17 @@ BaseSystem::BaseSystem()
 	tension = 0;
 }
 
+BaseSystem::BaseSystem(int noOfRooms) 
+{
+	rooms = std::vector<Room*>();
+	leaders = std::vector<Leader*>();
+	battles = std::vector<Battle>();
+
+	tension = 0;
+
+	createBase(noOfRooms);
+}
+
 // Generic Section
 
 
@@ -63,7 +74,14 @@ void BaseSystem::createBase(int minimumNoOfRooms) {
 	if (rooms.size() <= 0)
 		rooms.push_back(new Room());
 	Room* prev = rooms[rand() % rooms.size()];
-	Room* a = new Room();
+	Room* a;
+	if (rand() % 100 < 20) {
+		a = new HiPRoom(rand() % 3 + 7);
+		std::cout << "Hiproom generated" << std::endl;
+	}
+	else {
+		a = new Room();
+	}
 	Room* b = new Room();
 	rooms.push_back(a);
 	rooms.push_back(b);
@@ -79,7 +97,13 @@ void BaseSystem::createBase(int minimumNoOfRooms) {
 				connectRooms(a, b);
 			else --i;
 		}
+		setHiPRoomNames();
 	}
+}
+
+// Creates a new System with minimum number of rooms and even priority distribution
+void BaseSystem::createBaseDistributed(int minimumNoOfRooms, int p) {
+
 }
 
 void BaseSystem::printRooms() {
@@ -90,6 +114,14 @@ void BaseSystem::printRooms() {
 
 Room* BaseSystem::getRandomRoom() {
 	return rooms[rand() % rooms.size()];
+}
+
+void BaseSystem::setHiPRoomNames() {
+	for (Room* r : rooms) {
+		if (dynamic_cast<HiPRoom*>(r)) {
+			dynamic_cast<HiPRoom*>(r)->setName();
+		}
+	}
 }
 
 // LEADER Section

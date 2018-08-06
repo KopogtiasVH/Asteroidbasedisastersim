@@ -11,7 +11,7 @@ Room::Room()
 {
 	currentCapacity = 0;
 	maxCapacity = ((rand() % 20) + 1) * 10;
-	priority = rand() % 10 + 1;
+	priority = rand() % 6 + 1;
 	maxCondition = maxCapacity * priority;
 	currentCondition = maxCondition;
 	intact = true;

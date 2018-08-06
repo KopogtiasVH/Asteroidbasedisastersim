@@ -42,8 +42,20 @@ HiPRoom::HiPRoom(int p) : Room(p)
 		std::cerr << "Something went wrong" << std::endl;
 	}
 
+	name = "NEEDS ASSIGNMENT";
 }
 
+// Other
+
+// Set the Name -- Must be done later because it must be connected to a Corridor before a Name can be generated
+void HiPRoom::setName() {
+	for (Room* r : connectedTo) {
+		if (dynamic_cast<Corridor*>(r)) {
+			name = NameGenerator::hiPRoomName(kor, r->getName());
+			std::cout << "name assignment" << std::endl;
+		}
+	}
+}
 
 // Getters
 int HiPRoom::getFood()

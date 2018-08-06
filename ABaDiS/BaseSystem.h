@@ -7,6 +7,7 @@ class BaseSystem
 {
 public:
 	BaseSystem();
+	BaseSystem(int);
 	
 	void step();
 
@@ -19,6 +20,8 @@ public:
 	void printRooms();
 	Room* getRandomRoom();
 	void createBase(int);
+	void createBaseDistributed(int, int);
+	void setHiPRoomNames();
 	
 	// LEADER Section
 	bool createMobLeader(Room*);
