@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Room.h"
-#include <iostream>
 
 /*
 	A Room is a fictional Place in the Base. All things and fights are located inside them.
@@ -19,8 +18,7 @@ Room::Room()
 	connectedTo = std::vector<Room*>();
 
 	name = NameGenerator::roomName(maxCapacity, priority);
-	
-	//printRoom();
+	kor = Enumerators::KindOfRoom::generic;
 }
 
 Room::Room(int p)
@@ -35,10 +33,10 @@ Room::Room(int p)
 	connectedTo = std::vector<Room*>();
 
 	name = NameGenerator::roomName(maxCapacity, priority);
-
-	//printRoom();
+	kor = Enumerators::KindOfRoom::generic;
 }
 
+/*
 Room::Room(std::string n_) 
 {
 	currentCapacity = 0;
@@ -51,6 +49,16 @@ Room::Room(std::string n_)
 	name = n_;
 
 	//printRoom();
+}
+*/
+
+// Helper Methods
+
+// Connects this Room to the other
+bool Room::connectTo(Room* toConnectTo) {
+	connectedTo.push_back(toConnectTo);
+	inSystem = true;
+	return true;
 }
 
 // Function to enter Room
@@ -71,12 +79,6 @@ bool Room::isConnectedTo(Room* toCheck) {
 		if (r == toCheck)
 			return true;
 	return false;
-}
-
-bool Room::connectTo(Room* toConnectTo) {
-	connectedTo.push_back(toConnectTo);
-	inSystem = true;
-	return true;
 }
 
 /*
@@ -108,6 +110,11 @@ bool Room::isIntact() const
 	return intact;
 }
 
+bool Room::isEmpty() const
+{
+	return (currentCapacity == 0);
+}
+
 std::string Room::getName() const
 {
 	return name;
@@ -116,6 +123,11 @@ std::string Room::getName() const
 std::vector<Room*> Room::getConnections() const
 {
 	return connectedTo;
+}
+
+Enumerators::KindOfRoom Room::getKor() const
+{
+	return kor;
 }
 
 // Function to Print the Room to the console.

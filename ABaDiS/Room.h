@@ -8,15 +8,18 @@
 class Room
 {
 public:
+
+	// Constructors
 	Room();
 	Room(int);
 	Room(std::string);
 
-	virtual void printRoom();
-
+	// Helpers
 	bool connectTo(Room*);
+	bool enterRoom(int);
+	bool isConnectedTo(Room*);
 
-
+	// Getters
 	int getCapacity() const;
 	int getCurrentCapacity() const;
 	int getPriority() const;
@@ -24,13 +27,18 @@ public:
 	int getMaxCondition() const;
 
 	bool isIntact() const;
-	bool enterRoom(int);
-	bool isConnectedTo(Room*);
+	bool isEmpty() const;
 
 	std::string getName() const;
 	std::vector<Room*> getConnections() const;
+	Enumerators::KindOfRoom getKor() const;
+
+	// Printers
+	virtual void printRoom();
 
 protected:
+
+	// Statistics
 	int maxCapacity;
 	int currentCapacity;
 	int population;
@@ -42,6 +50,9 @@ protected:
 	bool inSystem;
 
 	std::vector<Room*> connectedTo;
+
 	std::string name;
+
+	Enumerators::KindOfRoom kor;
 };
 

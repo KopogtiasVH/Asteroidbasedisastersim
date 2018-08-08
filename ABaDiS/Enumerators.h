@@ -23,6 +23,7 @@ public:
 
 	// Identifies Corridors from Living Quarters
 	enum class KindOfRoom {
+		generic,
 		street,
 		livingQuarter,
 		docks,

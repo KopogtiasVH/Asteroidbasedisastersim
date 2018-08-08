@@ -9,6 +9,6 @@ public:
 	void printRoom() override;
 
 protected:
-	Enumerators::KindOfRoom kor;
+
 };
 

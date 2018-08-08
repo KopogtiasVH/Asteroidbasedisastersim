@@ -29,6 +29,7 @@ public:
 	void printLeaders();
 	bool recruit(Leader*);
 	bool recruit(int);
+	void addLeaders(int);
 
 	// BATTLE Section
 	void createFight(Leader*, Leader*, Room*);

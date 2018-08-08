@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "BaseSystem.h"
 
+// Constructors
+#pragma region CONSTRUCTORS
 
 BaseSystem::BaseSystem()
 {
@@ -11,7 +13,7 @@ BaseSystem::BaseSystem()
 	tension = 0;
 }
 
-BaseSystem::BaseSystem(int noOfRooms) 
+BaseSystem::BaseSystem(int noOfRooms)
 {
 	rooms = std::vector<Room*>();
 	leaders = std::vector<Leader*>();
@@ -20,13 +22,16 @@ BaseSystem::BaseSystem(int noOfRooms)
 	tension = 0;
 
 	createBase(noOfRooms);
+	addLeaders(noOfRooms);
 }
+
+#pragma endregion
 
 // Generic Section
 
 
-
 // ROOM Section
+#pragma region ROOMS
 
 bool BaseSystem::createRoom() {
 	rooms.push_back(new Room());
@@ -116,15 +121,21 @@ void BaseSystem::setHiPRoomNames() {
 	}
 }
 
+
+#pragma endregion
+
 // LEADER Section
+#pragma region LEADERS
 
 bool BaseSystem::createMobLeader(Room* r) {
 	leaders.push_back(new MobLeader(r));
+	r->enterRoom(1);
 	return true;
 }
 
 bool BaseSystem::createSecLeader(Room* r) {
 	leaders.push_back(new SecOfficer(r));
+	r->enterRoom(1);
 	return true;
 }
 
@@ -148,7 +159,46 @@ bool BaseSystem::recruit(int i) {
 	return false;
 }
 
+void BaseSystem::addLeaders(int noOfRooms) {
+	int noOfLeaders = noOfRooms / 10;
+
+	int currentMob = 0;
+	int noOfMobLeaders = noOfLeaders / 2;
+
+	int currentOfficers = 0;
+	int noOfOfficers = noOfLeaders / 2;
+
+	for (int i = currentOfficers; i < noOfOfficers; i++) {
+		Room* r2 = getRandomRoom();
+		for (Room* r : rooms) {
+			if (r->getKor() == Enumerators::KindOfRoom::security && r->isEmpty()) {
+				createSecLeader(r);
+				goto END;
+			}
+		}
+		if (r2->isEmpty()) {
+			createSecLeader(r2);
+		}
+		else {
+			i--;
+		}
+	END:;
+	}
+	for (int i = currentMob; i < noOfMobLeaders; i++) {
+		Room* r = getRandomRoom();
+		if (r->isEmpty() && r->getKor() != Enumerators::KindOfRoom::security) {
+			createMobLeader(r);
+		}
+		else {
+			i--;
+		}
+	}
+}
+
+#pragma endregion
+
 // Battle Section
+#pragma region BattleSection
 
 void BaseSystem::createFight(Leader* a, Leader* b, Room* r) {
 	battles.push_back(Battle(a, b, r));
@@ -191,7 +241,10 @@ void BaseSystem::printBattleResult(Battle::battleResult result) {
 		<< "The Fighting lastet for " << result.noOfRounds << " cycles." << std::endl << std::endl;
 }
 
+#pragma endregion
+
 // Getters
+#pragma region Getters
 
 Leader* BaseSystem::getLeader(int i) {
 	if (i <= leaders.size()) {
@@ -229,3 +282,7 @@ std::vector<Battle> BaseSystem::getBattles() {
 std::vector<Room*> BaseSystem::getRooms() {
 	return rooms;
 }
+
+#pragma endregion
+
+

@@ -37,6 +37,7 @@ HiPRoom::HiPRoom(int p) : Room(p)
 		scrap = 0;
 		weapons = maxCapacity / 10;
 		population = rand() % 3;
+		std::cout << "Security Checkpoint Added" << std::endl;
 		break;
 	default:
 		std::cerr << "Something went wrong" << std::endl;
@@ -77,9 +78,4 @@ int HiPRoom::getWeapons()
 int HiPRoom::getPopulation()
 {
 	return population;
-}
-
-Enumerators::KindOfRoom HiPRoom::getKor()
-{
-	return kor;
 }
