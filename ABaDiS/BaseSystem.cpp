@@ -28,7 +28,11 @@ BaseSystem::BaseSystem(int noOfRooms)
 #pragma endregion
 
 // Generic Section
+#pragma region GENERIC
 
+
+
+#pragma endregion
 
 // ROOM Section
 #pragma region ROOMS
@@ -197,8 +201,8 @@ void BaseSystem::addLeaders(int noOfRooms) {
 
 #pragma endregion
 
-// Battle Section
-#pragma region BattleSection
+// BATTLE Section
+#pragma region BATTLES
 
 void BaseSystem::createFight(Leader* a, Leader* b, Room* r) {
 	battles.push_back(Battle(a, b, r));
@@ -284,5 +288,3 @@ std::vector<Room*> BaseSystem::getRooms() {
 }
 
 #pragma endregion
-
-

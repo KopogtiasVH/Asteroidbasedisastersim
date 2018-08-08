@@ -11,6 +11,7 @@ public:
 	virtual void printSquad();
 	virtual bool recruit();
 	virtual bool recruit(Being*);
+	virtual void getNewDesire();
 
 	Squad* getSquad() const;
 

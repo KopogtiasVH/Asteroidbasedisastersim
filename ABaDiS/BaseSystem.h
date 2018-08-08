@@ -11,8 +11,6 @@ public:
 	
 	void step();
 
-	bool allowRecruitment();
-
 	// ROOM section
 	bool createRoom();
 	bool connectRooms(Room*, Room*);
@@ -44,8 +42,6 @@ public:
 	std::vector<Battle> getBattles();
 	std::vector<Room*> getRooms();
 	
-
-
 private:
 	std::vector<Room*> rooms;
 	std::vector<Leader*> leaders;

@@ -48,3 +48,7 @@ bool Leader::recruit(Being* toRecruit) {
 bool Leader::recruit() {
 	return false;
 }
+
+void Leader::getNewDesire() {
+
+}
