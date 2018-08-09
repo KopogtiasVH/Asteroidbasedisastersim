@@ -13,7 +13,17 @@ public:
 		Enumerators::statBoost statBoost;
 	};
 
-	Quest(Enumerators::TypeOfQuest, int, int, int, int, Enumerators::statBoost, Room*);
+	enum typeToGather {
+		food,
+		scrap,
+		none
+	};
+
+	// Regular Quest
+	Quest(Enumerators::TypeOfQuest, int, int, int, int, Enumerators::statBoost, Room*, Room*);
+
+	// Recruiting "Quest"
+	Quest(Enumerators::TypeOfQuest, int, int);
 
 	// Helpers
 	bool createQuest();
@@ -25,9 +35,12 @@ public:
 
 private:
 
+	Room* originRoom;
 	Enumerators::TypeOfQuest typeOfQuest;
+	typeToGather ttg;
 	questReward reward;
 	bool finished;
+	std::string questName;
 
 	// Gather Quest
 	int gathered;

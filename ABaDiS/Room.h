@@ -12,7 +12,6 @@ public:
 	// Constructors
 	Room();
 	Room(int);
-	Room(std::string);
 
 	// Helpers
 	bool connectTo(Room*);

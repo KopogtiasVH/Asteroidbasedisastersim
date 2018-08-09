@@ -60,7 +60,7 @@ bool SecOfficer::recruit(SecTroop newRecruit) {
 
 void SecOfficer::enterRoom(Room* toEnter) {
 	if (squad->getSize() + 1 < toEnter->getCapacity()) {
-		toEnter->enteringBeings(squad->getSize());
+		toEnter->enteringBeings(squad->getSize() + 1);
 	}
 	else {
 		Being* toLeave = squad->getMember(0);
