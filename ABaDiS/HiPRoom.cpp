@@ -37,7 +37,6 @@ HiPRoom::HiPRoom(int p) : Room(p)
 		scrap = 0;
 		weapons = maxCapacity / 10;
 		population = rand() % 3;
-		std::cout << "Security Checkpoint Added" << std::endl;
 		break;
 	default:
 		std::cerr << "Something went wrong" << std::endl;
@@ -53,7 +52,6 @@ void HiPRoom::setName() {
 	for (Room* r : connectedTo) {
 		if (dynamic_cast<Corridor*>(r)) {
 			name = NameGenerator::hiPRoomName(kor, r->getName());
-			std::cout << "name assignment" << std::endl;
 			break;
 		}
 	}

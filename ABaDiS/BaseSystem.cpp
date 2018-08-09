@@ -78,7 +78,6 @@ void BaseSystem::createBase(int minimumNoOfRooms) {
 	Room* a;
 	if (rand() % 100 < 20) {
 		a = new HiPRoom(rand() % 3 + 7);
-		std::cout << "Hiproom generated" << std::endl;
 	}
 	else {
 		a = new Room();
