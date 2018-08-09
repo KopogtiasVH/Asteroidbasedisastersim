@@ -52,3 +52,7 @@ bool Leader::recruit() {
 void Leader::getNewDesire() {
 
 }
+
+void Leader::enterRoom(Room* toEnter) {
+
+}

@@ -47,3 +47,15 @@ MobLeader::MobLeader(Room* startingLocation) : Leader(startingLocation, Enumerat
 bool MobLeader::recruit() {
 	return squad->recruit(new MobGoon(this));
 }
+
+void MobLeader::enterRoom(Room* toEnter) {
+	if (squad->getSize() + 1 < toEnter->getCapacity()) {
+		toEnter->enteringBeings(squad->getSize());
+	}
+	else {
+		Being* toLeave = squad->getMember(0);
+		squad->kick(toLeave);
+		toEnter->addWaitingGoons(1);
+		enterRoom(toEnter);
+	}
+}

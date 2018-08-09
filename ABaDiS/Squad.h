@@ -13,6 +13,7 @@ public:
 	Being* getMember(int) const;
 
 	bool recruit(Being*);
+	void kick(Being*);
 
 	void printSquad();
 	void setMaxSize(int);

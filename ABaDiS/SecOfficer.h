@@ -10,6 +10,7 @@ public:
 
 	bool recruit();
 	bool recruit(SecTroop);
+	void enterRoom(Room*);
 
 	Enumerators::OfficerClass oClass;
 

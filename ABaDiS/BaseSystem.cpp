@@ -132,14 +132,16 @@ void BaseSystem::setHiPRoomNames() {
 #pragma region LEADERS
 
 bool BaseSystem::createMobLeader(Room* r) {
-	leaders.push_back(new MobLeader(r));
-	r->enterRoom(1);
+	MobLeader* newLeader = new MobLeader(r);
+	leaders.push_back(newLeader);
+	newLeader->enterRoom(r);
 	return true;
 }
 
 bool BaseSystem::createSecLeader(Room* r) {
-	leaders.push_back(new SecOfficer(r));
-	r->enterRoom(1);
+	SecOfficer* newLeader = new SecOfficer(r);
+	leaders.push_back(newLeader);
+	newLeader->enterRoom(r);
 	return true;
 }
 

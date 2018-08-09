@@ -13,6 +13,7 @@ public:
 
 	MobLeader(Room*);
 	bool recruit();
+	void enterRoom(Room*);
 	LeaderClass lClass;
 
 private:

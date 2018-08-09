@@ -18,6 +18,9 @@ public:
 	bool connectTo(Room*);
 	bool enterRoom(int);
 	bool isConnectedTo(Room*);
+	bool enteringBeings(int);
+	void addWaitingGoons(int);
+	void addWaitingTroops(int);
 
 	// Getters
 	int getCapacity() const;
@@ -28,6 +31,7 @@ public:
 
 	bool isIntact() const;
 	bool isEmpty() const;
+	bool isSecurityPresent() const;
 
 	std::string getName() const;
 	std::vector<Room*> getConnections() const;
@@ -46,8 +50,12 @@ protected:
 	int maxCondition;
 	int currentCondition;
 
+	int waitingGoons;
+	int waitingTroops;
+
 	bool intact;
 	bool inSystem;
+	bool securityPresence;
 
 	std::vector<Room*> connectedTo;
 

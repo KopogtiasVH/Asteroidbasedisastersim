@@ -12,6 +12,7 @@ public:
 	virtual bool recruit();
 	virtual bool recruit(Being*);
 	virtual void getNewDesire();
+	virtual void enterRoom(Room*);
 
 	Squad* getSquad() const;
 

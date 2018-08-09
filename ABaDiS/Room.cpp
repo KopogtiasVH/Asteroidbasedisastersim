@@ -13,9 +13,15 @@ Room::Room()
 	priority = rand() % 6 + 1;
 	maxCondition = maxCapacity * priority;
 	currentCondition = maxCondition;
+
 	intact = true;
 	inSystem = false;
+	securityPresence = false;
+
 	connectedTo = std::vector<Room*>();
+
+	waitingGoons = 0;
+	waitingTroops = 0;
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
@@ -28,29 +34,19 @@ Room::Room(int p)
 	priority = p;
 	maxCondition = maxCapacity * priority;
 	currentCondition = maxCondition;
+
 	intact = true;
 	inSystem = false;
+	securityPresence = false;
+
 	connectedTo = std::vector<Room*>();
+
+	waitingGoons = 0;
+	waitingTroops = 0;
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
 }
-
-/*
-Room::Room(std::string n_) 
-{
-	currentCapacity = 0;
-	maxCapacity = ((rand() % 20) + 1) * 10;
-	priority = rand() % 10 + 1;
-	intact = true;
-	inSystem = false;
-	connectedTo = std::vector<Room*>();
-
-	name = n_;
-
-	//printRoom();
-}
-*/
 
 // Helper Methods
 
@@ -79,6 +75,26 @@ bool Room::isConnectedTo(Room* toCheck) {
 		if (r == toCheck)
 			return true;
 	return false;
+}
+
+// Raises the capacity
+bool Room::enteringBeings(int i) {
+	if (currentCapacity + i <= maxCapacity) {
+		currentCapacity += i;
+		return true;
+	}
+	std::cerr << "Squad too Big" << std::endl;
+	return false;
+}
+
+void Room::addWaitingGoons(int toAdd)
+{
+	waitingGoons += toAdd;
+}
+
+void Room::addWaitingTroops(int toAdd)
+{
+	waitingTroops += toAdd;
 }
 
 /*
@@ -113,6 +129,10 @@ bool Room::isIntact() const
 bool Room::isEmpty() const
 {
 	return (currentCapacity == 0);
+}
+
+bool Room::isSecurityPresent() const{
+	return securityPresence;
 }
 
 std::string Room::getName() const

@@ -9,6 +9,9 @@ public:
 	void doDamage(int);
 	void changeMorale(int);
 
+	// Helpers
+	void setSquadAffiliation(bool);
+
 	//Printers
 	virtual void printBeingTable();
 	virtual void printBeingFlavor();
@@ -26,9 +29,11 @@ public:
 	Enumerators::BodyStatus getStatus() const;
 	Room* getCurrentLocation() const;
 	Weapon* getWeapon() const;
+	bool isInSquad() const;
 
 protected:
 	bool eager;
+	bool inSquad;
 
 	Room* currentLocation;
 	Weapon* weapon;

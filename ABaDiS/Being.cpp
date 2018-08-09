@@ -10,6 +10,7 @@ Being::Being(Room* startingLocation)
 	// General Setup of a regular Human Being
 	status = Enumerators::BodyStatus::well;
 	eager = true;
+	inSquad = false;
 	currentLocation = startingLocation;
 
 	willpower = (rand() % 5) + 1;
@@ -38,6 +39,10 @@ Being::Being(Room* startingLocation)
 	kob = Enumerators::KindOfBeing::none;
 }
 
+void Being::setSquadAffiliation(bool s) {
+	inSquad = s;
+}
+
 int Being::getMaxMorale() const {
 	return maxMorale;
 }
@@ -64,6 +69,10 @@ Room* Being::getCurrentLocation() const {
 
 Weapon* Being::getWeapon() const {
 	return weapon;
+}
+
+bool Being::isInSquad() const {
+	return inSquad;
 }
 
 // Calculate the Damage this Being will do

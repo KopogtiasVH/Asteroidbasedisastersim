@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Squad.h"
+#include <iterator>
 
 Squad::Squad() {
 
@@ -47,11 +48,27 @@ bool Squad::recruit(Being* toRecruit)
 	if (size < maxSize) {
 		members.push_back(toRecruit);
 		size++;
+		toRecruit->setSquadAffiliation(true);
 		return true;
 	}
 	else {
 		std::cerr << "Squad already full" << std::endl;
 		return false;
+	}
+}
+
+void Squad::kick(Being* toKick) {
+	toKick->setSquadAffiliation(false);
+	std::vector<Being*>::iterator it = members.begin();
+	while (it != members.end()) {
+		Being* b = *it;
+		if (b == toKick) {
+			it = members.erase(it);
+			break;
+		}
+		else {
+			++it;
+		}
 	}
 }
 

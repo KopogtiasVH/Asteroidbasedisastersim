@@ -157,6 +157,7 @@
     <ClInclude Include="MobGoon.h" />
     <ClInclude Include="MobLeader.h" />
     <ClInclude Include="NameGenerator.h" />
+    <ClInclude Include="Quest.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="SecOfficer.h" />
     <ClInclude Include="SecTroop.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="MobGoon.cpp" />
     <ClCompile Include="MobLeader.cpp" />
     <ClCompile Include="NameGenerator.cpp" />
+    <ClCompile Include="Quest.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="SecOfficer.cpp" />
     <ClCompile Include="SecTroop.cpp" />

@@ -60,5 +60,24 @@ public:
 		severlyWounded,
 		dead
 	};
+
+	// Quest Types
+	enum class TypeOfQuest {
+		gathering,
+		secure,
+		hold,
+		recruit,
+		special
+	};
+
+	// Stat Boosts for Questrewards
+	enum class statBoost {
+		maxHealth,
+		maxMorale,
+		strength,
+		willpower,
+		random,
+		none
+	};
 };
 

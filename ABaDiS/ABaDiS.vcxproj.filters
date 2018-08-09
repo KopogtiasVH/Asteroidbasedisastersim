@@ -117,6 +117,9 @@
     <ClInclude Include="HiPRoom.h">
       <Filter>Header Files\Rooms</Filter>
     </ClInclude>
+    <ClInclude Include="Quest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Being.cpp">
@@ -166,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="Battle.cpp">
       <Filter>Source Files\Concepts</Filter>
+    </ClCompile>
+    <ClCompile Include="Quest.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

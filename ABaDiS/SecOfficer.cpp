@@ -57,3 +57,15 @@ bool SecOfficer::recruit() {
 bool SecOfficer::recruit(SecTroop newRecruit) {
 	return squad->recruit(&newRecruit);
 }
+
+void SecOfficer::enterRoom(Room* toEnter) {
+	if (squad->getSize() + 1 < toEnter->getCapacity()) {
+		toEnter->enteringBeings(squad->getSize());
+	}
+	else {
+		Being* toLeave = squad->getMember(0);
+		squad->kick(toLeave);
+		toEnter->addWaitingGoons(1);
+		enterRoom(toEnter);
+	}
+}
