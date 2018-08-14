@@ -20,7 +20,7 @@ Quest::Quest(Enumerators::TypeOfQuest toq, int sc, int fo, int we, int ar, Enume
 
 	createQuest();
 
-	ttg = none;
+	ttg = Enumerators::ressource::none;
 }
 
 // Recruiting "Quest" as it's not really a quest but behaves as one.
@@ -40,14 +40,14 @@ bool Quest::createQuest() {
 	case Enumerators::TypeOfQuest::gathering:
 		needsGathered = rand() % 100 + 100;
 		if (rand() % 2 == 0)
-			ttg = typeToGather::food;
+			ttg = Enumerators::ressource::food;
 		else
-			ttg = typeToGather::scrap;
+			ttg = Enumerators::ressource::scrap;
 		switch (ttg) {
-		case (scrap):
+		case (Enumerators::ressource::scrap):
 			questName = "Gather " + std::to_string(needsGathered) + *" scrap.";
 			break;
-		case (food):
+		case (Enumerators::ressource::food):
 			questName = "Gather " + std::to_string(needsGathered) + " food.";
 			break;
 		default:

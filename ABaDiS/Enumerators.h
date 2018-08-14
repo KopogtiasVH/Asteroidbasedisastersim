@@ -79,5 +79,12 @@ public:
 		random,
 		none
 	};
+
+	// Types of Ressources
+	enum class ressource {
+		food,
+		scrap,
+		none
+	};
 };
 

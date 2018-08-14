@@ -77,3 +77,39 @@ int HiPRoom::getPopulation()
 {
 	return population;
 }
+
+bool HiPRoom::deductFood(int toDeduct)
+{
+	if (food - toDeduct >= 0)
+		food -= toDeduct;
+	else
+		return false;
+	return true;
+}
+
+bool HiPRoom::deductScrap(int toDeduct)
+{
+	if (scrap - toDeduct >= 0)
+		scrap -= toDeduct;
+	else
+		return false;
+	return true;
+}
+
+bool HiPRoom::deductWeapon(int toDeduct)
+{
+	if (weapons - toDeduct >= 0)
+		weapons -= toDeduct;
+	else
+		return false;
+	return true;
+}
+
+bool HiPRoom::deductPopulation(int toDeduct)
+{
+	if (population - toDeduct >= 0)
+		population -= toDeduct;
+	else
+		return false;
+	return true;
+}

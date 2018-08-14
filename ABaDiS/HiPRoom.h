@@ -15,6 +15,11 @@ public:
 	int getWeapons();
 	int getPopulation();
 
+	bool deductFood(int);
+	bool deductScrap(int);
+	bool deductWeapon(int);
+	bool deductPopulation(int);
+
 
 private:
 

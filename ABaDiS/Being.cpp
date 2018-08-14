@@ -21,6 +21,11 @@ Being::Being(Room* startingLocation)
 	maxHealth = 5 + strength;
 	healthPoints = maxHealth;
 
+	maxInventorySpace = strength + rand() % 5;
+	currentInventorySpace = 0;
+	carryingFood = 0;
+	carryingScrap = 0;
+
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
 	else
@@ -43,6 +48,29 @@ void Being::setSquadAffiliation(bool s) {
 	inSquad = s;
 }
 
+void Being::scavenge(Room* r, Enumerators::ressource toScavenge)
+{
+	if (dynamic_cast<HiPRoom*>(r)) {
+		HiPRoom* hr = dynamic_cast<HiPRoom*>(r);
+		switch (toScavenge) {
+		case (Enumerators::ressource::food):
+			if (hr->deductFood(1) && currentInventorySpace < maxInventorySpace) {
+				carryingFood++;
+				currentInventorySpace++;
+			}
+			break;
+		case (Enumerators::ressource::scrap):
+			if (hr->deductScrap(1) && currentInventorySpace < maxInventorySpace) {
+				carryingScrap++;
+				currentInventorySpace++;
+			}
+			break;
+		default:
+			std::cerr << "Can't scavenge this ressource" << std::endl;
+		}
+	}
+}
+
 int Being::getMaxMorale() const {
 	return maxMorale;
 }
@@ -57,6 +85,26 @@ int Being::getMaxHealth() const {
 
 int Being::getCurrentHealth() const {
 	return healthPoints;
+}
+
+int Being::getCurrentInventorySpace() const
+{
+	return currentInventorySpace;
+}
+
+int Being::getMaxInventorySpace() const
+{
+	return maxInventorySpace;
+}
+
+int Being::getCarryingFood() const
+{
+	return carryingFood;
+}
+
+int Being::getCarryingScrap() const
+{
+	return carryingScrap;
 }
 
 Enumerators::BodyStatus Being::getStatus() const {

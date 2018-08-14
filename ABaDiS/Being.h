@@ -11,6 +11,7 @@ public:
 
 	// Helpers
 	void setSquadAffiliation(bool);
+	void scavenge(Room*, Enumerators::ressource);
 
 	//Printers
 	virtual void printBeingTable();
@@ -26,6 +27,10 @@ public:
 	int getCurrentMorale() const;
 	int getMaxHealth() const;
 	int getCurrentHealth() const;
+	int getCurrentInventorySpace() const;
+	int getMaxInventorySpace() const;
+	int getCarryingFood() const;
+	int getCarryingScrap() const;
 	Enumerators::BodyStatus getStatus() const;
 	Room* getCurrentLocation() const;
 	Weapon* getWeapon() const;
@@ -43,6 +48,11 @@ protected:
 	int healthPoints;
 	int maxMorale;
 	int currentMorale;
+	int currentInventorySpace;
+	int maxInventorySpace;
+
+	int carryingFood;
+	int carryingScrap;
 
 	Enumerators::BodyStatus status;
 
