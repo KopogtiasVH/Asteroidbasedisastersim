@@ -128,10 +128,7 @@ bool Room::isIntact() const
 
 bool Room::isEmpty() const
 {
-	if (currentCapacity == 0)
-		return true;
-	else
-		return false;
+	return (currentCapacity == 0);
 }
 
 bool Room::isSecurityPresent() const{

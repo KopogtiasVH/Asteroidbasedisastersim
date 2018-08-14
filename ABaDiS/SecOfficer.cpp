@@ -65,7 +65,7 @@ void SecOfficer::enterRoom(Room* toEnter) {
 	else {
 		Being* toLeave = squad->getMember(0);
 		squad->kick(toLeave);
-		toEnter->addWaitingGoons(1);
+		toEnter->addWaitingTroops(1);
 		enterRoom(toEnter);
 	}
 }
