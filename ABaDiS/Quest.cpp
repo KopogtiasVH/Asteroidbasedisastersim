@@ -99,3 +99,7 @@ Enumerators::TypeOfQuest Quest::getTypeOfQuest() const {
 bool Quest::isDone() const {
 	return finished;
 }
+
+std::string Quest::getQuestName() const {
+	return questName;
+}

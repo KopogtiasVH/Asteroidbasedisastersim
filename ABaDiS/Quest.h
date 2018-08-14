@@ -32,6 +32,7 @@ public:
 	// Getters
 	Enumerators::TypeOfQuest getTypeOfQuest() const;
 	bool isDone() const;
+	std::string getQuestName() const;
 
 private:
 

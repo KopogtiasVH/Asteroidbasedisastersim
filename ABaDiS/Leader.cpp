@@ -24,6 +24,9 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 
 	// Leaders don't start in fights
 	isFighting = false;
+
+	// Leaders start without a quest
+	currentQuest = NULL;
 }
 
 // return the squad.
@@ -34,6 +37,10 @@ Squad* Leader::getSquad() const{
 // return squad's name
 std::string Leader::getSquadName() const {
 	return squadName;
+}
+
+Quest* Leader::getCurrentQuest() const {
+	return currentQuest;
 }
 
 // print the squad.
@@ -55,4 +62,38 @@ void Leader::getNewDesire() {
 
 void Leader::enterRoom(Room* toEnter) {
 
+}
+
+void Leader::printBeingTable() {
+	std::string genderString = "";
+	switch (gender) {
+	case (Enumerators::Gender::male):
+		genderString = "m";
+		break;
+	case (Enumerators::Gender::female):
+		genderString = "f";
+		break;
+	default:
+		genderString = "ERROR";
+		break;
+	}
+
+	std::string questName = "";
+	if (currentQuest != NULL)
+		questName = currentQuest->getQuestName();
+	else
+		questName = "None";
+
+	std::cout << "Being:" << std::endl
+		<< "	Name:       " << fullName << std::endl
+		<< "	Gender:     " << genderString << std::endl
+		<< "	Location:   " << currentLocation->getName() << std::endl
+		<< "	Health:     " << healthPoints << "/" << maxHealth << std::endl
+		<< "	Morale:     " << currentMorale << "/" << maxMorale << std::endl
+		<< "	Strength:   " << strength << std::endl
+		<< "	Willpower:  " << willpower << std::endl
+		<< "	Weapon:     " << weapon->getName() << std::endl
+		<< "	Armor:      " << armor << std::endl
+		<< "	Occupation: " << occupation << std::endl 
+		<< "	Quest:      " << questName << std::endl << std::endl;
 }

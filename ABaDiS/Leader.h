@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Squad.h"
+#include "Quest.h"
 
 class Leader : public Being
 {
@@ -8,15 +9,20 @@ public:
 
 	Leader(Room*, Enumerators::Faction);
 
-	virtual void printSquad();
+
 	virtual bool recruit();
 	virtual bool recruit(Being*);
 	virtual void getNewDesire();
 	virtual void enterRoom(Room*);
 
 	Squad* getSquad() const;
+	Quest* getCurrentQuest() const;
 
 	std::string getSquadName() const;
+
+	// Printers
+	virtual void printSquad();
+	void printBeingTable();
 
 protected:
 	Enumerators::Faction faction;
@@ -26,4 +32,6 @@ protected:
 
 	Squad* squad;
 	std::string squadName;
+
+	Quest* currentQuest;
 };
