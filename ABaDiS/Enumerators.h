@@ -34,7 +34,8 @@ public:
 	// The Factions a Leader can belong to
 	enum class Faction {
 		ANARC,
-		SEC
+		SEC,
+		NONE
 	};
 
 	// Genders

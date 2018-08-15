@@ -15,10 +15,10 @@ public:
 	int getWeapons();
 	int getPopulation();
 
-	bool deductFood(int);
-	bool deductScrap(int);
-	bool deductWeapon(int);
-	bool deductPopulation(int);
+	bool takeFood(int);
+	bool takeScrap(int);
+	bool takeWeapon(int);
+	bool takePopulation(int);
 
 
 private:

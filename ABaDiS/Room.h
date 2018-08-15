@@ -20,6 +20,7 @@ public:
 	bool enteringBeings(int);
 	void addWaitingGoons(int);
 	void addWaitingTroops(int);
+	void setPresence(Enumerators::Faction);
 
 	// Getters
 	int getCapacity() const;
@@ -30,7 +31,7 @@ public:
 
 	bool isIntact() const;
 	bool isEmpty() const;
-	bool isSecurityPresent() const;
+	bool isPresent(Enumerators::Faction) const;
 
 	std::string getName() const;
 	std::vector<Room*> getConnections() const;
@@ -54,7 +55,7 @@ protected:
 
 	bool intact;
 	bool inSystem;
-	bool securityPresence;
+	Enumerators::Faction presence;
 
 	std::vector<Room*> connectedTo;
 

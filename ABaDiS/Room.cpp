@@ -16,7 +16,6 @@ Room::Room()
 
 	intact = true;
 	inSystem = false;
-	securityPresence = false;
 
 	connectedTo = std::vector<Room*>();
 
@@ -25,6 +24,7 @@ Room::Room()
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
+	presence = Enumerators::Faction::NONE;
 }
 
 Room::Room(int p)
@@ -37,7 +37,6 @@ Room::Room(int p)
 
 	intact = true;
 	inSystem = false;
-	securityPresence = false;
 
 	connectedTo = std::vector<Room*>();
 
@@ -46,6 +45,7 @@ Room::Room(int p)
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
+	presence = Enumerators::Faction::NONE;
 }
 
 // Helper Methods
@@ -97,6 +97,11 @@ void Room::addWaitingTroops(int toAdd)
 	waitingTroops += toAdd;
 }
 
+void Room::setPresence(Enumerators::Faction setFaction)
+{
+	presence = setFaction;
+}
+
 /*
 	Getter and Setter Functions
 */
@@ -131,8 +136,8 @@ bool Room::isEmpty() const
 	return (currentCapacity == 0);
 }
 
-bool Room::isSecurityPresent() const{
-	return securityPresence;
+bool Room::isPresent(Enumerators::Faction faction) const{
+	return (faction == presence);
 }
 
 std::string Room::getName() const

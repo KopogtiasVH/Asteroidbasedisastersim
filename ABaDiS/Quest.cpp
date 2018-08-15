@@ -2,7 +2,8 @@
 #include "Quest.h"
 
 // Regular Quest
-Quest::Quest(Enumerators::TypeOfQuest toq, int sc, int fo, int we, int ar, Enumerators::statBoost boost, Room* toSec, Room* origin)
+Quest::Quest(Enumerators::TypeOfQuest toq, int sc, int fo, int we, int ar, 
+	Enumerators::statBoost boost, Room* toSec, Room* origin, Enumerators::Faction oF)
 {
 	originRoom = origin;
 
@@ -21,6 +22,7 @@ Quest::Quest(Enumerators::TypeOfQuest toq, int sc, int fo, int we, int ar, Enume
 	createQuest();
 
 	ttg = Enumerators::ressource::none;
+	ownFaction = oF;
 }
 
 // Recruiting "Quest" as it's not really a quest but behaves as one.
@@ -71,7 +73,7 @@ bool Quest::createQuest() {
 	return false;
 }
 
-bool Quest::updateQuest() {
+bool Quest::isQuestFinished() {
 	switch (typeOfQuest) {
 	case Enumerators::TypeOfQuest::gathering:
 		if (gathered >= needsGathered)
@@ -82,7 +84,18 @@ bool Quest::updateQuest() {
 			return true;
 		break;
 	case Enumerators::TypeOfQuest::secure:
-		return toSecure->isSecurityPresent();
+		switch (ownFaction) {
+		case Enumerators::Faction::ANARC:
+			return toSecure->isPresent(Enumerators::Faction::SEC);
+			break;
+		case Enumerators::Faction::SEC:
+			return toSecure->isPresent(Enumerators::Faction::ANARC);
+			break;
+		default:
+			std::cerr << "This Faction can't secure Rooms" << std::endl;
+			return false;
+			break;
+		}
 		break;
 	default:
 		std::cerr << "Wrong typeOfQuest for Regular Quest" << std::endl;

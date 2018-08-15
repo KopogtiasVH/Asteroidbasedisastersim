@@ -54,13 +54,13 @@ void Being::scavenge(Room* r, Enumerators::ressource toScavenge)
 		HiPRoom* hr = dynamic_cast<HiPRoom*>(r);
 		switch (toScavenge) {
 		case (Enumerators::ressource::food):
-			if (hr->deductFood(1) && currentInventorySpace < maxInventorySpace) {
+			if (hr->takeFood(1) && currentInventorySpace < maxInventorySpace) {
 				carryingFood++;
 				currentInventorySpace++;
 			}
 			break;
 		case (Enumerators::ressource::scrap):
-			if (hr->deductScrap(1) && currentInventorySpace < maxInventorySpace) {
+			if (hr->takeScrap(1) && currentInventorySpace < maxInventorySpace) {
 				carryingScrap++;
 				currentInventorySpace++;
 			}
