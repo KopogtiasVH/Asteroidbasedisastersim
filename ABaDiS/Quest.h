@@ -13,41 +13,10 @@ public:
 		Enumerators::statBoost statBoost;
 	};
 
-	// Regular Quest
-	Quest(Enumerators::TypeOfQuest, int, int, int, int, Enumerators::statBoost, Room*, Room*, Enumerators::Faction);
+	Quest();
 
-	// Recruiting "Quest"
-	Quest(Enumerators::TypeOfQuest, int, int);
-
-	// Helpers
-	bool createQuest();
-	bool isQuestFinished();
-	void nextTask();
-
-	// Getters
-	Enumerators::TypeOfQuest getTypeOfQuest() const;
-	bool isDone() const;
-	std::string getQuestName() const;
-
-private:
-
-	Room* originRoom;
-	Enumerators::TypeOfQuest typeOfQuest;
-	Enumerators::ressource ttg;
-	Enumerators::Faction ownFaction;
-	questReward reward;
+protected:
 	bool finished;
-	std::string questName;
-
-	// Gather Quest
-	int gathered;
-	int needsGathered;
-
-	// Holding Quest
-	int timeHolding;
-	int timeToHold;
-
-	// Secureing Quest
-	Room* toSecure;
+	Enumerators::TypeOfQuest toq;
 };
 

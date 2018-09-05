@@ -58,6 +58,10 @@ bool SecOfficer::recruit(SecTroop newRecruit) {
 	return squad->recruit(&newRecruit);
 }
 
+/*
+	If the Squadsize is smaller than the maximum capacity of the room which should
+	enter the squad enters it, else it leaves one behind and tries again
+*/
 void SecOfficer::enterRoom(Room* toEnter) {
 	if (squad->getSize() + 1 < toEnter->getCapacity()) {
 		toEnter->enteringBeings(squad->getSize() + 1);
