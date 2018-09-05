@@ -64,6 +64,7 @@ public:
 
 	// Quest Types
 	enum class TypeOfQuest {
+		generic,
 		gathering,
 		secure,
 		hold,
@@ -85,7 +86,15 @@ public:
 	enum class ressource {
 		food,
 		scrap,
+		meds,
 		none
+	};
+
+	// Alignments
+	enum class alignment {
+		neutral,
+		lawful,
+		chaotic
 	};
 };
 

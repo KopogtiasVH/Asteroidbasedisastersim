@@ -2,8 +2,6 @@
 #include "PersonalQuest.h"
 
 
-PersonalQuest::PersonalQuest()
+PersonalQuest::PersonalQuest() : Quest()
 {
 }
-
-
