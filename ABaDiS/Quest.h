@@ -15,8 +15,12 @@ public:
 
 	Quest();
 
+	// Getters
+	std::string getQuestName();
+
 protected:
 	bool finished;
+	std::string questName;
 	Enumerators::TypeOfQuest toq;
 };
 

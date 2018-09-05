@@ -4,3 +4,7 @@
 Quest::Quest() {
 
 }
+
+std::string Quest::getQuestName() {
+	return questName;
+}

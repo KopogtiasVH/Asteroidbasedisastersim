@@ -64,6 +64,30 @@
     <Filter Include="Resource Files\Names\Company">
       <UniqueIdentifier>{08ae3b85-b4df-4c52-9422-fbaccdd13563}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Concepts\Quests">
+      <UniqueIdentifier>{692a0d24-c9fa-4b4c-a410-2850b5d242f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Concepts\Quests">
+      <UniqueIdentifier>{b134d32f-2f2d-466d-bcd5-2927172f6da9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Concepts\Quests\Personal">
+      <UniqueIdentifier>{7c4e4450-c8e7-46e0-ab4e-52f4290bf0ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Concepts\Quests\Military">
+      <UniqueIdentifier>{2273a96e-c196-47e6-a857-758758343afc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Concepts\Quests\Developing">
+      <UniqueIdentifier>{0e77755a-d604-4f54-af9f-cce7e69cdbd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Concepts\Quests\Personal">
+      <UniqueIdentifier>{d31db42e-0d19-45ba-ae17-cdd6b2190b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Concepts\Quests\Military">
+      <UniqueIdentifier>{8ed3d724-2470-427b-8454-0a8e362643d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Concepts\Quests\Developing">
+      <UniqueIdentifier>{e6864ea7-05bc-4213-81c0-7aa2f5aa2afe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Being.h">
@@ -117,8 +141,35 @@
     <ClInclude Include="HiPRoom.h">
       <Filter>Header Files\Rooms</Filter>
     </ClInclude>
+    <ClInclude Include="DevelopingQuest.h">
+      <Filter>Header Files\Concepts\Quests\Developing</Filter>
+    </ClInclude>
+    <ClInclude Include="EscortingQuest.h">
+      <Filter>Header Files\Concepts\Quests\Developing</Filter>
+    </ClInclude>
+    <ClInclude Include="GatheringQuest.h">
+      <Filter>Header Files\Concepts\Quests\Developing</Filter>
+    </ClInclude>
+    <ClInclude Include="ExploringQuest.h">
+      <Filter>Header Files\Concepts\Quests\Personal</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonalQuest.h">
+      <Filter>Header Files\Concepts\Quests\Personal</Filter>
+    </ClInclude>
+    <ClInclude Include="RecruitingQuest.h">
+      <Filter>Header Files\Concepts\Quests\Personal</Filter>
+    </ClInclude>
+    <ClInclude Include="HuntingQuest.h">
+      <Filter>Header Files\Concepts\Quests\Military</Filter>
+    </ClInclude>
+    <ClInclude Include="MilitaryQuest.h">
+      <Filter>Header Files\Concepts\Quests\Military</Filter>
+    </ClInclude>
+    <ClInclude Include="SecureQuest.h">
+      <Filter>Header Files\Concepts\Quests\Military</Filter>
+    </ClInclude>
     <ClInclude Include="Quest.h">
-      <Filter>Header Files\Concepts</Filter>
+      <Filter>Header Files\Concepts\Quests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -170,8 +221,35 @@
     <ClCompile Include="Battle.cpp">
       <Filter>Source Files\Concepts</Filter>
     </ClCompile>
+    <ClCompile Include="ExploringQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="RecruitingQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonalQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Personal</Filter>
+    </ClCompile>
     <ClCompile Include="Quest.cpp">
-      <Filter>Source Files\Concepts</Filter>
+      <Filter>Source Files\Concepts\Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="HuntingQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Military</Filter>
+    </ClCompile>
+    <ClCompile Include="SecureQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Military</Filter>
+    </ClCompile>
+    <ClCompile Include="MilitaryQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Military</Filter>
+    </ClCompile>
+    <ClCompile Include="DevelopingQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Developing</Filter>
+    </ClCompile>
+    <ClCompile Include="EscortingQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Developing</Filter>
+    </ClCompile>
+    <ClCompile Include="GatheringQuest.cpp">
+      <Filter>Source Files\Concepts\Quests\Developing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
