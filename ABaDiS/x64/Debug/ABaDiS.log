@@ -4,8 +4,8 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\abadis.cpp(8): 
   BaseSystem.cpp
   Battle.cpp
   Being.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(207): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(211): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(164): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(168): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   Client.cpp
   Corridor.cpp
   DevelopingQuest.cpp

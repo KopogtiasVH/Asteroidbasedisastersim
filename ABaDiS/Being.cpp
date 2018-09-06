@@ -397,10 +397,3 @@ bool Being::isInSquad() const {
 	return inSquad;
 }
 #pragma endregion
-
-
-
-
-
-
-
