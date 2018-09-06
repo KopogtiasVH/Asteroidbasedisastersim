@@ -150,6 +150,7 @@
     <ClInclude Include="BaseSystem.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Being.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Corridor.h" />
     <ClInclude Include="DevelopingQuest.h" />
     <ClInclude Include="Enumerators.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="BaseSystem.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Being.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Corridor.cpp" />
     <ClCompile Include="DevelopingQuest.cpp" />
     <ClCompile Include="EscortingQuest.cpp" />

@@ -26,7 +26,7 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 	isFighting = false;
 
 	// Leaders start without a quest
-	currentQuest = NULL;
+	currentQuest = nullptr;
 }
 
 // return the squad.
@@ -79,7 +79,7 @@ void Leader::printBeingTable() {
 	}
 
 	std::string questName = "";
-	if (currentQuest != NULL)
+	if (currentQuest != nullptr)
 		questName = currentQuest->getQuestName();
 	else
 		questName = "None";

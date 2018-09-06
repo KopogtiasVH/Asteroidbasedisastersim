@@ -5,20 +5,22 @@
 class Being
 {
 public:
+	Being();
 	Being(Room*);
-	void doDamage(int);
-	void changeMorale(int);
+
+	virtual void step();
 
 	// Helpers
 	void setSquadAffiliation(bool);
-	void scavenge(Room*, Enumerators::ressource);
+	void scavenge(Room*, Enumerators::Ressource);
+	int attack();
+	void doDamage(int);
+	void changeMorale(int);
 
 	//Printers
 	virtual void printBeingTable();
 	virtual void printBeingFlavor();
 	virtual void printWeapon();
-
-	int attack();
 
 	// Getters
 	std::string getName() const;
@@ -67,5 +69,6 @@ protected:
 	std::string occupation;
 
 	Enumerators::Gender gender;
+	Enumerators::Alignment alignment;
 };
 

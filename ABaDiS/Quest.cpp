@@ -7,7 +7,7 @@ Quest::Quest() {
 	status = false;
 	toq = Enumerators::TypeOfQuest::generic;
 	reward = {};
-	alignment = Enumerators::alignment::neutral;
+	alignment = Enumerators::Alignment::neutral;
 
 }
 
@@ -38,7 +38,7 @@ Quest::questReward Quest::getReward()
 	return reward;
 }
 
-Enumerators::alignment Quest::getAlignment()
+Enumerators::Alignment Quest::getAlignment()
 {
 	return alignment;
 }

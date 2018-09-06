@@ -88,14 +88,26 @@
     <Filter Include="Header Files\Concepts\Quests\Developing">
       <UniqueIdentifier>{e6864ea7-05bc-4213-81c0-7aa2f5aa2afe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AI\Leader">
+      <UniqueIdentifier>{8a287da8-688a-4ff6-8e4e-e402feb8f650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\Goons">
+      <UniqueIdentifier>{46619d36-0fd6-4d35-89a4-f96d8a006128}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\Misc">
+      <UniqueIdentifier>{4d14f53d-6bca-4fbe-9872-682d087cb268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI\Leaders">
+      <UniqueIdentifier>{c545551a-f552-4b41-8ae7-0fa7e66a6bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI\Goons">
+      <UniqueIdentifier>{c05c7386-edaf-458e-869b-62bc49d95a81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI\Misc">
+      <UniqueIdentifier>{88fc1a60-b63d-433d-8d3c-427b3aa79b7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Being.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="SecTroop.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>Header Files\Usables</Filter>
     </ClInclude>
@@ -105,23 +117,8 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files\Generic</Filter>
     </ClInclude>
-    <ClInclude Include="SecOfficer.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="MobGoon.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="MobLeader.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Header Files\Rooms</Filter>
-    </ClInclude>
-    <ClInclude Include="Leader.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="Squad.h">
-      <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="Enumerators.h">
       <Filter>Header Files\Generic</Filter>
@@ -171,12 +168,33 @@
     <ClInclude Include="Quest.h">
       <Filter>Header Files\Concepts\Quests</Filter>
     </ClInclude>
+    <ClInclude Include="MobLeader.h">
+      <Filter>Header Files\AI\Leader</Filter>
+    </ClInclude>
+    <ClInclude Include="SecOfficer.h">
+      <Filter>Header Files\AI\Leader</Filter>
+    </ClInclude>
+    <ClInclude Include="Leader.h">
+      <Filter>Header Files\AI\Leader</Filter>
+    </ClInclude>
+    <ClInclude Include="MobGoon.h">
+      <Filter>Header Files\AI\Goons</Filter>
+    </ClInclude>
+    <ClInclude Include="SecTroop.h">
+      <Filter>Header Files\AI\Goons</Filter>
+    </ClInclude>
+    <ClInclude Include="Squad.h">
+      <Filter>Header Files\Concepts</Filter>
+    </ClInclude>
+    <ClInclude Include="Being.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Header Files\AI\Misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Being.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="SecTroop.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -185,26 +203,11 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Source Files\Usables</Filter>
     </ClCompile>
-    <ClCompile Include="SecOfficer.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="MobGoon.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="MobLeader.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
     <ClCompile Include="BaseSystem.cpp">
       <Filter>Source Files\Rooms</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Source Files\Rooms</Filter>
-    </ClCompile>
-    <ClCompile Include="Squad.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="Leader.cpp">
-      <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="NameGenerator.cpp">
       <Filter>Source Files\Generic</Filter>
@@ -250,6 +253,27 @@
     </ClCompile>
     <ClCompile Include="GatheringQuest.cpp">
       <Filter>Source Files\Concepts\Quests\Developing</Filter>
+    </ClCompile>
+    <ClCompile Include="Squad.cpp">
+      <Filter>Source Files\Concepts</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Source Files\AI\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Leader.cpp">
+      <Filter>Source Files\AI\Leaders</Filter>
+    </ClCompile>
+    <ClCompile Include="MobLeader.cpp">
+      <Filter>Source Files\AI\Leaders</Filter>
+    </ClCompile>
+    <ClCompile Include="SecOfficer.cpp">
+      <Filter>Source Files\AI\Leaders</Filter>
+    </ClCompile>
+    <ClCompile Include="SecTroop.cpp">
+      <Filter>Source Files\AI\Goons</Filter>
+    </ClCompile>
+    <ClCompile Include="MobGoon.cpp">
+      <Filter>Source Files\AI\Goons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

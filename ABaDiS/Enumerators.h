@@ -73,7 +73,7 @@ public:
 	};
 
 	// Stat Boosts for Questrewards
-	enum class statBoost {
+	enum class StatBoost {
 		maxHealth,
 		maxMorale,
 		strength,
@@ -83,7 +83,7 @@ public:
 	};
 
 	// Types of Ressources
-	enum class ressource {
+	enum class Ressource {
 		food,
 		scrap,
 		meds,
@@ -91,7 +91,7 @@ public:
 	};
 
 	// Alignments
-	enum class alignment {
+	enum class Alignment {
 		neutral,
 		lawful,
 		chaotic

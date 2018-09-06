@@ -23,7 +23,7 @@ SecTroop::SecTroop(Room* startingLocation) : Being(startingLocation)
 	armor = 2;
 
 	// No Current Leader
-	currentLeader = NULL;
+	currentLeader = nullptr;
 }
 
 SecTroop::SecTroop(Leader* startingLeader) : Being(currentLocation)

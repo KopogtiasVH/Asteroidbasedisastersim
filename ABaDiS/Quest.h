@@ -10,7 +10,7 @@ public:
 		int food;
 		int weapons;
 		int availableRecruits;
-		Enumerators::statBoost statBoost;
+		Enumerators::StatBoost statBoost;
 	};
 
 	Quest();
@@ -24,7 +24,7 @@ public:
 	Enumerators::TypeOfQuest getTypeOfQuest();
 	bool getStatus();
 	questReward getReward();
-	Enumerators::alignment getAlignment();
+	Enumerators::Alignment getAlignment();
 
 protected:
 	std::string name;
@@ -32,7 +32,7 @@ protected:
 	bool status;
 	Enumerators::TypeOfQuest toq;
 	questReward reward;
-	Enumerators::alignment alignment;
+	Enumerators::Alignment alignment;
 	
 };
 

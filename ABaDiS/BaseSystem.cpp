@@ -211,7 +211,7 @@ void BaseSystem::createFight(Leader* a, Leader* b, Room* r) {
 
 void BaseSystem::fight(Battle* b) {
 	Battle::battleResult* btr = b->fight();
-	if (btr != NULL) {
+	if (btr != nullptr) {
 		printBattleResult(*btr);
 	}
 }
@@ -257,7 +257,7 @@ Leader* BaseSystem::getLeader(int i) {
 	}
 	else {
 		std::cerr << "Index out of Bounds" << std::endl;
-		return NULL;
+		return nullptr;
 	}
 }
 
@@ -267,7 +267,7 @@ Battle* BaseSystem::getBattle(int i) {
 	}
 	else {
 		std::cerr << "Index out of bounds." << std::endl;
-		return NULL;
+		return nullptr;
 	}
 }
 

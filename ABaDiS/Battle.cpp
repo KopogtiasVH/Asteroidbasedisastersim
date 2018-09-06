@@ -58,7 +58,7 @@ Battle::battleResult* Battle::fight() {
 		return &result;
 	}
 	else {
-		return NULL;
+		return nullptr;
 	}
 }
 
@@ -420,7 +420,7 @@ Battle::battleResult* Battle::getBattleResult() {
 		return &result;
 	else {
 		std::cerr << "Fight is still ongoing" << std::endl;
-		return NULL;
+		return nullptr;
 	}
 }
 
