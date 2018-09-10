@@ -192,6 +192,9 @@
     <ClInclude Include="Client.h">
       <Filter>Header Files\AI\Misc</Filter>
     </ClInclude>
+    <ClInclude Include="BaseSystemHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Being.cpp">
@@ -274,6 +277,9 @@
     </ClCompile>
     <ClCompile Include="MobGoon.cpp">
       <Filter>Source Files\AI\Goons</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSystemHandler.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

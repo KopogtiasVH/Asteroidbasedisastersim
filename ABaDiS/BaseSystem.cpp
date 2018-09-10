@@ -23,6 +23,8 @@ BaseSystem::BaseSystem(int noOfRooms)
 
 	createBase(noOfRooms);
 	addLeaders(noOfRooms);
+
+	BaseSystemHandler::setupBaseSystemHandler(this);
 }
 
 #pragma endregion

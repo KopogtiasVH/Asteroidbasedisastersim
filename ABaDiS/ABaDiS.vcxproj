@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BaseSystem.h" />
+    <ClInclude Include="BaseSystemHandler.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Being.h" />
     <ClInclude Include="Client.h" />
@@ -179,6 +180,7 @@
   <ItemGroup>
     <ClCompile Include="ABaDiS.cpp" />
     <ClCompile Include="BaseSystem.cpp" />
+    <ClCompile Include="BaseSystemHandler.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Being.cpp" />
     <ClCompile Include="Client.cpp" />

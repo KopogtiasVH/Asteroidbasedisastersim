@@ -396,4 +396,8 @@ Weapon* Being::getWeapon() const {
 bool Being::isInSquad() const {
 	return inSquad;
 }
+Enumerators::Alignment Being::getAlignment() const
+{
+	return alignment;
+}
 #pragma endregion

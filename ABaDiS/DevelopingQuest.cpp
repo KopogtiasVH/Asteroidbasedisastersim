@@ -2,6 +2,6 @@
 #include "DevelopingQuest.h"
 
 
-DevelopingQuest::DevelopingQuest()
+DevelopingQuest::DevelopingQuest() : Quest()
 {
 }

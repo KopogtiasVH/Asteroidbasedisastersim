@@ -64,6 +64,11 @@ void Leader::enterRoom(Room* toEnter) {
 
 }
 
+void Leader::takeQuest(Client* c) {
+	if (c->getAlignment() == Enumerators::Alignment::neutral || c->getAlignment() == alignment)
+		currentQuest = c->assignQuest(this);
+}
+
 void Leader::printBeingTable() {
 	std::string genderString = "";
 	switch (gender) {

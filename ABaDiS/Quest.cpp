@@ -8,11 +8,36 @@ Quest::Quest() {
 	toq = Enumerators::TypeOfQuest::generic;
 	reward = {};
 	alignment = Enumerators::Alignment::neutral;
-
+	owner = nullptr;
 }
 
+Quest::Quest(Being* o) {
+	name = "";
+	description = "";
+	status = false;
+	toq = Enumerators::TypeOfQuest::generic;
+	reward = {};
+	alignment = Enumerators::Alignment::neutral;
+	owner = o;
+}
+
+// creates a questName and it's description
 void Quest::createQuestFlavor() {};
-void Quest::assembleReward() {};
+
+// creates the reward based on difficulty and type of quest
+void Quest::assembleReward() {}
+
+// check if the quest is completed yet
+bool Quest::checkProgress()
+{
+	return false;
+};
+
+// Make the quest ready to assign to a leader
+void Quest::activateQuest(Being* o) {
+	owner = o;
+	active = true;
+}
 
 std::string Quest::getQuestName() 
 {

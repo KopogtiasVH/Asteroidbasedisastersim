@@ -37,6 +37,7 @@ public:
 	Room* getCurrentLocation() const;
 	Weapon* getWeapon() const;
 	bool isInSquad() const;
+	Enumerators::Alignment getAlignment() const;
 
 protected:
 	bool eager;

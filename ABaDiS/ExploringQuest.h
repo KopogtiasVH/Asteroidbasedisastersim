@@ -5,5 +5,8 @@ class ExploringQuest :
 {
 public:
 	ExploringQuest();
+
+private:
+	
 };
 

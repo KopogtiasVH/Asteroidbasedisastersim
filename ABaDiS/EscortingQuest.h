@@ -4,6 +4,19 @@ class EscortingQuest :
 	public DevelopingQuest
 {
 public:
-	EscortingQuest();
+	EscortingQuest(Being*, Room*);
+
+	// Main Functions
+	void createQuestFlavor();
+	void assembleReward();
+	bool checkProgress();
+
+	// Getters
+	Being* getEscort() const;
+	Room* getDestination() const;
+
+private:
+	Being * escort;
+	Room* destination;
 };
 
