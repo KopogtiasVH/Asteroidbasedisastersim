@@ -1,9 +1,92 @@
 #include "stdafx.h"
 #include "GatheringQuest.h"
 
-GatheringQuest::GatheringQuest() : DevelopingQuest()
+GatheringQuest::GatheringQuest(Being* c) : DevelopingQuest()
 {
-
+	client = c;
+	switch (rand() % 3) {
+	case 0:
+		ressource = Enumerators::Ressource::food;
+		break;
+	case 1:
+		ressource = Enumerators::Ressource::scrap;
+		break;
+	case 2:
+		ressource = Enumerators::Ressource::meds;
+		break;
+	default:
+		std::cerr << "Wrong random number generated" << std::endl;
+	}
+	toGather = (rand() % 50 + 50);
+	gathered = 0;
+	createQuestFlavor();
 }
+
+#pragma region MAIN
+void GatheringQuest::createQuestFlavor()
+{
+	std::string ressourceNoun;
+	switch (ressource) {
+	case Enumerators::Ressource::food:
+		ressourceNoun = "food";
+		break;
+	case Enumerators::Ressource::scrap:
+		ressourceNoun = "scrap";
+		break;
+	case Enumerators::Ressource::meds:
+		ressourceNoun = "meds";
+		break;
+	default:
+		std::cerr << "Wrong ressource assigned" << std::endl;
+		break;
+	}
+	name = "Gather " + std::to_string(toGather) + " " + ressourceNoun + ".";
+	description = "Gather " + std::to_string(toGather) + " " + ressourceNoun +
+		" and deliver it to " + client->getSurName() + ".";
+}
+
+void GatheringQuest::assembleReward()
+{
+}
+
+bool GatheringQuest::checkProgress()
+{
+	return false;
+}
+
+void GatheringQuest::updateQuest()
+{
+	if (dynamic_cast<Leader*>(owner)) {
+		Leader* ownerL = dynamic_cast<Leader*>(owner);
+	}
+}
+#pragma endregion
+
+
+#pragma region GETTERS
+Being * GatheringQuest::getOwner() const
+{
+	return owner;
+}
+
+Enumerators::Ressource GatheringQuest::getRessource() const
+{
+	return ressource;
+}
+
+int GatheringQuest::needsGathered() const
+{
+	return toGather;
+}
+
+int GatheringQuest::hasGathered() const
+{
+	return gathered;
+}
+#pragma endregion
+
+
+
+
 
 

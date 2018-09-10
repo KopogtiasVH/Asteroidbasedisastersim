@@ -7,8 +7,15 @@ class Client :
 {
 public:
 	Client(Room*);
+
+	// Getters
 	Quest* getAvailableQuest() const;
+	
+	// Helpers
 	Quest* assignQuest(Being*);
+
+	// Printers
+	void printBeingTable();
 
 private:
 	Quest* createQuest();

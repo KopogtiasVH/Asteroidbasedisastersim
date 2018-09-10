@@ -6,6 +6,7 @@ EscortingQuest::EscortingQuest(Being* e, Room* d) : DevelopingQuest()
 {
 	escort = e;
 	destination = d;
+	createQuestFlavor();
 }
 
 #pragma region MAIN

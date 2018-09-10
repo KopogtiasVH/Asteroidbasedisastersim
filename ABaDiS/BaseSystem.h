@@ -41,11 +41,15 @@ public:
 	Room* getRoom(int i);
 	std::vector<Battle> getBattles();
 	std::vector<Room*> getRooms();
+
+	// Clients
+	void printClients();
 	
 private:
 	std::vector<Room*> rooms;
 	std::vector<Leader*> leaders;
 	std::vector<Battle> battles;
+	std::vector<Client*> clients;
 
 	float tension;
 };

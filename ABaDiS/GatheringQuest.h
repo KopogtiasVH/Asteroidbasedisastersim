@@ -4,7 +4,26 @@ class GatheringQuest :
 	public DevelopingQuest
 {
 public:
-	GatheringQuest();
+	GatheringQuest(Being*);
 
+	// Main Functions
+	void createQuestFlavor();
+	void assembleReward();
+	bool checkProgress();
+
+	void updateQuest();
+
+	// Getters
+	Being* getOwner() const;
+	Enumerators::Ressource getRessource() const;
+	int needsGathered() const;
+	int hasGathered() const;
+
+
+private:
+	Being* client;
+	Enumerators::Ressource ressource;
+	int toGather;
+	int gathered;
 };
 

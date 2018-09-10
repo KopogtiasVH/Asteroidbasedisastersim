@@ -94,6 +94,7 @@ Being::Being(Room* startingLocation)
 		break;
 	case 2:
 		alignment = Enumerators::Alignment::chaotic;
+		break;
 	default:
 		std::cerr << "No such alignment exists" << std::endl;
 		break;

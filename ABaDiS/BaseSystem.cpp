@@ -18,6 +18,7 @@ BaseSystem::BaseSystem(int noOfRooms)
 	rooms = std::vector<Room*>();
 	leaders = std::vector<Leader*>();
 	battles = std::vector<Battle>();
+	clients = std::vector<Client*>();
 
 	tension = 0;
 
@@ -25,6 +26,12 @@ BaseSystem::BaseSystem(int noOfRooms)
 	addLeaders(noOfRooms);
 
 	BaseSystemHandler::setupBaseSystemHandler(this);
+
+	for (Room* r : rooms) {
+		if (dynamic_cast<HiPRoom*>(r)) {
+			clients.push_back(new Client(r));
+		}
+	}
 }
 
 #pragma endregion
@@ -78,7 +85,7 @@ void BaseSystem::createBase(int minimumNoOfRooms) {
 		rooms.push_back(new Room());
 	Room* prev = rooms[rand() % rooms.size()];
 	Room* a;
-	if (rand() % 100 < 20) {
+	if (rand() % 100 < 40) {
 		a = new HiPRoom(rand() % 3 + 7);
 	}
 	else {
@@ -291,3 +298,11 @@ std::vector<Room*> BaseSystem::getRooms() {
 }
 
 #pragma endregion
+
+#pragma region CLIENTS
+void BaseSystem::printClients() {
+	for (Client* c : clients)
+		c->printBeingTable();
+}
+#pragma endregion
+
