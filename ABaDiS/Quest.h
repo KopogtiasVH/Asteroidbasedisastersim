@@ -19,7 +19,7 @@ public:
 	virtual void createQuestFlavor();	// creates a questname and it's description
 	virtual void assembleReward();		// creates the reward based on difficulty and type of quest
 	virtual bool checkProgress();		// check if the requirements are met
-	virtual void activateQuest(Being*);			// activate the quest so no other Leader can take it while the other is away to fullfill it
+	virtual void activateQuest(Being*);	// activate the quest so no other Leader can take it while the other is away to fullfill it
 
 	// Getters
 	std::string getQuestName();
