@@ -6,7 +6,7 @@ Squad::Squad() {
 
 }
 
-Squad::Squad(int ms, Enumerators::Faction f, std::string ln)
+Squad::Squad(int ms, int iic, Enumerators::Faction f, std::string ln)
 {
 	switch (f) {
 	case Enumerators::Faction::ANARC:
@@ -22,6 +22,8 @@ Squad::Squad(int ms, Enumerators::Faction f, std::string ln)
 	members = std::vector<Being*>();
 	maxSize = ms;
 	size = 0;
+
+	inventory = new Inventory(iic);
 }
 
 std::vector<Being*> Squad::getMembers() const
@@ -41,6 +43,11 @@ int Squad::getMaxSize() const
 
 Being* Squad::getMember(int i) const{
 		return members[i];
+}
+
+Inventory* Squad::getInventory() const
+{
+	return inventory;
 }
 
 bool Squad::recruit(Being* toRecruit)
@@ -99,5 +106,12 @@ void Squad::cleanDead() {
 		else {
 			++it;
 		}
+	}
+}
+
+void Squad::updateInventory() {
+	int newInventorySize = 0;
+	for (int i = 0; i < members.size(); i++) {
+		newInventorySize += members[i]->getStrength();
 	}
 }

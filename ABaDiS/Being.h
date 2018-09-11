@@ -29,10 +29,8 @@ public:
 	int getCurrentMorale() const;
 	int getMaxHealth() const;
 	int getCurrentHealth() const;
-	int getCurrentInventorySpace() const;
-	int getMaxInventorySpace() const;
-	int getCarryingFood() const;
-	int getCarryingScrap() const;
+	int getStrength() const;
+	int getWillpower() const;
 	Enumerators::BodyStatus getStatus() const;
 	Room* getCurrentLocation() const;
 	Weapon* getWeapon() const;
@@ -51,11 +49,6 @@ protected:
 	int healthPoints;
 	int maxMorale;
 	int currentMorale;
-	int currentInventorySpace;
-	int maxInventorySpace;
-
-	int carryingFood;
-	int carryingScrap;
 
 	Enumerators::BodyStatus status;
 

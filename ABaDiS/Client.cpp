@@ -99,5 +99,4 @@ void Client::printBeingTable() {
 		<< "	Location: " << currentLocation->getName() << std::endl
 		<< "	Alignment: " << alignmentNoun << std::endl
 		<< "	Quest: " << availableQuest->getQuestName() << std::endl << std::endl;
-
 }

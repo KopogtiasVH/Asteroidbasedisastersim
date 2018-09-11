@@ -1,3 +1,2 @@
-﻿  Client.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\client.cpp(68): warning C4715: 'Client::createQuest': not all control paths return a value
+﻿  Leader.cpp
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

@@ -19,7 +19,7 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 	maxSquadSize = maxMorale - 5;
 
 	// All Leaders have a Squad
-	squad = new Squad(maxSquadSize, f, surname);
+	squad = new Squad(maxSquadSize, strength, f, surname);
 	squadName = squad->getSquadName();
 
 	// Leaders don't start in fights

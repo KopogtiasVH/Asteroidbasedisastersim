@@ -4,6 +4,7 @@
 
 Inventory::Inventory(int i)
 {
+	minInventorySpace = i;
 	maxInventorySpace = i;
 	currentInventorySpace = 0;
 	
@@ -101,7 +102,12 @@ int Inventory::getMeds() const
 }
 #pragma endregion
 
-
+void Inventory::printInventory() {
+	std::cout << "Inventory: " << std::endl
+		<< "	Scrap:	" << scrap << std::endl
+		<< "	Food:	" << food << std::endl
+		<< "	Meds:	" << meds << std::endl << std::endl;
+}
 
 
 

@@ -21,11 +21,6 @@ Being::Being()
 	maxHealth = 5 + strength;
 	healthPoints = maxHealth;
 
-	maxInventorySpace = strength + rand() % 5;
-	currentInventorySpace = 0;
-	carryingFood = 0;
-	carryingScrap = 0;
-
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
 	else
@@ -75,11 +70,6 @@ Being::Being(Room* startingLocation)
 	maxHealth = 5 + strength;
 	healthPoints = maxHealth;
 
-	maxInventorySpace = strength + rand() % 5;
-	currentInventorySpace = 0;
-	carryingFood = 0;
-	carryingScrap = 0;
-
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
 	else
@@ -128,25 +118,7 @@ void Being::setSquadAffiliation(bool s) {
 
 void Being::scavenge(Room* r, Enumerators::Ressource toScavenge)
 {
-	if (dynamic_cast<HiPRoom*>(r)) {
-		HiPRoom* hr = dynamic_cast<HiPRoom*>(r);
-		switch (toScavenge) {
-		case (Enumerators::Ressource::food):
-			if (hr->takeFood(1) && currentInventorySpace < maxInventorySpace) {
-				carryingFood++;
-				currentInventorySpace++;
-			}
-			break;
-		case (Enumerators::Ressource::scrap):
-			if (hr->takeScrap(1) && currentInventorySpace < maxInventorySpace) {
-				carryingScrap++;
-				currentInventorySpace++;
-			}
-			break;
-		default:
-			std::cerr << "Can't scavenge this ressource" << std::endl;
-		}
-	}
+
 }
 
 // Calculate the Damage this Being will do
@@ -362,24 +334,14 @@ int Being::getCurrentHealth() const {
 	return healthPoints;
 }
 
-int Being::getCurrentInventorySpace() const
+int Being::getStrength() const
 {
-	return currentInventorySpace;
+	return strength;
 }
 
-int Being::getMaxInventorySpace() const
+int Being::getWillpower() const
 {
-	return maxInventorySpace;
-}
-
-int Being::getCarryingFood() const
-{
-	return carryingFood;
-}
-
-int Being::getCarryingScrap() const
-{
-	return carryingScrap;
+	return willpower;
 }
 
 Enumerators::BodyStatus Being::getStatus() const {

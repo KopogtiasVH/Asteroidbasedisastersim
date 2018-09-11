@@ -12,6 +12,7 @@ public:
 
 	// Helpers
 	void updateInventory();
+	void printInventory();
 
 
 	// Getters
@@ -25,6 +26,7 @@ private:
 	int meds;
 
 	int maxInventorySpace;
+	int minInventorySpace;
 	int currentInventorySpace;
 };
 
