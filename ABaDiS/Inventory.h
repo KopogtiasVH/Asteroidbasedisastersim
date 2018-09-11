@@ -4,11 +4,15 @@ class Inventory
 public:
 	Inventory(int);
 
+	// Main Functions
+	int returnRessource(Enumerators::Ressource);
+	void updateInventoryDimension(int);
+	bool addToInventory(Enumerators::Ressource, int);
+	void tidyInventory(int);
+
 	// Helpers
 	void updateInventory();
-	void updateScrap(int);
-	void updateFood(int);
-	void updateMeds(int);
+
 
 	// Getters
 	int getScrap() const;

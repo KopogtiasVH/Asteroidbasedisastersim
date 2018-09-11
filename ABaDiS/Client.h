@@ -13,6 +13,7 @@ public:
 	
 	// Helpers
 	Quest* assignQuest(Being*);
+	void finishQuest();
 
 	// Printers
 	void printBeingTable();
