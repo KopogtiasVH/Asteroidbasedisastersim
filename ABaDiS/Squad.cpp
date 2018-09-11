@@ -56,6 +56,7 @@ bool Squad::recruit(Being* toRecruit)
 		members.push_back(toRecruit);
 		size++;
 		toRecruit->setSquadAffiliation(true);
+		updateInventory();
 		return true;
 	}
 	else {
@@ -77,6 +78,7 @@ void Squad::kick(Being* toKick) {
 			++it;
 		}
 	}
+	updateInventory();
 }
 
 void Squad::printSquad() {
@@ -107,6 +109,7 @@ void Squad::cleanDead() {
 			++it;
 		}
 	}
+	updateInventory();
 }
 
 void Squad::updateInventory() {
@@ -114,4 +117,5 @@ void Squad::updateInventory() {
 	for (int i = 0; i < members.size(); i++) {
 		newInventorySize += members[i]->getStrength();
 	}
+	inventory->updateInventoryDimension(newInventorySize);
 }

@@ -69,7 +69,6 @@ Quest* Client::createQuest() {
 
 Room* Client::getValidRoom() {
 	Room* dest = BaseSystemHandler::getRandomRoom();
-	dest->printRoom();
 	while (dest == this->getCurrentLocation() || dynamic_cast<Corridor*>(dest)) {
 		dest = BaseSystemHandler::getRandomRoom();
 
