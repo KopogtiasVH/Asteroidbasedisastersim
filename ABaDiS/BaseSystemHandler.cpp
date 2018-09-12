@@ -14,3 +14,22 @@ Room* BaseSystemHandler::getRandomRoom() {
 	if (isGenerated)
 		return baseSystem->getRandomRoom();
 }
+
+Leader * BaseSystemHandler::getRandomLeader()
+{
+	return baseSystem->getRandomLeader();
+}
+
+MobLeader * BaseSystemHandler::getRandomMobLeader()
+{
+	return baseSystem->getRandomMob();
+}
+
+SecOfficer * BaseSystemHandler::getRandomSecOfficer()
+{
+	return baseSystem->getRandomSec();
+}
+
+std::vector<Leader*>* BaseSystemHandler::getAllLeaders() {
+	return baseSystem->getLeaders();
+}

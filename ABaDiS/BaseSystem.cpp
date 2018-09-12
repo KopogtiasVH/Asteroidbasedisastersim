@@ -8,6 +8,8 @@ BaseSystem::BaseSystem()
 {
 	rooms = std::vector<Room*>();
 	leaders = std::vector<Leader*>();
+	mob = std::vector<MobLeader*>();
+	sec = std::vector<SecOfficer*>();
 	battles = std::vector<Battle>();
 
 	tension = 0;
@@ -125,6 +127,8 @@ Room* BaseSystem::getRandomRoom() {
 	return rooms[rand() % rooms.size()];
 }
 
+
+
 void BaseSystem::setHiPRoomNames() {
 	for (Room* r : rooms) {
 		if (dynamic_cast<HiPRoom*>(r)) {
@@ -207,6 +211,32 @@ void BaseSystem::addLeaders(int noOfRooms) {
 			i--;
 		}
 	}
+	for (Leader* l : leaders) {
+		if (dynamic_cast<MobLeader*>(l)) {
+			mob.push_back(dynamic_cast<MobLeader*>(l));
+		}
+		else if (dynamic_cast<SecOfficer*>(l)) {
+			sec.push_back(dynamic_cast<SecOfficer*>(l));
+		}
+		else {
+			std::cerr << "Leader is neither mob nor sec" << std::endl;
+		}
+	}
+}
+
+Leader* BaseSystem::getRandomLeader() 
+{
+	return leaders[rand() % leaders.size()];
+}
+
+MobLeader * BaseSystem::getRandomMob()
+{
+	return mob[rand() % mob.size()];
+}
+
+SecOfficer * BaseSystem::getRandomSec()
+{
+	return sec[rand() % sec.size()];
 }
 
 #pragma endregion
@@ -289,12 +319,17 @@ Room* BaseSystem::getRoom(int i) {
 	}
 }
 
-std::vector<Battle> BaseSystem::getBattles() {
-	return battles;
+std::vector<Battle>* BaseSystem::getBattles() {
+	return &battles;
 }
 
-std::vector<Room*> BaseSystem::getRooms() {
-	return rooms;
+std::vector<Room*>* BaseSystem::getRooms() {
+	return &rooms;
+}
+
+std::vector<Leader*>* BaseSystem::getLeaders()
+{
+	return &leaders;
 }
 
 #pragma endregion

@@ -43,6 +43,10 @@ Quest* Leader::getCurrentQuest() const {
 	return currentQuest;
 }
 
+Enumerators::Faction Leader::getFaction() const {
+	return faction;
+}
+
 // print the squad.
 void Leader::printSquad() {
 	squad->printSquad();

@@ -39,7 +39,7 @@ Quest* Client::createQuest() {
 			return new GatheringQuest(this);
 			break;
 		case 2:
-			return new HuntingQuest();
+			return new HuntingQuest(this);
 			break;
 		case 3:
 			return new SecureQuest();
@@ -57,7 +57,7 @@ Quest* Client::createQuest() {
 		break;
 	case Enumerators::Alignment::chaotic:
 		if (rand() % 2 == 0)
-			return new HuntingQuest();
+			return new HuntingQuest(this);
 		else
 			return new SecureQuest();
 		break;

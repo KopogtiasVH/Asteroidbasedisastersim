@@ -20,6 +20,7 @@ public:
 	Squad* getSquad() const;
 	Quest* getCurrentQuest() const;
 	std::string getSquadName() const;
+	Enumerators::Faction getFaction() const;
 
 	// Printers
 	virtual void printSquad();

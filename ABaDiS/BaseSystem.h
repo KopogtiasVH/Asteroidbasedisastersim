@@ -28,6 +28,9 @@ public:
 	bool recruit(Leader*);
 	bool recruit(int);
 	void addLeaders(int);
+	Leader* getRandomLeader();
+	MobLeader* getRandomMob();
+	SecOfficer* getRandomSec();
 
 	// BATTLE Section
 	void createFight(Leader*, Leader*, Room*);
@@ -39,8 +42,9 @@ public:
 	Leader* getLeader(int i);
 	Battle* getBattle(int i);
 	Room* getRoom(int i);
-	std::vector<Battle> getBattles();
-	std::vector<Room*> getRooms();
+	std::vector<Battle>* getBattles();
+	std::vector<Room*>* getRooms();
+	std::vector<Leader*>* getLeaders();
 
 	// Clients
 	void printClients();
@@ -50,6 +54,8 @@ private:
 	std::vector<Leader*> leaders;
 	std::vector<Battle> battles;
 	std::vector<Client*> clients;
+	std::vector<MobLeader*> mob;
+	std::vector<SecOfficer*> sec;
 
 	float tension;
 };

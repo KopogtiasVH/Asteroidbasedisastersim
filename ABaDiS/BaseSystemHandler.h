@@ -4,6 +4,10 @@ class BaseSystemHandler
 public:
 	static void setupBaseSystemHandler(BaseSystem*);
 	static Room* getRandomRoom();
+	static Leader* getRandomLeader();
+	static MobLeader* getRandomMobLeader();
+	static SecOfficer* getRandomSecOfficer();
+	static std::vector<Leader*>* getAllLeaders();
 
 private:
 	static BaseSystem* baseSystem;
