@@ -42,7 +42,7 @@ Quest* Client::createQuest() {
 			return new HuntingQuest(this);
 			break;
 		case 3:
-			return new SecureQuest();
+			return new SecureQuest(this, getValidRoom());
 			break;
 		default:
 			std::cerr << "Something went terribly wrong" << std::endl;
@@ -59,7 +59,7 @@ Quest* Client::createQuest() {
 		if (rand() % 2 == 0)
 			return new HuntingQuest(this);
 		else
-			return new SecureQuest();
+			return new SecureQuest(this, getValidRoom());
 		break;
 	default:
 		std::cerr << "Wrong alignment assigned" << std::endl;
