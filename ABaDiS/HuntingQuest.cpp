@@ -32,7 +32,10 @@ void HuntingQuest::assembleReward()
 
 bool HuntingQuest::checkProgress()
 {
-	return false;
+	for (Leader* l : *BaseSystemHandler::getAllLeaders())
+		if (l == target)
+			return false;
+	return true;
 }
 
 void HuntingQuest::activateQuest(Being* o) {
