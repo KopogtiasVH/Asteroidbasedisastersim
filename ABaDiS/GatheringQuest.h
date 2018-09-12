@@ -10,6 +10,7 @@ public:
 	void createQuestFlavor();
 	void assembleReward();
 	bool checkProgress();
+	void deliver();
 
 	void updateQuest();
 
@@ -18,6 +19,7 @@ public:
 	Enumerators::Ressource getRessource() const;
 	int needsGathered() const;
 	int hasGathered() const;
+	int hasDelivered() const;
 
 
 private:
@@ -25,5 +27,6 @@ private:
 	Enumerators::Ressource ressource;
 	int toGather;
 	int gathered;
+	int delivered;
 };
 

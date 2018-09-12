@@ -19,6 +19,7 @@ GatheringQuest::GatheringQuest(Being* c) : DevelopingQuest()
 	}
 	toGather = (rand() % 50 + 50);
 	gathered = 0;
+	delivered = 0;
 	createQuestFlavor();
 }
 
@@ -51,14 +52,26 @@ void GatheringQuest::assembleReward()
 
 bool GatheringQuest::checkProgress()
 {
-	return false;
+	return (gathered + delivered == toGather);
+}
+
+void GatheringQuest::deliver()
+{
+	if (dynamic_cast<Leader*>(owner)) {
+		Leader* oL = dynamic_cast<Leader*>(owner);
+		int toDeliver = oL->getSquad()->getInventory()->returnRessource(ressource);
+		delivered += toDeliver;
+		oL->getSquad()->getInventory()->addToInventory(ressource, toDeliver * -1);
+	}
 }
 
 void GatheringQuest::updateQuest()
 {
 	if (dynamic_cast<Leader*>(owner)) {
-		Leader* ownerL = dynamic_cast<Leader*>(owner);
+		Leader* oL = dynamic_cast<Leader*>(owner);
+		gathered = oL->getSquad()->getInventory()->returnRessource(ressource);
 	}
+	checkProgress();
 }
 #pragma endregion
 
@@ -82,6 +95,10 @@ int GatheringQuest::needsGathered() const
 int GatheringQuest::hasGathered() const
 {
 	return gathered;
+}
+
+int GatheringQuest::hasDelivered() const {
+	return delivered;
 }
 #pragma endregion
 
