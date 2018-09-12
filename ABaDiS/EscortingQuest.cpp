@@ -22,7 +22,7 @@ void EscortingQuest::assembleReward()
 
 bool EscortingQuest::checkProgress()
 {
-	return false;
+	return (escort->getCurrentLocation() == destination);
 }
 #pragma endregion
 
