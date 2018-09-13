@@ -4,6 +4,14 @@ class RecruitingQuest :
 	public PersonalQuest
 {
 public:
-	RecruitingQuest();
+	RecruitingQuest(Being*);
+
+	void createQuestFlavor();
+	bool checkProgress();
+	void wrapupQuest();
+
+private:
+	int recruited;
+	int toRecruit;
 };
 

@@ -39,6 +39,10 @@ void Quest::activateQuest(Being* o) {
 	active = true;
 }
 
+void Quest::wrapupQuest()
+{
+}
+
 std::string Quest::getQuestName() 
 {
 	return name;

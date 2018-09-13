@@ -78,6 +78,7 @@ public:
 		maxMorale,
 		strength,
 		willpower,
+		charisma,
 		random,
 		none
 	};

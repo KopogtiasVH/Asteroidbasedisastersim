@@ -21,6 +21,8 @@ Being::Being()
 	maxHealth = 5 + strength;
 	healthPoints = maxHealth;
 
+	charisma = (rand() % 5) + 1;
+
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
 	else
@@ -69,6 +71,8 @@ Being::Being(Room* startingLocation)
 	strength = (rand() % 5) + 1;
 	maxHealth = 5 + strength;
 	healthPoints = maxHealth;
+
+	charisma = (rand() % 5) + 1;
 
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
@@ -164,6 +168,44 @@ void Being::doDamage(int d)
 void Being::changeMorale(int d)
 {
 	currentMorale -= d;
+}
+void Being::statBoost(Enumerators::StatBoost statboost, int toAdd)
+{
+	switch (statboost) {
+	case Enumerators::StatBoost::maxHealth:
+		if (maxHealth + toAdd > 0)
+			maxHealth += toAdd;
+		else
+			std::cerr << "Can't change a status below 0" << std::endl;
+		break;
+	case Enumerators::StatBoost::maxMorale:
+		if (maxMorale + toAdd > 0)
+			maxMorale += toAdd;
+		else
+			std::cerr << "Can't change a status below 0" << std::endl;
+		break;
+	case Enumerators::StatBoost::strength:
+		if (strength + toAdd > 0)
+			strength += toAdd;
+		else
+			std::cerr << "Can't change a status below 0" << std::endl;
+		break;
+	case Enumerators::StatBoost::willpower:
+		if (willpower + toAdd > 0)
+			willpower += toAdd;
+		else
+			std::cerr << "Can't change a status below 0" << std::endl;
+		break;
+	case Enumerators::StatBoost::charisma:
+		if (charisma + toAdd > 0)
+			charisma += toAdd;
+		else
+			std::cerr << "Can't change a status below 0" << std::endl;
+		break;
+	default:
+		std::cerr << "Can't change this status" << std::endl;
+		break;
+	}
 }
 #pragma endregion
 
@@ -342,6 +384,11 @@ int Being::getStrength() const
 int Being::getWillpower() const
 {
 	return willpower;
+}
+
+int Being::getCharisma() const
+{
+	return charisma;
 }
 
 Enumerators::BodyStatus Being::getStatus() const {

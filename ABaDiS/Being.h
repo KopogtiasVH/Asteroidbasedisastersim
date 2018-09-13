@@ -16,6 +16,7 @@ public:
 	int attack();
 	void doDamage(int);
 	void changeMorale(int);
+	void statBoost(Enumerators::StatBoost, int);
 
 	//Printers
 	virtual void printBeingTable();
@@ -31,6 +32,7 @@ public:
 	int getCurrentHealth() const;
 	int getStrength() const;
 	int getWillpower() const;
+	int getCharisma() const;
 	Enumerators::BodyStatus getStatus() const;
 	Room* getCurrentLocation() const;
 	Weapon* getWeapon() const;
@@ -54,6 +56,7 @@ protected:
 
 	int strength;
 	int willpower;
+	int charisma;
 
 	int armor;
 
