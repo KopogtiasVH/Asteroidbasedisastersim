@@ -167,7 +167,10 @@ void Being::doDamage(int d)
 // TODO: implement status check
 void Being::changeMorale(int d)
 {
-	currentMorale -= d;
+	currentMorale += d;
+	if (currentMorale <= 0)
+		eager = false;
+	else eager = true;
 }
 void Being::statBoost(Enumerators::StatBoost statboost, int toAdd)
 {

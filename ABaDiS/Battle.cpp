@@ -11,7 +11,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	attackerSecondRow = std::vector<Being*>();
 	attackerReserve = attackingLeader->getSquad()->getMembers();
 	attackerReserve.push_back(attackingLeader); // The Leader joins in Last
-	
+	attackingLeader->toggleFighting(true);
 	
 	attackerMorale = attackingLeader->getCurrentMorale();
 	for (Being* b : attackerReserve)
@@ -23,6 +23,7 @@ Battle::Battle(Leader* a, Leader* b, Room* r)
 	defenderSecondRow = std::vector<Being*>();
 	defenderReserve = defendingLeader->getSquad()->getMembers();
 	defenderReserve.push_back(defendingLeader);	// The Leader joins in last
+	defendingLeader->toggleFighting(true);
 
 	defenderMorale = defendingLeader->getCurrentMorale();
 	for (Being* b : defenderReserve)
@@ -386,6 +387,8 @@ bool Battle::aftermath() {
 	};
 	isOngoing = false;
 	cleanSquads();
+	attackingLeader->toggleFighting(false);
+	defendingLeader->toggleFighting(false);
 	return true;
 }
 

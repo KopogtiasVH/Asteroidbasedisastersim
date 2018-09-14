@@ -73,6 +73,11 @@ void Leader::takeQuest(Client* c) {
 		currentQuest = c->assignQuest(this);
 }
 
+void Leader::toggleFighting(bool b)
+{
+	isFighting = b;
+}
+
 void Leader::printBeingTable() {
 	std::string genderString = "";
 	switch (gender) {

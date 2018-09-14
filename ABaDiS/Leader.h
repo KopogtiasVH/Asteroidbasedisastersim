@@ -16,6 +16,9 @@ public:
 	virtual void enterRoom(Room*);
 	virtual void takeQuest(Client*);
 
+	// Helpers
+	void toggleFighting(bool);
+
 	// Getters
 	Squad* getSquad() const;
 	Quest* getCurrentQuest() const;

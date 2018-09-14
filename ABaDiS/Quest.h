@@ -20,6 +20,7 @@ public:
 	virtual void assembleReward();		// creates the reward based on difficulty and type of quest
 	virtual bool checkProgress();		// check if the requirements are met
 	virtual void activateQuest(Being*);	// activate the quest so no other Leader can take it while the other is away to fullfill it
+	virtual void wrapupQuest();			// prepare the quest for deletion
 
 	// Getters
 	std::string getQuestName();
