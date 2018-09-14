@@ -193,9 +193,12 @@
       <Filter>Header Files\AI\Misc</Filter>
     </ClInclude>
     <ClInclude Include="BaseSystemHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Generic</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
+      <Filter>Header Files\Concepts</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -282,9 +285,12 @@
       <Filter>Source Files\AI\Goons</Filter>
     </ClCompile>
     <ClCompile Include="BaseSystemHandler.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Generic</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files\Concepts</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
