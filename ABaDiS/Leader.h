@@ -3,8 +3,6 @@
 #include "Squad.h"
 #include "Quest.h"
 #include "Client.h"
-//#include "Map.h"
-
 #include "Map.h"
 
 class Leader : public Being
@@ -19,14 +17,15 @@ public:
 	virtual void enterRoom(Room*);
 	virtual void takeQuest(Client*);
 
+	void explore(int);
+
 	// Helpers
 	void toggleFighting(bool);
+	bool knowsRoom(Room*);
 
 	// Getters
 	Squad* getSquad() const;
 	Quest* getCurrentQuest() const;
-
-	//Map* getMap();
 
 	Map* getMap();
 
@@ -40,9 +39,7 @@ public:
 protected:
 	Enumerators::Faction faction;
 
-	//Map map;
 	Map map;
-
 
 	int maxSquadSize;
 	bool isFighting;

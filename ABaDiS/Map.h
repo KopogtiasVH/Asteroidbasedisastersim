@@ -1,5 +1,4 @@
 #pragma once
-#include <map>
 
 class Map
 {
@@ -8,14 +7,21 @@ public:
 
 	// Helpers
 	bool contains(std::vector<Room*>, Room*);
-	bool contains(std::multimap<Room*, Room*>, Room*);
+	bool knows(Room*);
 
-	bool findShortestRoute(Room*, Room*);
+	std::vector<Room*> findShortestRoute(Room*, Room*);
 
 	void addRoom(Room*);
 
+	// Printers
+	void printRoute();
+	void printMap();
+
+	// Getters
+	std::vector<Room*>* getKnownRooms();
+
 private:
-	std::multimap<Room*, Room*> knownRooms;
+	std::vector<Room*> knownRooms;
 	std::vector<Room*> route;
 	Room* currentTarget;
 	Room* nextTarget;

@@ -1,2 +1,3 @@
-﻿  Map.cpp
+﻿  ABaDiS.cpp
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\abadis.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

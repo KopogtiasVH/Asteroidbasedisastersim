@@ -51,6 +51,9 @@ bool MobLeader::recruit() {
 void MobLeader::enterRoom(Room* toEnter) {
 	if (squad->getSize() + 1 < toEnter->getCapacity()) {
 		toEnter->enteringBeings(squad->getSize() + 1);
+		currentLocation->setPresence(Enumerators::Faction::NONE);
+		currentLocation = toEnter;
+		map.addRoom(currentLocation);
 		if (toEnter->isPresent(Enumerators::Faction::NONE)) {
 			toEnter->setPresence(faction);
 		}

@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "Map.h"
+#include <map>
+#include <set>
 
 
 Map::Map()
 {
-	knownRooms = std::multimap<Room*, Room*>();
+	knownRooms = std::vector<Room*>();
 	route = std::vector<Room*>();
 	currentTarget = nullptr;
 	nextTarget = nullptr;
@@ -18,48 +20,81 @@ bool Map::contains(std::vector<Room*> list, Room* toCheck) {
 	return false;
 }
 
-bool Map::contains(std::multimap<Room*, Room*> list, Room* toCheck) {
-	return (list.find(toCheck)->first != nullptr);
+bool Map::knows(Room* toCheck) {
+	return contains(knownRooms, toCheck);
 }
 
 void Map::addRoom(Room* toAdd) {
-	for (Room* i : toAdd->getConnections()) {
-		knownRooms.insert(std::make_pair(toAdd, i));
-		knownRooms.insert(std::make_pair(i, toAdd));
+	if (!contains(knownRooms, toAdd))
+		knownRooms.push_back(toAdd);
+}
+
+std::vector<Room*> Map::findShortestRoute(Room* from, Room* to) {
+	std::vector<Room*> graph = knownRooms;
+	std::vector<Room*> S;
+	std::set<Room*> Q;
+	std::map<Room*, int> dist;
+	std::map<Room*, Room*> prev;
+	for (Room* r : graph) {
+		dist.insert(std::make_pair(r, INT_MAX));
+		prev.insert(std::make_pair(r, nullptr));
+		Q.insert(r);
 	}
+	dist.find(from)->second = 0;
+
+	while (!Q.empty()) {
+		Room* u = nullptr;
+		int dist_temp = INT_MAX;
+		for (Room* r : Q) {
+			if (dist.find(r)->second < dist_temp) {
+				u = r;
+				dist_temp = dist.find(r)->second;
+			}
+
+		}
+		if (u == to) {
+			std::cout << "Found Route" << std::endl;
+			if (prev.find(u)->second != nullptr || u == from) {
+				while (u != nullptr) {
+					S.insert(S.begin(), u);
+					u = prev.find(u)->second;
+				}
+			}
+			route = S;
+			return S;
+		}
+		Q.erase(u);
+		for (Room* v : u->getConnections()) {
+			if (contains(knownRooms, v)) {
+				int alt = dist.find(u)->second + 1;
+				if (alt < dist.find(v)->second) {
+					dist.find(v)->second = alt;
+					prev.find(v)->second = u;
+				}
+			}
+		}
+	}
+
+	route = S;
+	return S;
 }
 
+void Map::printRoute() {
+	std::cout << std::endl;
+	for (Room* r : route)
+		std::cout << r->getName() << std::endl;
+	std::cout << std::endl;
+}
 
-bool Map::findShortestRoute(Room* from, Room* to) {
-if (!contains(knownRooms, to) || !contains(knownRooms, from))
-return false;
-int recordShortest = INT_MAX;
-std::vector<Room*> traversedRooms;
-Room* currentRoom = from;
-start:
-traversedRooms.push_back(currentRoom);
-if (knownRooms.count(currentRoom) > 1 && knownRooms.find(currentRoom)->second == to) {
-route = traversedRooms;
-return true;
+void Map::printMap() {
+	std::cout << "The Map contains: " << std::endl;
+	for (Room* r : knownRooms) {
+		std::cout << r->getName() << std::endl;
+	}
+	std::cout << std::endl;
 }
-else if (knownRooms.count(currentRoom) > 1 && !contains(traversedRooms, knownRooms.find(currentRoom)->second)) {
-currentRoom = knownRooms.find(currentRoom)->second;
-goto start;
-} else {
-for (auto i = knownRooms.equal_range(currentRoom).first;
-i != knownRooms.equal_range(currentRoom).second; ++i) {
-if (i->second == to) {
-route = traversedRooms;
-return true;
-}
-}
-for (auto i = knownRooms.equal_range(currentRoom).first;
-i != knownRooms.equal_range(currentRoom).second; ++i) {
-if (!contains(traversedRooms, i->second)) {
-currentRoom = i->second;
-goto start;
-}
-}
-}
-return false;
+
+std::vector<Room*>* Map::getKnownRooms()
+{
+	return &knownRooms;
 }
