@@ -27,15 +27,11 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 
 	// Leaders start without a quest
 	currentQuest = nullptr;
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 	//map = Map();
-=======
->>>>>>> parent of 4a77918... mm
-=======
+
 	map = Map();
->>>>>>> parent of b0911a3... mmme
+
 }
 
 // return the squad.

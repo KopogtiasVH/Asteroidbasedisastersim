@@ -162,6 +162,7 @@
     <ClInclude Include="HuntingQuest.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Leader.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="MilitaryQuest.h" />
     <ClInclude Include="MobGoon.h" />
     <ClInclude Include="MobLeader.h" />
@@ -194,6 +195,7 @@
     <ClCompile Include="HuntingQuest.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Leader.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="MilitaryQuest.cpp" />
     <ClCompile Include="MobGoon.cpp" />
     <ClCompile Include="MobLeader.cpp" />
