@@ -28,7 +28,7 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 	// Leaders start without a quest
 	currentQuest = nullptr;
 
-	map = Map();
+	//map = Map();
 }
 
 // return the squad.
@@ -43,11 +43,6 @@ std::string Leader::getSquadName() const {
 
 Quest* Leader::getCurrentQuest() const {
 	return currentQuest;
-}
-
-Map * Leader::getMap()
-{
-	return &map;
 }
 
 Enumerators::Faction Leader::getFaction() const {

@@ -3,7 +3,7 @@
 #include "Squad.h"
 #include "Quest.h"
 #include "Client.h"
-#include "Map.h"
+//#include "Map.h"
 
 class Leader : public Being
 {
@@ -25,7 +25,7 @@ public:
 	// Getters
 	Squad* getSquad() const;
 	Quest* getCurrentQuest() const;
-	Map* getMap();
+	//Map* getMap();
 	std::string getSquadName() const;
 	Enumerators::Faction getFaction() const;
 
@@ -35,7 +35,7 @@ public:
 
 protected:
 	Enumerators::Faction faction;
-	Map map;
+	//Map map;
 
 	int maxSquadSize;
 	bool isFighting;
