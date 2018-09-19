@@ -160,7 +160,6 @@
     <ClInclude Include="GatheringQuest.h" />
     <ClInclude Include="HiPRoom.h" />
     <ClInclude Include="HuntingQuest.h" />
-    <ClInclude Include="InternalMap.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Leader.h" />
     <ClInclude Include="MilitaryQuest.h" />
@@ -193,7 +192,6 @@
     <ClCompile Include="GatheringQuest.cpp" />
     <ClCompile Include="HiPRoom.cpp" />
     <ClCompile Include="HuntingQuest.cpp" />
-    <ClCompile Include="InternalMap.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Leader.cpp" />
     <ClCompile Include="MilitaryQuest.cpp" />

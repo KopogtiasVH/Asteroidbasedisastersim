@@ -29,9 +29,13 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 	currentQuest = nullptr;
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 	//map = Map();
 =======
 >>>>>>> parent of 4a77918... mm
+=======
+	map = Map();
+>>>>>>> parent of b0911a3... mmme
 }
 
 // return the squad.
@@ -46,6 +50,11 @@ std::string Leader::getSquadName() const {
 
 Quest* Leader::getCurrentQuest() const {
 	return currentQuest;
+}
+
+Map * Leader::getMap()
+{
+	return &map;
 }
 
 Enumerators::Faction Leader::getFaction() const {
