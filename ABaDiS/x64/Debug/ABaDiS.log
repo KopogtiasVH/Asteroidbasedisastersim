@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 ﻿  InternalMap.cpp
+=======
+﻿  Map.cpp
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(25): warning C4102: 'findingLoop': unreferenced label
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(33): warning C4715: 'Map::findShortestRoute': not all control paths return a value
+>>>>>>> parent of 4a77918... mm
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

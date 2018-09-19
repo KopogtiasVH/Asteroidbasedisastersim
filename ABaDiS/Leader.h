@@ -3,7 +3,10 @@
 #include "Squad.h"
 #include "Quest.h"
 #include "Client.h"
+<<<<<<< HEAD
 //#include "Map.h"
+=======
+>>>>>>> parent of 4a77918... mm
 
 class Leader : public Being
 {
@@ -17,15 +20,16 @@ public:
 	virtual void enterRoom(Room*);
 	virtual void takeQuest(Client*);
 
-	void explore(int);
-
 	// Helpers
 	void toggleFighting(bool);
 
 	// Getters
 	Squad* getSquad() const;
 	Quest* getCurrentQuest() const;
+<<<<<<< HEAD
 	//Map* getMap();
+=======
+>>>>>>> parent of 4a77918... mm
 	std::string getSquadName() const;
 	Enumerators::Faction getFaction() const;
 
@@ -35,7 +39,10 @@ public:
 
 protected:
 	Enumerators::Faction faction;
+<<<<<<< HEAD
 	//Map map;
+=======
+>>>>>>> parent of 4a77918... mm
 
 	int maxSquadSize;
 	bool isFighting;
