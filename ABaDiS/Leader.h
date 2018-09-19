@@ -3,6 +3,7 @@
 #include "Squad.h"
 #include "Quest.h"
 #include "Client.h"
+#include "Map.h"
 
 class Leader : public Being
 {
@@ -16,12 +17,15 @@ public:
 	virtual void enterRoom(Room*);
 	virtual void takeQuest(Client*);
 
+	void explore(int);
+
 	// Helpers
 	void toggleFighting(bool);
 
 	// Getters
 	Squad* getSquad() const;
 	Quest* getCurrentQuest() const;
+	Map* getMap();
 	std::string getSquadName() const;
 	Enumerators::Faction getFaction() const;
 
@@ -31,6 +35,7 @@ public:
 
 protected:
 	Enumerators::Faction faction;
+	Map map;
 
 	int maxSquadSize;
 	bool isFighting;
