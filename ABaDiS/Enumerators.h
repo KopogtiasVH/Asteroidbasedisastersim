@@ -97,5 +97,15 @@ public:
 		lawful,
 		chaotic
 	};
+
+	// Desires
+	enum class Desire {
+		idle,
+		explore,
+		traverse,
+		recruit,
+		scavenge,
+		investigate
+	};
 };
 

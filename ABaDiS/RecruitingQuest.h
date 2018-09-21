@@ -10,6 +10,7 @@ public:
 	void updateQuest();
 	bool checkProgress();
 	void wrapupQuest();
+	Enumerators::Desire getDesire();
 
 private:
 	int recruited;
