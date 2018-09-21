@@ -10,7 +10,7 @@ public:
 	bool checkProgress();
 	void updateQuest();
 	void wrapupQuest();
-
+	Enumerators::Desire getDesire();
 
 private:
 	int toExplore;

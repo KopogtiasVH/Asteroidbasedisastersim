@@ -41,6 +41,10 @@ void Quest::activateQuest(Being* o) {
 	active = true;
 }
 
+Enumerators::Desire Quest::getDesire() {
+	return Enumerators::Desire::idle;
+}
+
 void Quest::wrapupQuest()
 {
 }

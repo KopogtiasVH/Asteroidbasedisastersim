@@ -36,6 +36,12 @@ void ExploringQuest::updateQuest() {
 	}
 }
 
+Enumerators::Desire ExploringQuest::getDesire() {
+	if (!status) {
+		return Enumerators::Desire::explore;
+	}
+}
+
 void ExploringQuest::wrapupQuest() {
 	delete(this);
 }

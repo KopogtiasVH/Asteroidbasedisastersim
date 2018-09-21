@@ -35,18 +35,20 @@ void RecruitingQuest::updateQuest() {
 }
 
 Enumerators::Desire RecruitingQuest::getDesire() {
-	Leader* oL = dynamic_cast<Leader*>(owner);
-	if (oL->getFaction() == Enumerators::Faction::ANARC) {
-		if (oL->getCurrentLocation()->getKor() == Enumerators::KindOfRoom::livingQuarter) 
-			return Enumerators::Desire::recruit;
-		else 
-			return Enumerators::Desire::traverse;
-	}
-	else if (oL->getFaction() == Enumerators::Faction::SEC) {
-		if (oL->getCurrentLocation()->getKor() == Enumerators::KindOfRoom::security) 
-			return Enumerators::Desire::recruit;
-		else 
-			return Enumerators::Desire::traverse;
+	if (!status) {
+		Leader* oL = dynamic_cast<Leader*>(owner);
+		if (oL->getFaction() == Enumerators::Faction::ANARC) {
+			if (oL->getCurrentLocation()->getKor() == Enumerators::KindOfRoom::livingQuarter)
+				return Enumerators::Desire::recruit;
+			else
+				return Enumerators::Desire::traverse;
+		}
+		else if (oL->getFaction() == Enumerators::Faction::SEC) {
+			if (oL->getCurrentLocation()->getKor() == Enumerators::KindOfRoom::security)
+				return Enumerators::Desire::recruit;
+			else
+				return Enumerators::Desire::traverse;
+		}
 	}
 }
 
