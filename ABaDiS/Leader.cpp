@@ -96,6 +96,10 @@ void Leader::explore(int toExplore) {
 	}
 }
 
+void Leader::recieveReward(Quest::questReward reward)
+{
+}
+
 void Leader::toggleFighting(bool b)
 {
 	isFighting = b;

@@ -60,3 +60,30 @@ void HuntingQuest::activateQuest(Being* o) {
 	}
 	createQuestFlavor();
 }
+
+void HuntingQuest::updateQuest()
+{
+	status = checkProgress();
+	if (status && dynamic_cast<Leader*>(owner)->getCurrentLocation() == client->getCurrentLocation())
+		wrapupQuest();
+}
+
+Enumerators::Desire HuntingQuest::getDesire()
+{
+	if (!status) {
+		Leader* oL = dynamic_cast<Leader*>(owner);
+		if (oL->knowsRoom(target->getCurrentLocation()))
+			return Enumerators::Desire::traverse;
+		else
+			return Enumerators::Desire::explore;
+	}
+	else {
+		return Enumerators::Desire::returnToClient;
+	}
+}
+
+void HuntingQuest::wrapupQuest()
+{
+	dynamic_cast<Leader*>(owner)->recieveReward(reward);
+	delete(this);
+}

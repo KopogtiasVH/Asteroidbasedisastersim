@@ -18,6 +18,7 @@ public:
 	virtual void takeQuest(Client*);
 
 	void explore(int);
+	void recieveReward(Quest::questReward);
 
 	// Helpers
 	void toggleFighting(bool);

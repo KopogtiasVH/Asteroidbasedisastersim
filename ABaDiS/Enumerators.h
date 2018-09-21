@@ -101,6 +101,7 @@ public:
 	// Desires
 	enum class Desire {
 		idle,
+		returnToClient,
 		explore,
 		traverse,
 		recruit,
