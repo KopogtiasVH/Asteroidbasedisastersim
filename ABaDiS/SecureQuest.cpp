@@ -8,6 +8,8 @@ SecureQuest::SecureQuest(Being* c, Room* tS) : MilitaryQuest()
 	toSecure = tS;
 	ownFaction = Enumerators::Faction::NONE;
 	otherFaction = Enumerators::Faction::NONE;
+	int noOfLackeys = rand() % 5 + 1;
+	Leader* enemy = BaseSystemHandler::spawnTarget(toSecure, otherFaction, noOfLackeys);
 	createQuestFlavor();
 }
 

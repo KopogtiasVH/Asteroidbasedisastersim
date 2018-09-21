@@ -8,6 +8,7 @@ public:
 	static MobLeader* getRandomMobLeader();
 	static SecOfficer* getRandomSecOfficer();
 	static std::vector<Leader*>* getAllLeaders();
+	static Leader* spawnTarget(Room*, Enumerators::Faction, int);
 
 private:
 	static BaseSystem* baseSystem;

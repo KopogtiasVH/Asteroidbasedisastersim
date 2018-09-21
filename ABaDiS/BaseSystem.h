@@ -31,6 +31,7 @@ public:
 	Leader* getRandomLeader();
 	MobLeader* getRandomMob();
 	SecOfficer* getRandomSec();
+	Leader* spawnTargetLeader(Room*, Enumerators::Faction, int);
 
 	// BATTLE Section
 	void createFight(Leader*, Leader*, Room*);

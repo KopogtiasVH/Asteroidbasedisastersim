@@ -146,16 +146,16 @@ void BaseSystem::setHiPRoomNames() {
 bool BaseSystem::createMobLeader(Room* r) {
 	MobLeader* newLeader = new MobLeader(r);
 	leaders.push_back(newLeader);
-	newLeader->enterRoom(r);
 	return true;
 }
 
 bool BaseSystem::createSecLeader(Room* r) {
 	SecOfficer* newLeader = new SecOfficer(r);
 	leaders.push_back(newLeader);
-	newLeader->enterRoom(r);
 	return true;
 }
+
+
 
 void BaseSystem::printLeaders() {
 	for (Leader* leader : leaders) {
@@ -237,6 +237,27 @@ MobLeader * BaseSystem::getRandomMob()
 SecOfficer * BaseSystem::getRandomSec()
 {
 	return sec[rand() % sec.size()];
+}
+
+Leader * BaseSystem::spawnTargetLeader(Room * location, Enumerators::Faction faction, int lackeys)
+{
+	Leader* newTarget;
+	switch (faction) {
+	case Enumerators::Faction::ANARC:
+		newTarget = new MobLeader(location);
+		break;
+	case Enumerators::Faction::SEC:
+		newTarget = new SecOfficer(location);
+		break;
+	default:
+		std::cerr << "Wrong Faction assigned" << std::endl;
+		return nullptr;
+		break;
+	}
+	for (int i = 0; i < lackeys; i++) {
+		newTarget->recruit();
+	}
+	return newTarget;
 }
 
 #pragma endregion

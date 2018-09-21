@@ -28,9 +28,9 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 	// Leaders start without a quest
 	currentQuest = nullptr;
 
-	//map = Map();
-
 	map = Map();
+
+	enterRoom(currentLocation);
 
 }
 

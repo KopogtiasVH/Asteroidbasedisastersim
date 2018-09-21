@@ -33,3 +33,7 @@ SecOfficer * BaseSystemHandler::getRandomSecOfficer()
 std::vector<Leader*>* BaseSystemHandler::getAllLeaders() {
 	return baseSystem->getLeaders();
 }
+
+Leader* BaseSystemHandler::spawnTarget(Room* location, Enumerators::Faction faction, int lackeys) {
+	return baseSystem->spawnTargetLeader(location, faction, lackeys);
+}
