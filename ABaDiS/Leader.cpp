@@ -84,13 +84,16 @@ void Leader::takeQuest(Client* c) {
 }
 
 void Leader::explore(int toExplore) {
-	std::cout << std::endl;
-	for (int i = 0; i < toExplore; i++) {
-		int r = rand() % currentLocation->getConnections().size();
-		std::cout << getName() << " travels from " << currentLocation->getName() << " to " << currentLocation->getConnections()[r]->getName() << "." << std::endl;
-		enterRoom(currentLocation->getConnections()[r]);
+	if (toExplore > 0) {
+		toExplore--;
+		for (Room* r : currentLocation->getConnections()) {
+			if (!knowsRoom(r)) {
+				enterRoom(r);
+				break;
+			}
+		}
+		explore(toExplore);
 	}
-	std::cout << std::endl;
 }
 
 void Leader::toggleFighting(bool b)

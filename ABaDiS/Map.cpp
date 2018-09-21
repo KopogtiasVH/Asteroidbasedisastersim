@@ -98,3 +98,8 @@ std::vector<Room*>* Map::getKnownRooms()
 {
 	return &knownRooms;
 }
+
+int Map::getSize() const
+{
+	return knownRooms.size();
+}

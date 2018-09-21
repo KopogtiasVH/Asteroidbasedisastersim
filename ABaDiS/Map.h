@@ -19,6 +19,7 @@ public:
 
 	// Getters
 	std::vector<Room*>* getKnownRooms();
+	int getSize() const;
 
 private:
 	std::vector<Room*> knownRooms;
