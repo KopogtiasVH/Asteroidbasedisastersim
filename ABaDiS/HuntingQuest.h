@@ -20,4 +20,3 @@ private:
 	Being* client;
 	Being* target;
 };
-

@@ -10,6 +10,9 @@ public:
 	void assembleReward();
 	bool checkProgress();
 	void activateQuest(Being*);
+	void updateQuest();
+	Enumerators::Desire getDesire();
+	void wrapupQuest();
 
 private:
 	Being* client;

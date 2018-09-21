@@ -61,3 +61,29 @@ void SecureQuest::activateQuest(Being * o)
 	}
 	createQuestFlavor();
 }
+
+void SecureQuest::updateQuest()
+{
+	if (!status)
+		status = checkProgress();
+	else if (status && dynamic_cast<Leader*>(owner)->getCurrentLocation() == client->getCurrentLocation()) {
+		wrapupQuest();
+	}
+}
+
+Enumerators::Desire SecureQuest::getDesire()
+{
+	Leader* oL = dynamic_cast<Leader*>(owner);
+	if (!status && oL->knowsRoom(toSecure))
+		return Enumerators::Desire::traverse;
+	else if (!status && !oL->knowsRoom(toSecure))
+		return Enumerators::Desire::explore;
+	else if (status)
+		return Enumerators::Desire::returnToClient;
+}
+
+void SecureQuest::wrapupQuest()
+{
+	dynamic_cast<Leader*>(owner)->recieveReward(reward);
+	delete(this);
+}
