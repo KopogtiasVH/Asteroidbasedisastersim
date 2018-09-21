@@ -4,7 +4,7 @@
 
 ExploringQuest::ExploringQuest(Being* o)
 {
-	owner = o;
+	activateQuest(o);
 	if (dynamic_cast<Leader*>(o)) {
 		Leader* oL = dynamic_cast<Leader*>(o);
 		explored = oL->getMap()->getSize();

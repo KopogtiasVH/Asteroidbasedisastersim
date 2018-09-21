@@ -27,6 +27,8 @@ void Quest::createQuestFlavor() {};
 // creates the reward based on difficulty and type of quest
 void Quest::assembleReward() {}
 
+void Quest::updateQuest() {}
+
 // check if the quest is completed yet
 bool Quest::checkProgress()
 {
