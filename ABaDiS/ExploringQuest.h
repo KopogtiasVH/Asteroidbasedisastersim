@@ -4,9 +4,17 @@ class ExploringQuest :
 	public PersonalQuest
 {
 public:
-	ExploringQuest();
+	ExploringQuest(Being*);
+
+	void createQuestFlavor();
+	bool checkProgress();
+	void updateQuest();
+	void wrapupQuest();
+
 
 private:
-	
+	int toExplore;
+	int toExploreTotal;
+	int explored;
 };
 

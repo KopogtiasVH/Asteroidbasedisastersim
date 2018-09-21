@@ -18,6 +18,7 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(145):
   Inventory.cpp
   Leader.cpp
   Map.cpp
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(104): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   MilitaryQuest.cpp
   MobGoon.cpp
   MobLeader.cpp
