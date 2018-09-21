@@ -83,17 +83,14 @@ void Leader::takeQuest(Client* c) {
 		currentQuest = c->assignQuest(this);
 }
 
-void Leader::explore(int toExplore) {
-	if (toExplore > 0) {
-		toExplore--;
+void Leader::explore() {
 		for (Room* r : currentLocation->getConnections()) {
 			if (!knowsRoom(r)) {
 				enterRoom(r);
-				break;
+				return;
 			}
 		}
-		explore(toExplore);
-	}
+		enterRoom(currentLocation->getConnections()[rand() % currentLocation->getConnections().size()]);
 }
 
 void Leader::recieveReward(Quest::questReward reward)

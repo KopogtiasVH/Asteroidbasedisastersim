@@ -17,7 +17,7 @@ public:
 	virtual void enterRoom(Room*);
 	virtual void takeQuest(Client*);
 
-	void explore(int);
+	void explore();
 	void recieveReward(Quest::questReward);
 
 	// Helpers
