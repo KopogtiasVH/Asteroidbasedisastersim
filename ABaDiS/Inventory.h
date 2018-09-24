@@ -13,6 +13,7 @@ public:
 	// Helpers
 	void updateInventory();
 	void printInventory();
+	bool isFull();
 
 
 	// Getters

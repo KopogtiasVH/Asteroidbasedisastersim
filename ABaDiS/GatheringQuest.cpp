@@ -65,13 +65,26 @@ void GatheringQuest::deliver()
 	}
 }
 
+Enumerators::Desire GatheringQuest::getDesire()
+{
+	Leader* oL = dynamic_cast<Leader*>(owner);
+	if (!status && !oL->getSquad()->getInventory()->isFull())
+		return Enumerators::Desire::scavenge;
+	else if (!status && oL->getSquad()->getInventory()->isFull())
+		return Enumerators::Desire::deliver;
+	else if (status)
+		return Enumerators::Desire::returnToClient;
+	else
+		std::cerr << "Error at gathering quest desire dispensing" << std::endl;
+}
+
 void GatheringQuest::updateQuest()
 {
 	if (dynamic_cast<Leader*>(owner)) {
 		Leader* oL = dynamic_cast<Leader*>(owner);
 		gathered = oL->getSquad()->getInventory()->returnRessource(ressource);
 	}
-	checkProgress();
+	status = checkProgress();
 }
 #pragma endregion
 

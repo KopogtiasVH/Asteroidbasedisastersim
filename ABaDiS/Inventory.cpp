@@ -109,6 +109,11 @@ void Inventory::printInventory() {
 		<< "	Meds:	" << meds << std::endl << std::endl;
 }
 
+bool Inventory::isFull()
+{
+	return (currentInventorySpace == maxInventorySpace);
+}
+
 
 
 

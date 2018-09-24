@@ -11,7 +11,7 @@ public:
 	void assembleReward();
 	bool checkProgress();
 	void deliver();
-
+	Enumerators::Desire getDesire();
 	void updateQuest();
 
 	// Getters

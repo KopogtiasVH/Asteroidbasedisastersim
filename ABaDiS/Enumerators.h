@@ -106,6 +106,7 @@ public:
 		traverse,
 		recruit,
 		scavenge,
+		deliver,
 		investigate
 	};
 };

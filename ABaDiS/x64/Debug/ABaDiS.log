@@ -1,7 +1,7 @@
 ﻿  ABaDiS.cpp
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\abadis.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  BaseSystem.cpp
+  GatheringQuest.cpp
+  HiPRoom.cpp
   Generating Code...
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.cpp(64): warning C4715: 'BaseSystem::connectRooms': not all control paths return a value
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.cpp(341): warning C4715: 'BaseSystem::getRoom': not all control paths return a value
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\gatheringquest.cpp(79): warning C4715: 'GatheringQuest::getDesire': not all control paths return a value
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe
