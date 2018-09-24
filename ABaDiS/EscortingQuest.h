@@ -10,13 +10,15 @@ public:
 	void createQuestFlavor();
 	void assembleReward();
 	bool checkProgress();
+	void updateQuest();
+	Enumerators::Desire getDesire();
 
 	// Getters
 	Being* getEscort() const;
 	Room* getDestination() const;
 
 private:
-	Being * escort;
+	Being* client;
 	Room* destination;
 };
 
