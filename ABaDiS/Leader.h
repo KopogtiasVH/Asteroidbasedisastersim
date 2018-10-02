@@ -49,4 +49,5 @@ protected:
 	std::string squadName;
 
 	Quest* currentQuest;
+	Enumerators::Desire currentDesire;
 };

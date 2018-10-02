@@ -27,6 +27,7 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 
 	// Leaders start without a quest
 	currentQuest = nullptr;
+	currentDesire = Enumerators::Desire::idle;
 
 	map = Map();
 
@@ -127,6 +128,37 @@ void Leader::printBeingTable() {
 	else
 		questName = "None";
 
+	std::string desireString = "";
+	switch (currentDesire) {
+	case Enumerators::Desire::deliver:
+		desireString = "Delivering";
+		break;
+	case Enumerators::Desire::explore:
+		desireString = "Exploring";
+		break;
+	case Enumerators::Desire::idle:
+		desireString = "Waiting";
+		break;
+	case Enumerators::Desire::investigate:
+		desireString = "Investigating";
+		break;
+	case Enumerators::Desire::recruit:
+		desireString = "Recruiting";
+		break;
+	case Enumerators::Desire::returnToClient:
+		desireString = "Returning Quest";
+		break;
+	case Enumerators::Desire::scavenge:
+		desireString = "Scavenging";
+		break;
+	case Enumerators::Desire::traverse:
+		desireString = "Traversing";
+		break;
+	default:
+		desireString = "ERROR";
+		break;
+	}
+
 	std::cout << "Being:" << std::endl
 		<< "	Name:       " << fullName << std::endl
 		<< "	Gender:     " << genderString << std::endl
@@ -138,5 +170,6 @@ void Leader::printBeingTable() {
 		<< "	Weapon:     " << weapon->getName() << std::endl
 		<< "	Armor:      " << armor << std::endl
 		<< "	Occupation: " << occupation << std::endl 
-		<< "	Quest:      " << questName << std::endl << std::endl;
+		<< "	Quest:      " << questName << std::endl 
+		<< "	Desire:     " << desireString << std::endl << std::endl;
 }
