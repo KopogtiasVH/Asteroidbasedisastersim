@@ -77,3 +77,8 @@ Enumerators::Alignment Quest::getAlignment()
 {
 	return alignment;
 }
+
+Being * Quest::getClient()
+{
+	return client;
+}

@@ -79,6 +79,15 @@ std::vector<Room*> Map::findShortestRoute(Room* from, Room* to) {
 	return S;
 }
 
+Room * Map::findSpecificRoom(Enumerators::KindOfRoom kor)
+{
+	for (Room* r : knownRooms) {
+		if (r->getKor() == kor)
+			return r;
+	}
+
+}
+
 void Map::printRoute() {
 	std::cout << std::endl;
 	for (Room* r : route)

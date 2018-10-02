@@ -107,7 +107,8 @@ public:
 		recruit,
 		scavenge,
 		deliver,
-		investigate
+		investigate,
+		getNewQuest
 	};
 };
 

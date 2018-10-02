@@ -10,6 +10,7 @@ public:
 	bool knows(Room*);
 
 	std::vector<Room*> findShortestRoute(Room*, Room*);
+	Room* findSpecificRoom(Enumerators::KindOfRoom);
 
 	void addRoom(Room*);
 

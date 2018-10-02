@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Being.h"
 
+#pragma region CONSTRUCTORS
+
 Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLocation)
 {
 	// Leaders have a Faction to determine their fighting behavior
@@ -35,8 +37,123 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 
 }
 
+#pragma endregion
+
+#pragma region VIRTUALS
+
+bool Leader::recruit() {
+	return false;
+}
+
+bool Leader::recruit(Being* toRecruit) {
+	return squad->recruit(toRecruit);
+}
+
+Enumerators::Desire Leader::getNewDesire() {
+	if (currentQuest == nullptr)
+		return Enumerators::Desire::getNewQuest;
+	else {
+		return currentQuest->getDesire();
+	}
+}
+
+void Leader::enterRoom(Room* toEnter) {
+
+}
+
+void Leader::takeQuest(Client* c) {
+	if (c->getAlignment() == Enumerators::Alignment::neutral || c->getAlignment() == alignment)
+		currentQuest = c->assignQuest(this);
+}
+
+void Leader::explore() {
+	for (Room* r : currentLocation->getConnections()) {
+		if (!knowsRoom(r)) {
+			enterRoom(r);
+			return;
+		}
+	}
+	enterRoom(currentLocation->getConnections()[rand() % currentLocation->getConnections().size()]);
+}
+
+void Leader::recieveReward(Quest::questReward reward)
+{
+}
+
+void Leader::interpretDesire() {
+	currentDesire = getNewDesire();
+	switch (currentDesire) {
+	case Enumerators::Desire::deliver:
+		if (dynamic_cast<GatheringQuest*>(currentQuest)) {
+			GatheringQuest* q = dynamic_cast<GatheringQuest*>(currentQuest);
+			if (currentLocation == q->getClient()->getCurrentLocation()) {
+				q->deliver();
+			}
+			else if (!knowsRoom(q->getClient()->getCurrentLocation())){
+				explore();
+			}
+			else if (knowsRoom(q->getClient()->getCurrentLocation())) {
+				enterRoom(map.findShortestRoute(currentLocation, q->getClient()->getCurrentLocation())[1]);
+			}
+		}
+		else {
+			std::cerr << "Wrong Quest Type for this desire" << std::endl;
+		}
+		break;
+	case Enumerators::Desire::explore:
+		explore();
+		break;
+	case Enumerators::Desire::idle:
+		break;
+	case Enumerators::Desire::recruit:
+		break;
+	case Enumerators::Desire::returnToClient:
+		if (currentLocation != currentQuest->getClient()->getCurrentLocation()) {
+			if (knowsRoom(currentQuest->getClient()->getCurrentLocation()))
+				enterRoom(map.findShortestRoute(currentLocation, currentQuest->getClient()->getCurrentLocation())[1]);
+			else
+				explore();
+		}
+		break;
+	case Enumerators::Desire::scavenge:
+		if (dynamic_cast<GatheringQuest*>(currentQuest)) {
+			GatheringQuest* q = dynamic_cast<GatheringQuest*>(currentQuest);
+			switch (q->getRessource()) {
+			case Enumerators::Ressource::food:
+				if (dynamic_cast<HiPRoom*>(currentLocation)) {
+					HiPRoom* cL = dynamic_cast<HiPRoom*>(currentLocation);
+					if (cL->getFood() > 0)
+						scavenge(Enumerators::Ressource::food);
+					else {
+						// TODO: RAUM MIT NAHRUNG AUFSUCHEN
+					}
+
+				}
+			}
+		}
+	}
+}
+
+#pragma endregion
+
+#pragma region HELPERS
+
+void Leader::toggleFighting(bool b)
+{
+	isFighting = b;
+}
+
+bool Leader::knowsRoom(Room* toCheck)
+{
+	return map.knows(toCheck);
+}
+
+#pragma endregion
+
+#pragma region GETTERS
+
 // return the squad.
-Squad* Leader::getSquad() const{
+Squad* Leader::getSquad() const {
 	return squad;
 }
 
@@ -63,50 +180,10 @@ void Leader::printSquad() {
 	squad->printSquad();
 }
 
-bool Leader::recruit(Being* toRecruit) {
-	return squad->recruit(toRecruit);
-}
 
-bool Leader::recruit() {
-	return false;
-}
+#pragma endregion
 
-void Leader::getNewDesire() {
-
-}
-
-void Leader::enterRoom(Room* toEnter) {
-
-}
-
-void Leader::takeQuest(Client* c) {
-	if (c->getAlignment() == Enumerators::Alignment::neutral || c->getAlignment() == alignment)
-		currentQuest = c->assignQuest(this);
-}
-
-void Leader::explore() {
-		for (Room* r : currentLocation->getConnections()) {
-			if (!knowsRoom(r)) {
-				enterRoom(r);
-				return;
-			}
-		}
-		enterRoom(currentLocation->getConnections()[rand() % currentLocation->getConnections().size()]);
-}
-
-void Leader::recieveReward(Quest::questReward reward)
-{
-}
-
-void Leader::toggleFighting(bool b)
-{
-	isFighting = b;
-}
-
-bool Leader::knowsRoom(Room* toCheck)
-{
-	return map.knows(toCheck);
-}
+#pragma region PRINTERS
 
 void Leader::printBeingTable() {
 	std::string genderString = "";
@@ -169,7 +246,9 @@ void Leader::printBeingTable() {
 		<< "	Willpower:  " << willpower << std::endl
 		<< "	Weapon:     " << weapon->getName() << std::endl
 		<< "	Armor:      " << armor << std::endl
-		<< "	Occupation: " << occupation << std::endl 
-		<< "	Quest:      " << questName << std::endl 
+		<< "	Occupation: " << occupation << std::endl
+		<< "	Quest:      " << questName << std::endl
 		<< "	Desire:     " << desireString << std::endl << std::endl;
 }
+
+#pragma endregion

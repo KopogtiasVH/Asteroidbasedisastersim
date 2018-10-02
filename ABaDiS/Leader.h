@@ -13,12 +13,17 @@ public:
 
 	virtual bool recruit();
 	virtual bool recruit(Being*);
-	virtual void getNewDesire();
+	virtual Enumerators::Desire getNewDesire();
 	virtual void enterRoom(Room*);
 	virtual void takeQuest(Client*);
+	virtual void explore();
+	virtual void recieveReward(Quest::questReward);
+	virtual void interpretDesire();
 
-	void explore();
-	void recieveReward(Quest::questReward);
+	// TODO LIST
+	bool isRecruitingPossible();
+	void takeNewQuest();
+	void scavenge(Enumerators::Ressource);
 
 	// Helpers
 	void toggleFighting(bool);
@@ -27,9 +32,7 @@ public:
 	// Getters
 	Squad* getSquad() const;
 	Quest* getCurrentQuest() const;
-
 	Map* getMap();
-
 	std::string getSquadName() const;
 	Enumerators::Faction getFaction() const;
 

@@ -31,6 +31,7 @@ public:
 	bool getStatus();
 	questReward getReward();
 	Enumerators::Alignment getAlignment();
+	Being* getClient();
 
 protected:
 	std::string name;
@@ -41,6 +42,7 @@ protected:
 	questReward reward;
 	Enumerators::Alignment alignment;
 	Being* owner;
+	Being* client;
 	
 };
 
