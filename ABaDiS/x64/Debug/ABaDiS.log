@@ -52,5 +52,4 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\weapon.cpp(122)
   Generating Code...
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\securequest.cpp(86): warning C4715: 'SecureQuest::getDesire': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\recruitingquest.cpp(53): warning C4715: 'RecruitingQuest::getDesire': not all control paths return a value
-Leader.obj : error LNK2019: unresolved external symbol "public: void __cdecl Leader::scavenge(enum Enumerators::Ressource)" (?scavenge@Leader@@QEAAXW4Ressource@Enumerators@@@Z) referenced in function "public: virtual void __cdecl Leader::interpretDesire(void)" (?interpretDesire@Leader@@UEAAXXZ)
-C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe : fatal error LNK1120: 1 unresolved externals
+  ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

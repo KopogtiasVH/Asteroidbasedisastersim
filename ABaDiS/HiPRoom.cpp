@@ -13,6 +13,7 @@ HiPRoom::HiPRoom(int p) : Room(p)
 		scrap = maxCapacity / 2 + rand() % maxCapacity;
 		weapons = 0;
 		population = 0;
+		meds = rand() % 5;
 		break;
 	case 1:
 		// living quarters have some of mostly everything and are the main source of recruitable MobGoons
@@ -21,6 +22,7 @@ HiPRoom::HiPRoom(int p) : Room(p)
 		scrap = rand() % maxCapacity / 4;
 		weapons = 0;
 		population = maxCapacity;
+		meds = rand() % 5;
 		break;
 	case 2:
 		// Warehouses have high supply of food, some scrap and sometimes even weapons
@@ -29,6 +31,7 @@ HiPRoom::HiPRoom(int p) : Room(p)
 		scrap = rand() % maxCapacity / 4;
 		weapons = rand() % 3;
 		population = 0;
+		meds = rand() % 5;
 		break;
 	case 3:
 		// Security Checkpoints have weapons and sometimes a prisoner or two
@@ -37,9 +40,10 @@ HiPRoom::HiPRoom(int p) : Room(p)
 		scrap = 0;
 		weapons = maxCapacity / 10;
 		population = rand() % 3;
+		meds = rand() % 5;
 		break;
 	default:
-		std::cerr << "Something went wrong" << std::endl;
+		std::cerr << "Wrong type of HiPRoom generated" << std::endl;
 	}
 
 	name = "NEEDS ASSIGNMENT";
@@ -78,6 +82,36 @@ int HiPRoom::getPopulation()
 	return population;
 }
 
+int HiPRoom::getMeds()
+{
+	return meds;
+}
+
+bool HiPRoom::hasRessource(Enumerators::Ressource r)
+{
+	switch (r) {
+	case Enumerators::Ressource::food:
+		return getFood() > 0;
+		break;
+	case Enumerators::Ressource::meds:
+		return getMeds() > 0;
+		break;
+	case Enumerators::Ressource::scrap:
+		return getScrap() > 0;
+		break;
+	case Enumerators::Ressource::population:
+		return getPopulation() > 0;
+		break;
+	case Enumerators::Ressource::weapons:
+		return getWeapons() > 0;
+		break;
+	default:
+		std::cerr << "Error at ressource" << std::endl;
+		return false;
+		break;
+	}
+}
+
 bool HiPRoom::takeFood(int toDeduct)
 {
 	if (food - toDeduct >= 0)
@@ -109,6 +143,15 @@ bool HiPRoom::takePopulation(int toDeduct)
 {
 	if (population - toDeduct >= 0)
 		population -= toDeduct;
+	else
+		return false;
+	return true;
+}
+
+bool HiPRoom::takeMeds(int toDeduct)
+{
+	if (meds - toDeduct >= 0)
+		meds -= toDeduct;
 	else
 		return false;
 	return true;

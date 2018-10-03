@@ -88,6 +88,8 @@ public:
 		food,
 		scrap,
 		meds,
+		population,
+		weapons,
 		none
 	};
 

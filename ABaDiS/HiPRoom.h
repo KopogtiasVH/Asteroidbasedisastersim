@@ -14,11 +14,15 @@ public:
 	int getScrap();
 	int getWeapons();
 	int getPopulation();
+	int getMeds();
+
+	bool hasRessource(Enumerators::Ressource);
 
 	bool takeFood(int);
 	bool takeScrap(int);
 	bool takeWeapon(int);
 	bool takePopulation(int);
+	bool takeMeds(int);
 
 
 private:
@@ -27,6 +31,7 @@ private:
 	int food;
 	int scrap;
 	int weapons;
+	int meds;
 
 	// Population
 	int population;

@@ -118,19 +118,35 @@ void Leader::interpretDesire() {
 	case Enumerators::Desire::scavenge:
 		if (dynamic_cast<GatheringQuest*>(currentQuest)) {
 			GatheringQuest* q = dynamic_cast<GatheringQuest*>(currentQuest);
-			switch (q->getRessource()) {
-			case Enumerators::Ressource::food:
-				if (dynamic_cast<HiPRoom*>(currentLocation)) {
-					HiPRoom* cL = dynamic_cast<HiPRoom*>(currentLocation);
-					if (cL->getFood() > 0)
-						scavenge(Enumerators::Ressource::food);
-					else {
-						// TODO: RAUM MIT NAHRUNG AUFSUCHEN
-					}
-
+			if (dynamic_cast<HiPRoom*>(currentLocation) && dynamic_cast<HiPRoom*>(currentLocation)->hasRessource(q->getRessource())) {
+				HiPRoom* cL = dynamic_cast<HiPRoom*>(currentLocation);
+				switch (q->getRessource()) {
+					case Enumerators::Ressource::food:
+						cL->takeFood(1);
+						squad->getInventory()->addToInventory(Enumerators::Ressource::food, 1);
+						break;
+					case Enumerators::Ressource::meds:
+						cL->takeMeds(1);
+						squad->getInventory()->addToInventory(Enumerators::Ressource::meds, 1);
+						break;
+					case Enumerators::Ressource::scrap:
+						cL->takeScrap(1);
+						squad->getInventory()->addToInventory(Enumerators::Ressource::scrap, 1);
+						break;
+					default:
+						std::cerr << "Gathering Quests don't need to scavenge for this ressorce" << std::endl;
 				}
 			}
+			else {
+				// TODO: Find room with needed ressource
+			}
+			
 		}
+		break;
+	case Enumerators::Desire::traverse:
+		break;
+	default:
+		std::cerr << "Wrong desire input" << std::endl;
 	}
 }
 
