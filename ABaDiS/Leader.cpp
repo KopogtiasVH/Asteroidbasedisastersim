@@ -93,7 +93,8 @@ void Leader::interpretDesire() {
 				explore();
 			}
 			else if (knowsRoom(q->getClient()->getCurrentLocation())) {
-				enterRoom(map.findShortestRoute(currentLocation, q->getClient()->getCurrentLocation())[1]);
+				map.findShortestRoute(currentLocation, q->getClient()->getCurrentLocation());
+				enterRoom(map.getRoute()[1]);
 			}
 		}
 		else {
@@ -109,8 +110,10 @@ void Leader::interpretDesire() {
 		break;
 	case Enumerators::Desire::returnToClient:
 		if (currentLocation != currentQuest->getClient()->getCurrentLocation()) {
-			if (knowsRoom(currentQuest->getClient()->getCurrentLocation()))
-				enterRoom(map.findShortestRoute(currentLocation, currentQuest->getClient()->getCurrentLocation())[1]);
+			if (knowsRoom(currentQuest->getClient()->getCurrentLocation())) {
+				map.findShortestRoute(currentLocation, currentQuest->getClient()->getCurrentLocation());
+				enterRoom(map.getRoute()[1]);
+			}
 			else
 				explore();
 		}

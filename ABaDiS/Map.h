@@ -1,5 +1,9 @@
 #pragma once
 
+#include <map>
+#include <set>
+#include <algorithm>
+
 class Map
 {
 public:
@@ -8,9 +12,11 @@ public:
 	// Helpers
 	bool contains(std::vector<Room*>, Room*);
 	bool knows(Room*);
+	std::map<int, Room*> sortByValue(std::map<Room*, int>);
 
-	std::vector<Room*> findShortestRoute(Room*, Room*);
+	bool findShortestRoute(Room*, Room*);
 	Room* findSpecificRoom(Enumerators::KindOfRoom);
+	bool findNearestRoomWithRessource(Enumerators::Ressource, Room*);
 
 	void addRoom(Room*);
 
@@ -20,6 +26,7 @@ public:
 
 	// Getters
 	std::vector<Room*>* getKnownRooms();
+	std::vector<Room*> getRoute();
 	int getSize() const;
 
 private:
