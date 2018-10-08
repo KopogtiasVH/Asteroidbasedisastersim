@@ -12,7 +12,7 @@ public:
 	// Helpers
 	bool contains(std::vector<Room*>, Room*);
 	bool knows(Room*);
-	std::map<int, Room*> sortByValue(std::map<Room*, int>);
+	std::multimap<int, Room*> sortByValue(std::map<Room*, int>);
 
 	bool findShortestRoute(Room*, Room*);
 	Room* findSpecificRoom(Enumerators::KindOfRoom);

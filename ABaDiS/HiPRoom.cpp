@@ -61,6 +61,46 @@ void HiPRoom::setName() {
 	}
 }
 
+void HiPRoom::printRoom()
+{
+	std::string korString;
+	switch (kor) {
+	case Enumerators::KindOfRoom::docks:
+		korString = "Docks";
+		break;
+	case Enumerators::KindOfRoom::generic:
+		korString = "Generic";
+		break;
+	case Enumerators::KindOfRoom::livingQuarter:
+		korString = "Living Quarters";
+		break;
+	case Enumerators::KindOfRoom::security:
+		korString = "Security Checkpoint";
+		break;
+	case Enumerators::KindOfRoom::street:
+		korString = "Corridor";
+		break;
+	case Enumerators::KindOfRoom::warehouse:
+		korString = "Storage Unit";
+		break;
+	default:
+		korString = "ERROR";
+		break;
+	}
+
+	std::cout << name << ":" << std::endl
+		<< "	Capacity:   " << getCurrentCapacity() << " / " << getCapacity() << std::endl
+		<< "	Condition:  " << getCurrentCondition() << " / " << getMaxCondition() << std::endl
+		<< "	Priority:   " << getPriority() << std::endl
+		<< "	Roomtype:   " << korString << std::endl
+		<< "	Food:       " << getFood() << std::endl
+		<< "	Scrap:      " << getScrap() << std::endl
+		<< "	Weapons:    " << getWeapons() << std::endl
+		<< "	Meds:       " << getMeds() << std::endl
+		<< "	Population: " << getPopulation() << std::endl << std::endl;
+
+}
+
 // Getters
 int HiPRoom::getFood()
 {

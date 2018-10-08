@@ -23,9 +23,9 @@ bool Map::knows(Room* toCheck) {
 	return contains(knownRooms, toCheck);
 }
 
-std::map<int, Room*> Map::sortByValue(std::map<Room*, int> m)
+std::multimap<int, Room*> Map::sortByValue(std::map<Room*, int> m)
 {
-	std::map<int, Room*> flipMap = std::map<int, Room*>();
+	std::multimap<int, Room*> flipMap = std::multimap<int, Room*>();
 	for (auto r : m)
 		flipMap.insert(std::make_pair(r.second, r.first));
 	return flipMap;
@@ -131,11 +131,15 @@ bool Map::findNearestRoomWithRessource(Enumerators::Ressource ressource, Room* f
 	
 	std::vector<Room*> routeToRessource;
 	auto flipMap = sortByValue(dist);
+	for (auto q : flipMap)
+		std::cout << q.first << " - " << q.second->getName() << std::endl;
 	for (auto r : flipMap) {
 		if (dynamic_cast<HiPRoom*>(r.second)) {
 			HiPRoom* hr = dynamic_cast<HiPRoom*>(r.second);
 			if (hr->hasRessource(ressource));
 			findShortestRoute(from, r.second);
+			std::cout << hr->getName() << " - Distance: " << dist.find(hr)->second << std::endl;
+			hr->printRoom();
 			return true;
 		}
 	}

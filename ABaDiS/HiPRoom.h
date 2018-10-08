@@ -8,6 +8,7 @@ public:
 
 	// Other
 	void setName();
+	void printRoom();
 
 	// Getters
 	int getFood();
