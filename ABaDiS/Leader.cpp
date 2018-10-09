@@ -80,8 +80,11 @@ void Leader::recieveReward(Quest::questReward reward)
 {
 }
 
-void Leader::interpretDesire() {
-	currentDesire = getNewDesire();
+void Leader::interpretDesire(Enumerators::Desire desire) {
+	if (desire == Enumerators::Desire::empty)
+		currentDesire = getNewDesire();
+	else 
+		currentDesire = desire;
 	switch (currentDesire) {
 	case Enumerators::Desire::deliver:
 		if (dynamic_cast<GatheringQuest*>(currentQuest)) {
@@ -121,30 +124,10 @@ void Leader::interpretDesire() {
 	case Enumerators::Desire::scavenge:
 		if (dynamic_cast<GatheringQuest*>(currentQuest)) {
 			GatheringQuest* q = dynamic_cast<GatheringQuest*>(currentQuest);
-			if (dynamic_cast<HiPRoom*>(currentLocation) && dynamic_cast<HiPRoom*>(currentLocation)->hasRessource(q->getRessource())) {
-				HiPRoom* cL = dynamic_cast<HiPRoom*>(currentLocation);
-				switch (q->getRessource()) {
-					case Enumerators::Ressource::food:
-						cL->takeFood(1);
-						squad->getInventory()->addToInventory(Enumerators::Ressource::food, 1);
-						break;
-					case Enumerators::Ressource::meds:
-						cL->takeMeds(1);
-						squad->getInventory()->addToInventory(Enumerators::Ressource::meds, 1);
-						break;
-					case Enumerators::Ressource::scrap:
-						cL->takeScrap(1);
-						squad->getInventory()->addToInventory(Enumerators::Ressource::scrap, 1);
-						break;
-					default:
-						std::cerr << "Gathering Quests don't need to scavenge for this ressorce" << std::endl;
-				}
-			}
-			else {
+			if (!scavenge(q->getRessource())) {
 				map.findNearestRoomWithRessource(q->getRessource(), currentLocation);
 				enterRoom(map.getRoute()[1]);
 			}
-			
 		}
 		else
 			std::cerr << "Wrong Quest Type for this desire." << std::endl;
@@ -156,9 +139,41 @@ void Leader::interpretDesire() {
 	}
 }
 
+bool Leader::scavenge(Enumerators::Ressource ressource)
+{
+	if (dynamic_cast<HiPRoom*>(currentLocation) && dynamic_cast<HiPRoom*>(currentLocation)->hasRessource(ressource)) {
+		HiPRoom* cL = dynamic_cast<HiPRoom*>(currentLocation);
+		switch (ressource) {
+		case Enumerators::Ressource::food:
+			cL->takeFood(1);
+			squad->getInventory()->addToInventory(Enumerators::Ressource::food, 1);
+			break;
+		case Enumerators::Ressource::meds:
+			cL->takeMeds(1);
+			squad->getInventory()->addToInventory(Enumerators::Ressource::meds, 1);
+			break;
+		case Enumerators::Ressource::scrap:
+			cL->takeScrap(1);
+			squad->getInventory()->addToInventory(Enumerators::Ressource::scrap, 1);
+			break;
+		case Enumerators::Ressource::weapons:
+			cL->takeWeapon(1);
+			break;
+		default:
+			std::cerr << "Can't gather this ressource" << std::endl;
+			return false;
+			break;
+		}
+		return true;
+	}
+	return false;
+}
+
 #pragma endregion
 
 #pragma region HELPERS
+
+
 
 void Leader::toggleFighting(bool b)
 {

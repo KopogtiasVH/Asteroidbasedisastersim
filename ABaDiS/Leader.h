@@ -18,12 +18,12 @@ public:
 	virtual void takeQuest(Client*);
 	virtual void explore();
 	virtual void recieveReward(Quest::questReward);
-	virtual void interpretDesire();
+	virtual void interpretDesire(Enumerators::Desire);
 
 	// TODO LIST
 	bool isRecruitingPossible();
 	void takeNewQuest();
-	void scavenge(Enumerators::Ressource);
+	bool scavenge(Enumerators::Ressource);
 
 	// Helpers
 	void toggleFighting(bool);

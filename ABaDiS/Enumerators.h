@@ -110,7 +110,8 @@ public:
 		scavenge,
 		deliver,
 		investigate,
-		getNewQuest
+		getNewQuest,
+		empty
 	};
 };
 
