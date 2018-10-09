@@ -141,10 +141,13 @@ void Leader::interpretDesire() {
 				}
 			}
 			else {
-				// TODO: Find room with needed ressource
+				map.findNearestRoomWithRessource(q->getRessource(), currentLocation);
+				enterRoom(map.getRoute()[1]);
 			}
 			
 		}
+		else
+			std::cerr << "Wrong Quest Type for this desire." << std::endl;
 		break;
 	case Enumerators::Desire::traverse:
 		break;

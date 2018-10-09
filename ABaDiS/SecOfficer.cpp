@@ -65,6 +65,7 @@ bool SecOfficer::recruit(SecTroop newRecruit) {
 void SecOfficer::enterRoom(Room* toEnter) {
 	if (squad->getSize() + 1 < toEnter->getCapacity()) {
 		toEnter->enteringBeings(squad->getSize() + 1);
+		currentLocation->enteringBeings((squad->getSize() + 1)*-1);
 		currentLocation->setPresence(Enumerators::Faction::NONE);
 		currentLocation = toEnter;
 		map.addRoom(currentLocation);
