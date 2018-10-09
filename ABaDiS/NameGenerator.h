@@ -1,4 +1,7 @@
 #pragma once
+#include <string>
+#include "Enumerators.h"
+#include <vector>
 
 class NameGenerator
 {

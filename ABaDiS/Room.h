@@ -1,5 +1,6 @@
 #pragma once
-
+#include "MobGoon.h"
+#include "SecTroop.h"
 class Room
 {
 public:

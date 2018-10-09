@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "Being.h"
 
 class SecTroop : public Being
 {

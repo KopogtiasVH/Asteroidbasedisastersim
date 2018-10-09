@@ -1,32 +1,41 @@
 ﻿  stdafx.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(16): error C2061: syntax error: identifier 'MobGoon'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(17): error C2061: syntax error: identifier 'SecTroop'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(18): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(18): error C2061: syntax error: identifier 'Faction'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(29): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(29): error C2061: syntax error: identifier 'Faction'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(33): error C2039: 'string': is not a member of 'std'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(7): error C2504: 'Being': base class undefined
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(9): error C2061: syntax error: identifier 'Room'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(10): error C2061: syntax error: identifier 'Leader'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(10): error C2535: 'MobGoon::MobGoon(void)': member function already defined or declared
+  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(9): note: see declaration of 'MobGoon::MobGoon'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(16): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobgoon.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(7): error C2504: 'Being': base class undefined
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(9): error C2061: syntax error: identifier 'Room'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(10): error C2061: syntax error: identifier 'Leader'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(10): error C2535: 'SecTroop::SecTroop(void)': member function already defined or declared
+  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(9): note: see declaration of 'SecTroop::SecTroop'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(16): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\sectroop.h(16): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(19): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(19): error C2061: syntax error: identifier 'Faction'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(30): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(30): error C2061: syntax error: identifier 'Faction'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(34): error C2039: 'string': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(33): error C3646: 'getName': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(33): error C2059: syntax error: '('
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(33): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(34): error C2039: 'vector': is not a member of 'std'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(34): error C2143: syntax error: missing ';' before '<'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(34): error C3646: 'getName': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(34): error C2059: syntax error: '('
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(34): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C3646: 'getKor': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C2059: syntax error: '('
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(52): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(52): error C3646: 'presence': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(52): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(54): error C2039: 'vector': is not a member of 'std'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C2039: 'vector': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(54): error C2143: syntax error: missing ';' before '<'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(54): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(54): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C2143: syntax error: missing ';' before '<'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(36): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(36): error C3646: 'getKor': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(36): error C2059: syntax error: '('
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(36): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(53): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(53): error C3646: 'presence': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(53): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(55): error C2039: 'vector': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(55): error C2143: syntax error: missing ';' before '<'
@@ -37,110 +46,97 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(56): err
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(56): error C2143: syntax error: missing ';' before '<'
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(56): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(56): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(58): error C2039: 'string': is not a member of 'std'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(57): error C2039: 'vector': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(58): error C3646: 'name': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(60): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(60): error C3646: 'kor': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(60): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(13): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(13): error C2061: syntax error: identifier 'Ressource'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(17): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(17): error C2061: syntax error: identifier 'StatBoost'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(25): error C2039: 'string': is not a member of 'std'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(57): error C2143: syntax error: missing ';' before '<'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(57): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(57): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(59): error C2039: 'string': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(25): error C3646: 'getName': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(25): error C2059: syntax error: '('
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(25): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(59): error C3646: 'name': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(61): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(61): error C3646: 'kor': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\room.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(14): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(14): error C2061: syntax error: identifier 'Ressource'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(18): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(18): error C2061: syntax error: identifier 'StatBoost'
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(26): error C2039: 'string': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(26): error C3646: 'getSurName': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(26): error C3646: 'getName': unknown override specifier
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(26): error C2059: syntax error: '('
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(26): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(34): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(34): error C3646: 'getStatus': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(34): error C2059: syntax error: '('
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(34): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(36): error C2143: syntax error: missing ';' before '*'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(36): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(38): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(38): error C3646: 'getAlignment': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(38): error C2059: syntax error: '('
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(38): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(45): error C2143: syntax error: missing ';' before '*'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(45): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(45): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(46): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(46): error C3646: 'kob': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(46): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(53): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(53): error C3646: 'status': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(53): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(61): error C2039: 'string': is not a member of 'std'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(27): error C2039: 'string': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(61): error C3646: 'fullName': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(27): error C3646: 'getSurName': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(27): error C2059: syntax error: '('
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(27): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(35): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(35): error C3646: 'getStatus': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(35): error C2059: syntax error: '('
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(37): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(37): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(39): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(39): error C3646: 'getAlignment': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(39): error C2059: syntax error: '('
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(39): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(46): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(46): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(46): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(47): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(47): error C3646: 'kob': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(47): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(54): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(54): error C3646: 'status': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(54): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(62): error C2039: 'string': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(62): error C3646: 'name': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(62): error C3646: 'fullName': unknown override specifier
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(63): error C2039: 'string': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(63): error C3646: 'surname': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(63): error C3646: 'name': unknown override specifier
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(64): error C2039: 'string': is not a member of 'std'
   c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(64): error C3646: 'occupation': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(64): error C3646: 'surname': unknown override specifier
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(64): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(66): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(66): error C3646: 'gender': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(66): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(65): error C2039: 'string': is not a member of 'std'
+  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(65): error C3646: 'occupation': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(65): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(67): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(67): error C3646: 'alignment': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(67): error C3646: 'gender': unknown override specifier
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(67): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): error C2039: 'string': is not a member of 'std'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): error C3646: 'humanName': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): error C2065: 'Gender': undeclared identifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): error C2096: 'string': A data member cannot be initialized with a parenthesized initializer
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): error C2864: 'NameGenerator::string': a static data member with an in-class initializer must have non-volatile const integral type or be specified as 'inline'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): note: type is 'int'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(9): error C2039: 'string': is not a member of 'std'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(9): error C3646: 'humanSurname': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(9): error C2059: syntax error: ')'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(9): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C2039: 'string': is not a member of 'std'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C3646: 'randomRank': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C2653: 'Enumerators': is not a class or namespace name
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C2065: 'KindOfBeing': undeclared identifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C2096: 'string': A data member cannot be initialized with a parenthesized initializer
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C2086: 'int NameGenerator::string': redefinition
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): note: see declaration of 'NameGenerator::string'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): error C2864: 'NameGenerator::string': a static data member with an in-class initializer must have non-volatile const integral type or be specified as 'inline'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(12): note: type is 'int'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(13): error C2039: 'string': is not a member of 'std'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(13): error C3646: 'randomJob': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(13): error C2059: syntax error: ')'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(13): error C2238: unexpected token(s) preceding ';'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(14): error C2039: 'string': is not a member of 'std'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(14): error C3646: 'militiaName': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(14): error C2096: 'string': A data member cannot be initialized with a parenthesized initializer
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(14): error C2086: 'int NameGenerator::string': redefinition
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(8): note: see declaration of 'NameGenerator::string'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(14): error C2864: 'NameGenerator::string': a static data member with an in-class initializer must have non-volatile const integral type or be specified as 'inline'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(14): note: type is 'int'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(17): error C2039: 'string': is not a member of 'std'
-  c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\predefined c++ types (compiler internal)(255): note: see declaration of 'std'
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(17): error C3646: 'lowCapRoomName': unknown override specifier
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(17): error C2062: type 'int' unexpected
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\namegenerator.h(17): fatal error C1003: error count exceeds 100; stopping compilation
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(68): error C2653: 'Enumerators': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(68): error C3646: 'alignment': unknown override specifier
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.h(68): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\secofficer.h(6): error C2504: 'Leader': base class undefined
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobleader.h(6): error C2504: 'Leader': base class undefined
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\squad.h(13): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\squad.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\squad.h(13): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\squad.h(30): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\squad.h(30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\squad.h(30): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(25): error C2061: syntax error: identifier 'Leader'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(28): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(28): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(34): error C2061: syntax error: identifier 'Leader'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(35): error C2061: syntax error: identifier 'Battle'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(37): error C2653: 'Battle': is not a class or namespace name
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(37): error C2061: syntax error: identifier 'battleResult'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(40): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(40): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(41): error C2143: syntax error: missing ';' before '*'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(41): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(41): error C2238: unexpected token(s) preceding ';'
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\basesystem.h(41): fatal error C1003: error count exceeds 100; stopping compilation

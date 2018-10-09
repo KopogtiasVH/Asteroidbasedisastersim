@@ -1,4 +1,7 @@
 #pragma once
+#include "Being.h"
+
+class Being;
 
 class MobGoon : public Being
 {
