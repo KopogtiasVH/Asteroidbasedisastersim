@@ -1,6 +1,5 @@
 #pragma once
 #include "Being.h"
-#include "Leader.h"
 
 class Client :
 	public Being

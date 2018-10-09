@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Being.h"
+#include "Leader.h"
 
 #pragma region CONSTRUCTORS
 

@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "NameGenerator.h"
-#include <iostream>
 
 /*
 	A static class which handles name generation.

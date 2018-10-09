@@ -55,6 +55,7 @@ bool SecOfficer::recruit() {
 
  // Add an existing SecTroop to the squad
 bool SecOfficer::recruit(SecTroop newRecruit) {
+	if ((dynamic_cast<HiPRoom*>(currentLocation) && dynamic_cast<HiPRoom*>(currentLocation)->getKor() == Enumerators::KindOfRoom::security) || currentLocation->)
 	return squad->recruit(&newRecruit);
 }
 

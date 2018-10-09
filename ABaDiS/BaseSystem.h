@@ -1,8 +1,5 @@
 #pragma once
 
-#include "stdafx.h"
-#include "Battle.h"
-
 class BaseSystem
 {
 public:

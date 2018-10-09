@@ -1,5 +1,7 @@
 #pragma once
-#include "Leader.h"
+
+#include "stdafx.h"
+
 class MobLeader : public Leader
 {
 public:

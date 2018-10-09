@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Squad.h"
-#include <iterator>
 
 Squad::Squad() {
 

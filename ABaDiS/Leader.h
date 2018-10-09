@@ -1,9 +1,5 @@
 #pragma once
 #include "stdafx.h"
-#include "Squad.h"
-#include "Quest.h"
-#include "Client.h"
-#include "Map.h"
 
 class Leader : public Being
 {

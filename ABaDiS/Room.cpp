@@ -19,8 +19,8 @@ Room::Room()
 
 	connectedTo = std::vector<Room*>();
 
-	waitingGoons = 0;
-	waitingTroops = 0;
+	waitingGoons = std::vector<MobGoon*>();
+	waitingTroops = std::vector<SecTroop*>();
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
@@ -40,8 +40,8 @@ Room::Room(int p)
 
 	connectedTo = std::vector<Room*>();
 
-	waitingGoons = 0;
-	waitingTroops = 0;
+	waitingGoons = std::vector<MobGoon*>();
+	waitingTroops = std::vector<SecTroop*>();
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
@@ -87,14 +87,14 @@ bool Room::enteringBeings(int i) {
 	return false;
 }
 
-void Room::addWaitingGoons(int toAdd)
+void Room::addWaitingGoons(MobGoon* toAdd)
 {
-	waitingGoons += toAdd;
+	waitingGoons.push_back(toAdd);
 }
 
-void Room::addWaitingTroops(int toAdd)
+void Room::addWaitingTroops(SecTroop* toAdd)
 {
-	waitingTroops += toAdd;
+	waitingTroops.push_back(toAdd);
 }
 
 void Room::setPresence(Enumerators::Faction setFaction)
@@ -138,6 +138,16 @@ bool Room::isEmpty() const
 
 bool Room::isPresent(Enumerators::Faction faction) const{
 	return (faction == presence);
+}
+
+bool Room::hasWaitingGoons() const
+{
+	return waitingGoons.size() > 0;
+}
+
+bool Room::hasWaitingTroops() const
+{
+	return waitingTroops.size() > 0;
 }
 
 std::string Room::getName() const

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Room.h"
 
 /*
 	Being is the general AI class. Every living thing on the Asteroid Base is a Being.

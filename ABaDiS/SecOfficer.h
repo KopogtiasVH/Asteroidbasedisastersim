@@ -1,6 +1,6 @@
 #pragma once
-#include "Leader.h"
-#include "Enumerators.h"
+
+#include "stdafx.h"
 
 class SecOfficer : public Leader
 {

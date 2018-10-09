@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Battle.h"
-#include <iterator>
 
 
 Battle::Battle(Leader* a, Leader* b, Room* r)

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "MobGoon.h"
 
 /*
 	Nothing more but a hired muscle.

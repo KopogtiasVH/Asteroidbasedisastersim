@@ -1,13 +1,8 @@
 #pragma once
-#include "stdafx.h"
-#include "Enumerators.h"
 
 class Weapon
 {
 public:
-	
-	
-
 	Weapon();
 	Weapon(Enumerators::Weapontype);
 	Weapon(std::string);
