@@ -5,6 +5,9 @@
 #include <vector>
 #include <string>
 
+class MobGoon;
+class SecTroop;
+
 class Room
 {
 public:
@@ -13,13 +16,16 @@ public:
 	Room();
 	Room(int);
 
+	MobGoon* draftWaitingGoons();
+	SecTroop* draftWaitingTroops();
+
 	// Helpers
 	bool connectTo(Room*);
 	bool enterRoom(int);
 	bool isConnectedTo(Room*);
 	bool enteringBeings(int);
-	void addWaitingGoons(int);
-	void addWaitingTroops(int);
+	void addWaitingGoons(MobGoon*);
+	void addWaitingTroops(SecTroop*);
 	void setPresence(Enumerators::Faction);
 
 	// Getters
@@ -29,6 +35,8 @@ public:
 	int getCurrentCondition() const;
 	int getMaxCondition() const;
 
+	bool hasWaitingGoon() const;
+	bool hasWaitingTroops() const;
 	bool isIntact() const;
 	bool isEmpty() const;
 	bool isPresent(Enumerators::Faction) const;
@@ -50,8 +58,8 @@ protected:
 	int maxCondition;
 	int currentCondition;
 
-	int waitingGoons;
-	int waitingTroops;
+	std::vector<MobGoon*> waitingGoons;
+	std::vector<SecTroop*> waitingTroops;
 
 	bool intact;
 	bool inSystem;

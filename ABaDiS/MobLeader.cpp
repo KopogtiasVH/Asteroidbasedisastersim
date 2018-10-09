@@ -41,6 +41,10 @@ MobLeader::MobLeader(Room* startingLocation) : Leader(startingLocation, Enumerat
 		squad->setMaxSize(maxSquadSize);
 	}
 
+	if (lClass == MobLeader::campaigner) {
+		charisma += 2;
+	}
+
 }
 
 // Generate a new Goon and add it to the mob
@@ -61,8 +65,8 @@ void MobLeader::enterRoom(Room* toEnter) {
 	}
 	else {
 		Being* toLeave = squad->getMember(0);
+		toEnter->addWaitingGoons(dynamic_cast<MobGoon*>(squad->getMember(0)));
 		squad->kick(toLeave);
-		toEnter->addWaitingGoons(1);
 		enterRoom(toEnter);
 	}
 }

@@ -50,12 +50,25 @@ SecOfficer::SecOfficer(Room* startingLocation) : Leader(startingLocation, Enumer
 
 // Generate a new SecTroop and add it to the squad
 bool SecOfficer::recruit() {
-	return squad->recruit(new SecTroop(this));
+	if (((dynamic_cast<HiPRoom*>(currentLocation) && (dynamic_cast<HiPRoom*>(currentLocation)->getKor() == Enumerators::KindOfRoom::security))
+		&& (dynamic_cast<HiPRoom*>(currentLocation)->getPopulation() > 0))
+		|| currentLocation->hasWaitingTroops()) {
+		if (currentLocation->hasWaitingTroops()) {
+			recruit(currentLocation->draftWaitingTroops());
+		}
+		else {
+			// Skillcheck if Being will enter this Officers Squad.
+		}
+	}
+	else {
+		// Wrong or Empty Room => not suitable for recruiting
+		return false;
+	}
 }
 
  // Add an existing SecTroop to the squad
-bool SecOfficer::recruit(SecTroop newRecruit) {
-	return squad->recruit(&newRecruit);
+bool SecOfficer::recruit(SecTroop* newRecruit) {
+	return squad->recruit(newRecruit);
 }
 
 /*
@@ -75,8 +88,8 @@ void SecOfficer::enterRoom(Room* toEnter) {
 	}
 	else {
 		Being* toLeave = squad->getMember(0);
+		toEnter->addWaitingTroops(dynamic_cast<SecTroop*>(squad->getMember(0)));
 		squad->kick(toLeave);
-		toEnter->addWaitingGoons(1);
 		enterRoom(toEnter);
 	}
 }

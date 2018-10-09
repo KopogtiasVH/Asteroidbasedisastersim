@@ -1,2 +1,6 @@
-﻿  MobLeader.cpp
+﻿  ABaDiS.cpp
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\abadis.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  SecOfficer.cpp
+  Generating Code...
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\secofficer.cpp(65): warning C4715: 'SecOfficer::recruit': not all control paths return a value
   ABaDiS.vcxproj -> C:\Users\K_vH\source\repos\ABaDiS\Asteroidbasedisastersim\x64\Debug\ABaDiS.exe

@@ -19,8 +19,8 @@ Room::Room()
 
 	connectedTo = std::vector<Room*>();
 
-	waitingGoons = 0;
-	waitingTroops = 0;
+	waitingGoons = std::vector<MobGoon*>();
+	waitingTroops = std::vector<SecTroop*>();
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
@@ -40,12 +40,26 @@ Room::Room(int p)
 
 	connectedTo = std::vector<Room*>();
 
-	waitingGoons = 0;
-	waitingTroops = 0;
+	waitingGoons = std::vector<MobGoon*>();
+	waitingTroops = std::vector<SecTroop*>();
 
 	name = NameGenerator::roomName(maxCapacity, priority);
 	kor = Enumerators::KindOfRoom::generic;
 	presence = Enumerators::Faction::NONE;
+}
+
+MobGoon * Room::draftWaitingGoons()
+{
+	MobGoon* toDraft = waitingGoons[0];
+	waitingGoons.erase(waitingGoons.begin());
+	return toDraft;
+}
+
+SecTroop * Room::draftWaitingTroops()
+{
+	SecTroop* toDraft = waitingTroops[0];
+	waitingTroops.erase(waitingTroops.begin());
+	return toDraft;
 }
 
 // Helper Methods
@@ -87,14 +101,14 @@ bool Room::enteringBeings(int i) {
 	return false;
 }
 
-void Room::addWaitingGoons(int toAdd)
+void Room::addWaitingGoons(MobGoon* toAdd)
 {
-	waitingGoons += toAdd;
+	waitingGoons.push_back(toAdd);
 }
 
-void Room::addWaitingTroops(int toAdd)
+void Room::addWaitingTroops(SecTroop* toAdd)
 {
-	waitingTroops += toAdd;
+	waitingTroops.push_back(toAdd);
 }
 
 void Room::setPresence(Enumerators::Faction setFaction)
@@ -124,6 +138,16 @@ int Room::getCurrentCondition() const {
 
 int Room::getMaxCondition() const {
 	return maxCondition;
+}
+
+bool Room::hasWaitingGoon() const
+{
+	return waitingGoons.size() > 0;
+}
+
+bool Room::hasWaitingTroops() const
+{
+	return waitingTroops.size() > 0;
 }
 
 bool Room::isIntact() const
