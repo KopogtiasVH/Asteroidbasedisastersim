@@ -19,8 +19,8 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(147):
   Inventory.cpp
   Leader.cpp
   Map.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(180): warning C4390: ';': empty controlled statement found; is this the intent?
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(218): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(188): warning C4390: ';': empty controlled statement found; is this the intent?
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(226): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   MilitaryQuest.cpp
   MobGoon.cpp
   MobLeader.cpp

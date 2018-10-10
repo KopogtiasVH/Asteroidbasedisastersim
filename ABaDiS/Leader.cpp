@@ -110,6 +110,31 @@ void Leader::interpretDesire(Enumerators::Desire desire) {
 	case Enumerators::Desire::idle:
 		break;
 	case Enumerators::Desire::recruit:
+		if (!recruit()) {
+			switch (faction) {
+			case Enumerators::Faction::ANARC:
+				if (map.knowsOther(Enumerators::KindOfRoom::livingQuarter, currentLocation)) {
+					map.findSpecificRoom(Enumerators::KindOfRoom::livingQuarter, currentLocation);
+					enterRoom(map.getRoute()[1]);
+				}
+				else {
+					explore();
+				}
+				break;
+			case Enumerators::Faction::SEC:
+				if (map.knowsOther(Enumerators::KindOfRoom::security, currentLocation)) {
+					map.findSpecificRoom(Enumerators::KindOfRoom::security, currentLocation);
+					enterRoom(map.getRoute()[1]);
+				}
+				else {
+					explore();
+				}
+				break;
+			default:
+				std::cerr << "Wrong Faction for recruiting" << std::endl;
+				break;
+			}
+		}
 		break;
 	case Enumerators::Desire::returnToClient:
 		if (currentLocation != currentQuest->getClient()->getCurrentLocation()) {

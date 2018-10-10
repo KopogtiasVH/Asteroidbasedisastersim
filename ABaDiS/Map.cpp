@@ -23,6 +23,14 @@ bool Map::knows(Room* toCheck) {
 	return contains(knownRooms, toCheck);
 }
 
+bool Map::knowsOther(Enumerators::KindOfRoom kor, Room* except) {
+	for (Room* r : knownRooms) {
+		if (r->getKor() == kor && r != except)
+			return true;
+	}
+	return false;
+}
+
 std::multimap<int, Room*> Map::sortByValue(std::map<Room*, int> m)
 {
 	std::multimap<int, Room*> flipMap = std::multimap<int, Room*>();
