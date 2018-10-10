@@ -52,6 +52,8 @@ protected:
 	int maxMorale;
 	int currentMorale;
 
+	int persuadability;
+
 	Enumerators::BodyStatus status;
 
 	int strength;

@@ -24,6 +24,9 @@ SecTroop::SecTroop(Room* startingLocation) : Being(startingLocation)
 
 	// No Current Leader
 	currentLeader = nullptr;
+
+	// SecTroops are more willingy to join squads (because it's their job)
+	persuadability -= 5;
 }
 
 SecTroop::SecTroop(Leader* startingLeader) : Being(currentLocation)

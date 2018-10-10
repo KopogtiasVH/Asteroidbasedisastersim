@@ -22,6 +22,7 @@ Being::Being()
 	healthPoints = maxHealth;
 
 	charisma = (rand() % 5) + 1;
+	persuadability = rand() % 15 + 6;
 
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
@@ -73,6 +74,7 @@ Being::Being(Room* startingLocation)
 	healthPoints = maxHealth;
 
 	charisma = (rand() % 5) + 1;
+	persuadability = rand() % 15 + 6;
 
 	if (rand() % 2 >= 1)
 		gender = Enumerators::Gender::male;
