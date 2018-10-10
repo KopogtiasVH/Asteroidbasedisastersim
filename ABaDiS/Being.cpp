@@ -415,4 +415,8 @@ Enumerators::Alignment Being::getAlignment() const
 {
 	return alignment;
 }
+int Being::getPersuadability() const
+{
+	return persuadability;
+}
 #pragma endregion

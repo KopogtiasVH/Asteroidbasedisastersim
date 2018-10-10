@@ -37,3 +37,8 @@ std::vector<Leader*>* BaseSystemHandler::getAllLeaders() {
 Leader* BaseSystemHandler::spawnTarget(Room* location, Enumerators::Faction faction, int lackeys) {
 	return baseSystem->spawnTargetLeader(location, faction, lackeys);
 }
+
+int BaseSystemHandler::getTension()
+{
+	return baseSystem->getTension();
+}

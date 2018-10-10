@@ -46,9 +46,14 @@ public:
 	std::vector<Battle>* getBattles();
 	std::vector<Room*>* getRooms();
 	std::vector<Leader*>* getLeaders();
+	float getTension();
 
 	// Clients
+	void addClients();
 	void printClients();
+
+	// Population
+	void addPopulation();
 	
 private:
 	std::vector<Room*> rooms;

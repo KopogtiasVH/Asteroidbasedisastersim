@@ -22,18 +22,15 @@ BaseSystem::BaseSystem(int noOfRooms)
 	battles = std::vector<Battle>();
 	clients = std::vector<Client*>();
 
-	tension = 0;
+	tension = 0.0f;
 
 	createBase(noOfRooms);
 	addLeaders(noOfRooms);
 
 	BaseSystemHandler::setupBaseSystemHandler(this);
 
-	for (Room* r : rooms) {
-		if (dynamic_cast<HiPRoom*>(r)) {
-			clients.push_back(new Client(r));
-		}
-	}
+	addClients();
+	addPopulation();
 }
 
 #pragma endregion
@@ -309,7 +306,7 @@ void BaseSystem::printBattleResult(Battle::battleResult result) {
 #pragma endregion
 
 // Getters
-#pragma region Getters
+#pragma region GETTERS
 
 Leader* BaseSystem::getLeader(int i) {
 	if (i <= leaders.size()) {
@@ -353,12 +350,49 @@ std::vector<Leader*>* BaseSystem::getLeaders()
 	return &leaders;
 }
 
+float BaseSystem::getTension()
+{
+	return tension;
+}
+
 #pragma endregion
 
+// Clients
 #pragma region CLIENTS
+void BaseSystem::addClients()
+{
+	for (Room* r : rooms) {
+		if (dynamic_cast<HiPRoom*>(r)) {
+			clients.push_back(new Client(r));
+		}
+	}
+}
 void BaseSystem::printClients() {
 	for (Client* c : clients)
 		c->printBeingTable();
 }
 #pragma endregion
 
+// Population
+#pragma region POPULATION
+void BaseSystem::addPopulation()
+{
+	for (Room* r : rooms) {
+		if (dynamic_cast<HiPRoom*>(r)) {
+			HiPRoom* HR = dynamic_cast<HiPRoom*>(r);
+			if (HR->getPopulation() > 0) {
+				switch (HR->getKor()) {
+				case Enumerators::KindOfRoom::security:
+					for (int i = 0; i < HR->getPopulation(); i++) {
+						HR->addPop(new SecTroop(HR));
+					}
+					break;
+				case Enumerators::KindOfRoom::livingQuarter:
+					for (int i = 0; i < HR->getPopulation(); i++)
+						HR->addPop(new MobGoon(HR));
+				}
+			}
+		}
+	}
+}
+#pragma endregion

@@ -10,6 +10,10 @@ public:
 	void setName();
 	void printRoom();
 
+	// Population
+	void addPop(Being*);
+	Being* draftPop(int);
+
 	// Getters
 	int getFood();
 	int getScrap();
@@ -25,6 +29,7 @@ public:
 	bool takePopulation(int);
 	bool takeMeds(int);
 
+	bool hasPopulation();
 
 private:
 
@@ -36,6 +41,7 @@ private:
 
 	// Population
 	int population;
+	std::vector<Being*> populationList;
 
 	// Other
 };

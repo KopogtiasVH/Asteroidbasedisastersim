@@ -38,6 +38,7 @@ public:
 	Weapon* getWeapon() const;
 	bool isInSquad() const;
 	Enumerators::Alignment getAlignment() const;
+	int getPersuadability() const;
 
 protected:
 	bool eager;

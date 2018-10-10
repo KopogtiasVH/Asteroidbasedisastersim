@@ -9,6 +9,7 @@ public:
 	static SecOfficer* getRandomSecOfficer();
 	static std::vector<Leader*>* getAllLeaders();
 	static Leader* spawnTarget(Room*, Enumerators::Faction, int);
+	static int getTension();
 
 private:
 	static BaseSystem* baseSystem;

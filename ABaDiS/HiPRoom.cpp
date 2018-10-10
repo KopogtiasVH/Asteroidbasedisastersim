@@ -47,6 +47,7 @@ HiPRoom::HiPRoom(int p) : Room(p)
 	}
 
 	name = "NEEDS ASSIGNMENT";
+	populationList = std::vector<Being*>();
 }
 
 // Other
@@ -99,6 +100,20 @@ void HiPRoom::printRoom()
 		<< "	Meds:       " << getMeds() << std::endl
 		<< "	Population: " << getPopulation() << std::endl << std::endl;
 
+}
+
+void HiPRoom::addPop(Being * toAdd)
+{
+	populationList.push_back(toAdd);
+}
+
+Being * HiPRoom::draftPop(int p)
+{
+	for (Being* b : populationList) {
+		if (p + BaseSystemHandler::getTension() > b->getPersuadability())
+			return b;
+	}
+	return nullptr;
 }
 
 // Getters
@@ -195,4 +210,9 @@ bool HiPRoom::takeMeds(int toDeduct)
 	else
 		return false;
 	return true;
+}
+
+bool HiPRoom::hasPopulation()
+{
+	return populationList.size() > 0;
 }
