@@ -84,13 +84,54 @@ bool Map::findShortestRoute(Room* from, Room* to) {
 	return false;
 }
 
-Room * Map::findSpecificRoom(Enumerators::KindOfRoom kor)
+bool Map::findSpecificRoom(Enumerators::KindOfRoom kor, Room* from)
 {
-	for (Room* r : knownRooms) {
-		if (r->getKor() == kor)
-			return r;
+	std::vector<Room*> graph = knownRooms;
+	std::vector<Room*> S;
+	std::set<Room*> Q;
+	std::map<Room*, int> dist;
+	std::map<Room*, Room*> prev;
+	for (Room* r : graph) {
+		dist.insert(std::make_pair(r, INT_MAX));
+		prev.insert(std::make_pair(r, nullptr));
+		Q.insert(r);
+	}
+	dist.find(from)->second = 0;
+
+	while (!Q.empty()) {
+		Room* u = nullptr;
+		int dist_temp = INT_MAX;
+		for (Room* r : Q) {
+			if (dist.find(r)->second < dist_temp) {
+				u = r;
+				dist_temp = dist.find(r)->second;
+			}
+
+		}
+		Q.erase(u);
+		for (Room* v : u->getConnections()) {
+			if (contains(knownRooms, v)) {
+				int alt = dist.find(u)->second + 1;
+				if (alt < dist.find(v)->second) {
+					dist.find(v)->second = alt;
+					prev.find(v)->second = u;
+				}
+			}
+		}
 	}
 
+	std::vector<Room*> routeToRessource;
+	auto flipMap = sortByValue(dist);
+	for (auto q : flipMap)
+		std::cout << q.first << " - " << q.second->getName() << std::endl;
+	for (auto r : flipMap) {
+		if (r.second->getKor() == kor && r.second != from) {
+			findShortestRoute(from, r.second);
+			return true;
+		}
+	}
+
+	return false;
 }
 
 bool Map::findNearestRoomWithRessource(Enumerators::Ressource ressource, Room* from)

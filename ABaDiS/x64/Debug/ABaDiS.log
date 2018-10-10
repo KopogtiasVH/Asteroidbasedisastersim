@@ -19,15 +19,14 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\being.cpp(147):
   Inventory.cpp
   Leader.cpp
   Map.cpp
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(139): warning C4390: ';': empty controlled statement found; is this the intent?
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(177): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(180): warning C4390: ';': empty controlled statement found; is this the intent?
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(218): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   MilitaryQuest.cpp
   MobGoon.cpp
   MobLeader.cpp
   NameGenerator.cpp
   Generating Code...
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobleader.cpp(74): warning C4715: 'MobLeader::recruit': not all control paths return a value
-c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(94): warning C4715: 'Map::findSpecificRoom': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\gatheringquest.cpp(79): warning C4715: 'GatheringQuest::getDesire': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\exploringquest.cpp(43): warning C4715: 'ExploringQuest::getDesire': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\escortingquest.cpp(44): warning C4715: 'EscortingQuest::getDesire': not all control paths return a value

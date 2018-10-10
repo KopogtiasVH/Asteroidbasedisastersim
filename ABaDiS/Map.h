@@ -15,7 +15,7 @@ public:
 	std::multimap<int, Room*> sortByValue(std::map<Room*, int>);
 
 	bool findShortestRoute(Room*, Room*);
-	Room* findSpecificRoom(Enumerators::KindOfRoom);
+	bool findSpecificRoom(Enumerators::KindOfRoom, Room*);
 	bool findNearestRoomWithRessource(Enumerators::Ressource, Room*);
 
 	void addRoom(Room*);
