@@ -57,7 +57,15 @@ bool SecOfficer::recruit() {
 			recruit(currentLocation->draftWaitingTroops());
 		}
 		else {
-			// Skillcheck if Being will enter this Officers Squad.
+			Being* newRecruit = dynamic_cast<HiPRoom*>(currentLocation)->draftPop(charisma);
+			if (newRecruit != nullptr) {
+				recruit(dynamic_cast<SecTroop*>(newRecruit));
+				return true;
+			}
+			else {
+				// Charisma and or Tension too low to recruit in this Room.
+				return false;
+			}
 		}
 	}
 	else {

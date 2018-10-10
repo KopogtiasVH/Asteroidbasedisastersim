@@ -1,5 +1,7 @@
 #pragma once
 #include "Room.h"
+#include <set>
+
 class HiPRoom :
 	public Room
 {
@@ -41,7 +43,7 @@ private:
 
 	// Population
 	int population;
-	std::vector<Being*> populationList;
+	std::set<Being*> populationList;
 
 	// Other
 };
