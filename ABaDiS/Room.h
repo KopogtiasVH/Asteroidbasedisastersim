@@ -35,7 +35,7 @@ public:
 	int getCurrentCondition() const;
 	int getMaxCondition() const;
 
-	bool hasWaitingGoon() const;
+	bool hasWaitingGoons() const;
 	bool hasWaitingTroops() const;
 	bool isIntact() const;
 	bool isEmpty() const;

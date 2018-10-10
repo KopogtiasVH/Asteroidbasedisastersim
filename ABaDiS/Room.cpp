@@ -140,7 +140,7 @@ int Room::getMaxCondition() const {
 	return maxCondition;
 }
 
-bool Room::hasWaitingGoon() const
+bool Room::hasWaitingGoons() const
 {
 	return waitingGoons.size() > 0;
 }

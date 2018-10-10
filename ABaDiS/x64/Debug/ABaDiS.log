@@ -26,6 +26,7 @@ c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(177): w
   MobLeader.cpp
   NameGenerator.cpp
   Generating Code...
+c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\mobleader.cpp(74): warning C4715: 'MobLeader::recruit': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\map.cpp(94): warning C4715: 'Map::findSpecificRoom': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\gatheringquest.cpp(79): warning C4715: 'GatheringQuest::getDesire': not all control paths return a value
 c:\users\k_vh\source\repos\abadis\asteroidbasedisastersim\abadis\exploringquest.cpp(43): warning C4715: 'ExploringQuest::getDesire': not all control paths return a value

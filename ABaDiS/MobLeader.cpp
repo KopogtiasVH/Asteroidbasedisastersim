@@ -49,7 +49,32 @@ MobLeader::MobLeader(Room* startingLocation) : Leader(startingLocation, Enumerat
 
 // Generate a new Goon and add it to the mob
 bool MobLeader::recruit() {
-	return squad->recruit(new MobGoon(this));
+	if (((dynamic_cast<HiPRoom*>(currentLocation) && (dynamic_cast<HiPRoom*>(currentLocation)->getKor() == Enumerators::KindOfRoom::livingQuarter))
+		&& (dynamic_cast<HiPRoom*>(currentLocation)->getPopulation() > 0))
+		|| currentLocation->hasWaitingGoons()) {
+		if (currentLocation->hasWaitingGoons()) {
+			recruit(currentLocation->draftWaitingGoons());
+		}
+		else {
+			Being* newRecruit = dynamic_cast<HiPRoom*>(currentLocation)->draftPop(charisma);
+			if (newRecruit != nullptr) {
+				recruit(dynamic_cast<MobGoon*>(newRecruit));
+				return true;
+			}
+			else {
+				// Charisma and or Tension too low to recruit in this Room.
+				return false;
+			}
+		}
+	}
+	else {
+		// Wrong or Empty Room => not suitable for recruiting
+		return false;
+	}
+}
+
+bool MobLeader::recruit(MobGoon* newRecruit) {
+	return squad->recruit(newRecruit);
 }
 
 void MobLeader::enterRoom(Room* toEnter) {
