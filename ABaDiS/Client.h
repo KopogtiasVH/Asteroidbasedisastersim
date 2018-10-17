@@ -10,6 +10,7 @@ public:
 
 	// Getters
 	Quest* getAvailableQuest() const;
+	Quest* hasAvailableQuest();
 	
 	// Helpers
 	Quest* assignQuest(Being*);

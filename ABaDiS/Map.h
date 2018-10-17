@@ -18,6 +18,7 @@ public:
 	bool findSpecificRoom(Enumerators::KindOfRoom, Room*);
 	bool findNearestRoomWithRessource(Enumerators::Ressource, Room*);
 	bool knowsOther(Enumerators::KindOfRoom, Room*);
+	bool findRoomWithAvailableQuest(Room*);
 
 	void addRoom(Room*);
 

@@ -32,6 +32,7 @@ public:
 	questReward getReward();
 	Enumerators::Alignment getAlignment();
 	Being* getClient();
+	bool isActive();
 
 protected:
 	std::string name;

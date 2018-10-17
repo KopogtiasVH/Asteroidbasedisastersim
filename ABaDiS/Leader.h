@@ -15,14 +15,15 @@ public:
 	virtual bool recruit(Being*);
 	virtual Enumerators::Desire getNewDesire();
 	virtual void enterRoom(Room*);
-	virtual void takeQuest(Client*);
+	virtual bool takeQuest(Client*);
 	virtual void explore();
 	virtual void recieveReward(Quest::questReward);
 	virtual void interpretDesire(Enumerators::Desire);
 
 	// TODO LIST
 	bool isRecruitingPossible();
-	void takeNewQuest();
+	bool takeNewQuest();
+	void takePersonalQuest();
 	bool scavenge(Enumerators::Ressource);
 
 	// Helpers
@@ -51,6 +52,9 @@ protected:
 	Squad* squad;
 	std::string squadName;
 
+	int finishedQuests;
+	bool explored;
+	bool recruited;
 	Quest* currentQuest;
 	Enumerators::Desire currentDesire;
 };

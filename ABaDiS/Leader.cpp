@@ -31,6 +31,10 @@ Leader::Leader(Room* currentLocation, Enumerators::Faction f) : Being(currentLoc
 	currentQuest = nullptr;
 	currentDesire = Enumerators::Desire::idle;
 
+	explored = false;
+	recruited = false;
+	finishedQuests = 0;
+
 	map = Map();
 
 	enterRoom(currentLocation);
@@ -61,9 +65,13 @@ void Leader::enterRoom(Room* toEnter) {
 
 }
 
-void Leader::takeQuest(Client* c) {
-	if (c->getAlignment() == Enumerators::Alignment::neutral || c->getAlignment() == alignment)
+bool Leader::takeQuest(Client* c) {
+	if (c->getAlignment() == Enumerators::Alignment::neutral || c->getAlignment() == alignment) {
 		currentQuest = c->assignQuest(this);
+		return true;
+	}
+	else
+		return false;
 }
 
 void Leader::explore() {
@@ -159,9 +167,52 @@ void Leader::interpretDesire(Enumerators::Desire desire) {
 		break;
 	case Enumerators::Desire::traverse:
 		break;
+	case Enumerators::Desire::getNewQuest:
+		if (finishedQuests = 0)
+			takePersonalQuest();
+		else {
+			if (!takeNewQuest()) {
+				if (map.findRoomWithAvailableQuest(currentLocation)) {
+					enterRoom(map.getRoute()[1]);
+				}
+				else
+					explore();
+			}
+		}
+		break;
 	default:
 		std::cerr << "Wrong desire input" << std::endl;
 	}
+}
+
+bool Leader::takeNewQuest()
+{
+	if (dynamic_cast<HiPRoom*>(currentLocation)) {
+		HiPRoom* HiR = dynamic_cast<HiPRoom*>(currentLocation);
+		if (HiR->getClient() != nullptr) {
+			if (HiR->getClient()->hasAvailableQuest()) {
+				if (takeQuest(HiR->getClient()))
+					return true;
+			}
+		}
+	}
+	return false;
+}
+
+void Leader::takePersonalQuest()
+{
+	if ((explored && recruited) || (!explored && !recruited)) {
+		if (rand() % 2 > 0)
+			currentQuest = new ExploringQuest(this);
+		else
+			currentQuest = new RecruitingQuest(this);
+	}
+	else if (!explored)
+		currentQuest = new ExploringQuest(this);
+	else if (!recruited)
+		currentQuest = new RecruitingQuest(this);
+	else
+		std::cerr << "Personal Quest ERROR!" << std::endl;
 }
 
 bool Leader::scavenge(Enumerators::Ressource ressource)

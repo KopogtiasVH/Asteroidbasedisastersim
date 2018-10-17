@@ -48,6 +48,7 @@ HiPRoom::HiPRoom(int p) : Room(p)
 
 	name = "NEEDS ASSIGNMENT";
 	populationList = std::set<Being*>();
+	client = nullptr;
 }
 
 // Other
@@ -119,6 +120,16 @@ Being * HiPRoom::draftPop(int p)
 	if (recruit != nullptr)
 		populationList.erase(recruit);
 	return recruit;
+}
+
+void HiPRoom::setClient(Client * c)
+{
+	client = c;
+}
+
+Client * HiPRoom::getClient()
+{
+	return client;
 }
 
 // Getters

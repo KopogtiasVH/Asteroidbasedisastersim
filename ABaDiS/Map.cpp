@@ -31,6 +31,57 @@ bool Map::knowsOther(Enumerators::KindOfRoom kor, Room* except) {
 	return false;
 }
 
+bool Map::findRoomWithAvailableQuest(Room * from)
+{
+	std::vector<Room*> graph = knownRooms;
+	std::vector<Room*> S;
+	std::set<Room*> Q;
+	std::map<Room*, int> dist;
+	std::map<Room*, Room*> prev;
+	for (Room* r : graph) {
+		dist.insert(std::make_pair(r, INT_MAX));
+		prev.insert(std::make_pair(r, nullptr));
+		Q.insert(r);
+	}
+	dist.find(from)->second = 0;
+
+	while (!Q.empty()) {
+		Room* u = nullptr;
+		int dist_temp = INT_MAX;
+		for (Room* r : Q) {
+			if (dist.find(r)->second < dist_temp) {
+				u = r;
+				dist_temp = dist.find(r)->second;
+			}
+
+		}
+		Q.erase(u);
+		for (Room* v : u->getConnections()) {
+			if (contains(knownRooms, v)) {
+				int alt = dist.find(u)->second + 1;
+				if (alt < dist.find(v)->second) {
+					dist.find(v)->second = alt;
+					prev.find(v)->second = u;
+				}
+			}
+		}
+	}
+
+	auto flipMap = sortByValue(dist);
+	for (auto r : flipMap) {
+		if (dynamic_cast<HiPRoom*>(r.second)) {
+			HiPRoom* hr = dynamic_cast<HiPRoom*>(r.second);
+			if (hr->getClient()->hasAvailableQuest());
+			findShortestRoute(from, r.second);
+			std::cout << hr->getName() << " - Distance: " << dist.find(hr)->second << std::endl;
+			hr->printRoom();
+			return true;
+		}
+	}
+
+	return false;
+}
+
 std::multimap<int, Room*> Map::sortByValue(std::map<Room*, int> m)
 {
 	std::multimap<int, Room*> flipMap = std::multimap<int, Room*>();
@@ -128,10 +179,7 @@ bool Map::findSpecificRoom(Enumerators::KindOfRoom kor, Room* from)
 		}
 	}
 
-	std::vector<Room*> routeToRessource;
 	auto flipMap = sortByValue(dist);
-	for (auto q : flipMap)
-		std::cout << q.first << " - " << q.second->getName() << std::endl;
 	for (auto r : flipMap) {
 		if (r.second->getKor() == kor && r.second != from) {
 			findShortestRoute(from, r.second);
@@ -178,17 +226,12 @@ bool Map::findNearestRoomWithRessource(Enumerators::Ressource ressource, Room* f
 		}
 	}
 	
-	std::vector<Room*> routeToRessource;
 	auto flipMap = sortByValue(dist);
-	for (auto q : flipMap)
-		std::cout << q.first << " - " << q.second->getName() << std::endl;
 	for (auto r : flipMap) {
 		if (dynamic_cast<HiPRoom*>(r.second)) {
 			HiPRoom* hr = dynamic_cast<HiPRoom*>(r.second);
 			if (hr->hasRessource(ressource));
 			findShortestRoute(from, r.second);
-			std::cout << hr->getName() << " - Distance: " << dist.find(hr)->second << std::endl;
-			hr->printRoom();
 			return true;
 		}
 	}

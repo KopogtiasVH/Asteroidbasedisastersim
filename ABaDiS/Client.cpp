@@ -15,6 +15,16 @@ Quest * Client::getAvailableQuest() const
 	return availableQuest;
 }
 
+Quest * Client::hasAvailableQuest()
+{
+	if (!availableQuest->isActive()) {
+		return availableQuest;
+	}
+	else {
+		return nullptr;
+	}
+}
+
 Quest* Client::assignQuest(Being* reciever) {
 	if (availableQuest == nullptr) {
 		std::cerr << "Can't assign quest if it's not yet created" << std::endl;

@@ -16,6 +16,10 @@ public:
 	void addPop(Being*);
 	Being* draftPop(int);
 
+	// Clients
+	void setClient(Client*);
+	Client* getClient();
+
 	// Getters
 	int getFood();
 	int getScrap();
@@ -44,6 +48,9 @@ private:
 	// Population
 	int population;
 	std::set<Being*> populationList;
+
+	// Clients
+	Client* client;
 
 	// Other
 };

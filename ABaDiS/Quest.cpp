@@ -82,3 +82,8 @@ Being * Quest::getClient()
 {
 	return client;
 }
+
+bool Quest::isActive()
+{
+	return active;
+}

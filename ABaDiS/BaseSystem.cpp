@@ -363,7 +363,9 @@ void BaseSystem::addClients()
 {
 	for (Room* r : rooms) {
 		if (dynamic_cast<HiPRoom*>(r)) {
-			clients.push_back(new Client(r));
+			Client* c = new Client(r);
+			clients.push_back(c);
+			dynamic_cast<HiPRoom*>(r)->setClient(c);
 		}
 	}
 }
