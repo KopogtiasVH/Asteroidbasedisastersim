@@ -170,6 +170,10 @@ void Leader::interpretDesire(Enumerators::Desire desire) {
 	case Enumerators::Desire::getNewQuest:
 		if (finishedQuests = 0)
 			takePersonalQuest();
+		else if (squad->getSize() < squad->getMaxSize() / 2)
+			takePersonalQuest();
+		else if (map.getKnownRooms()->size() < 10)
+			takePersonalQuest();
 		else {
 			if (!takeNewQuest()) {
 				if (map.findRoomWithAvailableQuest(currentLocation)) {

@@ -42,3 +42,8 @@ int BaseSystemHandler::getTension()
 {
 	return baseSystem->getTension();
 }
+
+int BaseSystemHandler::getNoOfRooms() 
+{
+	return baseSystem->getRooms()->size();
+}

@@ -31,7 +31,7 @@ void ExploringQuest::updateQuest() {
 	Leader* oL = dynamic_cast<Leader*>(owner);
 	explored = oL->getMap()->getSize();
 	status = checkProgress();
-	if (status) {
+	if (status || BaseSystemHandler::getNoOfRooms() <= oL->getMap()->getSize()) {
 		wrapupQuest();
 	}
 }

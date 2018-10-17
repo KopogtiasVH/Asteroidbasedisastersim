@@ -10,6 +10,7 @@ public:
 	static std::vector<Leader*>* getAllLeaders();
 	static Leader* spawnTarget(Room*, Enumerators::Faction, int);
 	static int getTension();
+	static int getNoOfRooms();
 
 private:
 	static BaseSystem* baseSystem;
