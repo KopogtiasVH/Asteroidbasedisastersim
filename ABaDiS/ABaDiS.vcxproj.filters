@@ -106,6 +106,12 @@
     <Filter Include="Source Files\AI\Misc">
       <UniqueIdentifier>{88fc1a60-b63d-433d-8d3c-427b3aa79b7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Concepts\Leaders">
+      <UniqueIdentifier>{432da05b-0523-4eba-be09-815a04dab516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Concepts\Leaders">
+      <UniqueIdentifier>{ac44aead-79b6-4506-afbc-d6ab1d6cd1bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Weapon.h">
@@ -183,23 +189,23 @@
     <ClInclude Include="SecTroop.h">
       <Filter>Header Files\AI\Goons</Filter>
     </ClInclude>
-    <ClInclude Include="Squad.h">
-      <Filter>Header Files\Concepts</Filter>
-    </ClInclude>
     <ClInclude Include="Being.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>Header Files\AI\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="BaseSystemHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Inventory.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Concepts\Leaders</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Concepts\Leaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Squad.h">
+      <Filter>Header Files\Concepts\Leaders</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSystemHandler.h">
+      <Filter>Header Files\Generic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -263,9 +269,6 @@
     <ClCompile Include="GatheringQuest.cpp">
       <Filter>Source Files\Concepts\Quests\Developing</Filter>
     </ClCompile>
-    <ClCompile Include="Squad.cpp">
-      <Filter>Source Files\Concepts</Filter>
-    </ClCompile>
     <ClCompile Include="Client.cpp">
       <Filter>Source Files\AI\Misc</Filter>
     </ClCompile>
@@ -284,14 +287,17 @@
     <ClCompile Include="MobGoon.cpp">
       <Filter>Source Files\AI\Goons</Filter>
     </ClCompile>
-    <ClCompile Include="BaseSystemHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Concepts\Leaders</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Concepts\Leaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Squad.cpp">
+      <Filter>Source Files\Concepts\Leaders</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSystemHandler.cpp">
+      <Filter>Source Files\Generic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
